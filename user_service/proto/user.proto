@@ -1,0 +1,72 @@
+syntax = "proto3";
+option go_package =".;proto";
+
+service User{
+  rpc GetUserList(PageInfoRequest) returns (UserListResponse); // 获取用户列表
+  rpc GetUserByMobile(MobileRequest) returns (UserInfoResponse); // 根据mobile查找用户
+  rpc GetUserById(IdRequest) returns (UserInfoResponse); // 根基Id查找用户
+  rpc CreateUser(createUserInfoRequest) returns (UserInfoResponse); // 注册用户
+  rpc UpdateUser(UpdateUserInfoRequest) returns (UpdateResponse); // 更新用户
+  rpc CheckPassword(CheckPasswordRequest) returns (CheckPasswordResponse);// 检查密码
+}
+
+//  获取用户列表
+message PageInfoRequest{
+  uint32 pageNum = 1;
+  uint32 pageSize = 2;
+}
+
+message UserInfoResponse{
+  int32 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  uint64 birthday = 5;
+  string gender = 6;
+  int32  role = 7;
+}
+
+message UserListResponse{
+  int32 total = 1;
+  repeated UserInfoResponse data = 2;
+}
+
+// 根据mobile查找用户
+message MobileRequest{
+  string mobile = 1;
+}
+
+// 根基Id查找用户
+message IdRequest{
+  int32 id = 1;
+}
+
+// 注册用户
+message createUserInfoRequest{
+  string nickName = 1;
+  string password = 2;
+  string mobile = 3;
+}
+
+
+// 更新用户
+message UpdateUserInfoRequest{
+  int32 id = 1;
+  string nickName = 2;
+  string gender =3 ;
+  uint64 birthday = 4;
+}
+
+message UpdateResponse{
+  bool success = 1;
+}
+
+// 检查密码
+message CheckPasswordRequest{
+  string password = 1;
+  string encryptedPassword = 2;
+}
+
+message CheckPasswordResponse{
+  bool success = 1;
+}
