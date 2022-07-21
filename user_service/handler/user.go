@@ -6,9 +6,10 @@ import (
 	"Shop_service/user_service/proto"
 	"Shop_service/user_service/util"
 	"context"
+	"time"
+
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"time"
 )
 
 type UserService struct{}
@@ -21,7 +22,6 @@ type UserService struct{}
 // @return *proto.UserListResponse
 // @return error
 //
-// TODO:分页查询还有点问题
 func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.PageInfoRequest) (*proto.UserListResponse, error) {
 	// 实例化 response
 	response := &proto.UserListResponse{}
@@ -30,11 +30,15 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 	result := global.DB.Find(&users)
 	response.Total = int32(result.RowsAffected)
 	// 分页查询
-
+	var pageUsers []model.User
 	pageNum := pageInfoRequest.PageNum
 	pageSize := pageInfoRequest.PageSize
-	global.DB.Scopes(util.Paginate(int(pageNum), int(pageSize))).Find(&users)
-	for _, user := range users {
+
+	offset := util.Paginate(int(pageNum), int(pageSize))
+
+	global.DB.Offset(offset).Limit(int(pageSize)).Find(&pageUsers)
+
+	for _, user := range pageUsers {
 		userInfoResponse := util.ModelToResponse(user)
 		response.Data = append(response.Data, userInfoResponse)
 	}
@@ -43,7 +47,6 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 
 func (s *UserService) GetUserByMobile(ctx context.Context, mobileRequest *proto.MobileRequest) (*proto.UserInfoResponse, error) {
 	response := &proto.UserInfoResponse{}
-
 	var user model.User
 	mobile := mobileRequest.Mobile
 	result := global.DB.Where("mobile=?", mobile).First(&user)
