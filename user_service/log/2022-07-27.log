@@ -1,0 +1,220 @@
+2022-07-27T11:33:48.250+0800	INFO	initialize/logger.go:21	日志初始化成功
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[45.321ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[84.175ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:33:50 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[0m[33m[114.764ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[52.547ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[70.751ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0m[33m[35.819ms] [34;1m[rows:-][0m SELECT * FROM `users` LIMIT 1
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[0m[33m[87.848ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[39.824ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[40.767ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[39.093ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[39.638ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[29.919ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:33:50 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[61.491ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:33:50 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[0m[33m[61.446ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-07-27T11:35:12.235+0800	INFO	initialize/logger.go:21	日志初始化成功
+
+2022/07/27 11:35:18 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[37.897ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:35:18 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[75.882ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:35:18 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[0m[33m[71.332ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[42.022ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[75.889ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0m[33m[39.081ms] [34;1m[rows:-][0m SELECT * FROM `users` LIMIT 1
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[0m[33m[74.467ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[43.732ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[42.103ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[42.725ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[40.794ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[32.029ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:35:19 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[68.232ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:35:19 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[0m[33m[66.185ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-07-27T11:36:03.408+0800	INFO	initialize/logger.go:21	日志初始化成功
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.845ms] [rows:-] SELECT DATABASE()
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.086ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:36:05 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[67.839ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.590ms] [rows:-] SELECT DATABASE()
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.720ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[34.530ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[71.489ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[60.769ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[56.798ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.241ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/07/27 11:36:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.547ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/07/27 11:36:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[39.370ms] [rows:-] SELECT DATABASE()
+
+2022/07/27 11:36:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.326ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:36:06 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:33
+[77.787ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-07-27T11:46:57.504+0800	INFO	initialize/logger.go:21	日志初始化成功
+2022-07-27T11:46:57.505+0800	INFO	initialize/config.go:23	config文件加载成功
+
+2022/07/27 11:47:00 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[31.866ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[63.975ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:01 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:34
+[0m[33m[64.277ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[33.392ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[63.357ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0m[33m[33.345ms] [34;1m[rows:-][0m SELECT * FROM `users` LIMIT 1
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[0m[33m[67.872ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[45.749ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[40.555ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[41.082ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[38.460ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[31.507ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:01 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[69.747ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:01 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:34
+[0m[33m[66.553ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-07-27T11:47:01.665+0800	INFO	initialize/db.go:38	数据库连接成功
+2022-07-27T11:47:34.033+0800	INFO	initialize/logger.go:21	日志初始化成功
+2022-07-27T11:47:34.035+0800	INFO	initialize/config.go:23	config文件加载成功
+
+2022/07/27 11:47:45 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[34.281ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[81.239ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:46 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:34
+[0m[33m[64.916ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[32.402ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[69.435ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0m[33m[33.865ms] [34;1m[rows:-][0m SELECT * FROM `users` LIMIT 1
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[0m[33m[69.787ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[44.699ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[42.145ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[41.767ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[0m[33m[40.562ms] [34;1m[rows:0][0m ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0m[33m[32.982ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/07/27 11:47:46 [32mD:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0m[33m[79.399ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/07/27 11:47:46 [32mD:/C_Back/Go/Shop_service/user_service/initialize/db.go:34
+[0m[33m[66.713ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-07-27T11:47:46.634+0800	INFO	initialize/db.go:38	数据库连接成功
+2022-07-27T11:47:46.635+0800	INFO	user_service/main.go:22	服务开始运行	{"IP": "127.0.0.1", "Port": 8000}

@@ -17,7 +17,7 @@ var DB *gorm.DB
 
 func main() {
 	var err error
-	dsn := "root:chx200205173214@tcp(120.25.255.207:3306)/mxshop_user_service?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:chx200205173214@tcp(127.0.0.1:3306)/mxshop_user_service?charset=utf8mb4&parseTime=True&loc=Local"
 	// 创建日志文件
 	newLogger := logger.New(log.New(os.Stdout, "\r\n", log.LstdFlags), logger.Config{
 		SlowThreshold: time.Second,
@@ -46,7 +46,7 @@ func main() {
 	for i := 0; i < 10; i++ {
 		user := model.User{
 			NickName: fmt.Sprintf("pluto%d", i),
-			Mobile:   fmt.Sprintf("123456%d", i),
+			Mobile:   fmt.Sprintf("1517161878%d", i),
 			Password: newPassword,
 		}
 		DB.Save(&user)

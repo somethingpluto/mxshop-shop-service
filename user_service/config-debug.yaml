@@ -1,0 +1,8 @@
+name: 'user-service'
+
+mysql_config:
+  host: '120.25.255.207'
+  port: 3306
+  name: "mxshop_user_service"
+  user: "root"
+  password: "chx200205173214"
