@@ -1,8 +1,9 @@
 package config
 
 type ServiceConfig struct {
-	Name      string      `mapstructure:"name"`
-	MysqlInfo MysqlConfig `mapstructure:"mysql_config"`
+	Name       string       `mapstructure:"name"`
+	MysqlInfo  MysqlConfig  `mapstructure:"mysql_config"`
+	ConsulInfo ConsulConfig `mapstructure:"consul_config"`
 }
 
 // MysqlConfig
@@ -14,4 +15,14 @@ type MysqlConfig struct {
 	Name     string `mapstructure:"name"`
 	User     string `mapstructure:"user"`
 	Password string `mapstructure:"password"`
+}
+
+type ConsulConfig struct {
+	Host string `mapstructure:"host"`
+	Port int    `mapstructure:"port"`
+}
+
+type FilePathConfig struct {
+	ConfigFile string
+	LogFile    string
 }

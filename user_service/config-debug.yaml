@@ -6,3 +6,7 @@ mysql_config:
   name: "mxshop_user_service"
   user: "root"
   password: "chx200205173214"
+
+consul_config:
+  host: '127.0.0.1'
+  port: 8500

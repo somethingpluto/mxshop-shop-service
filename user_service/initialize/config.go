@@ -7,8 +7,11 @@ import (
 	"go.uber.org/zap"
 )
 
+// InitConfig
+// @Description: 初始化配置
+//
 func InitConfig() {
-	configFileName := fmt.Sprintf("./user_service/%s-debug.yaml", "config")
+	configFileName := fmt.Sprintf(global.FilePath.ConfigFile)
 	v := viper.New()
 	v.SetConfigFile(configFileName)
 	err := v.ReadInConfig()

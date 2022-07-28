@@ -12,6 +12,9 @@ import (
 	"time"
 )
 
+// InitDB
+// @Description: 初始化数据库连接
+//
 func InitDB() {
 	var err error
 	user := global.ServiceConfig.MysqlInfo.User
@@ -20,7 +23,7 @@ func InitDB() {
 	host := global.ServiceConfig.MysqlInfo.Host
 	port := global.ServiceConfig.MysqlInfo.Port
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", user, password, host, port, name)
-	newLogger := logger.New(log.New(dest, "\r\n", log.LstdFlags), logger.Config{
+	newLogger := logger.New(log.New(lumberjackLogger, "\r\n", log.LstdFlags), logger.Config{
 		SlowThreshold: time.Second,
 		LogLevel:      logger.Info,
 		Colorful:      false,

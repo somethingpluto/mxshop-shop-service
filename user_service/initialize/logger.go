@@ -1,6 +1,7 @@
 package initialize
 
 import (
+	"Shop_service/user_service/global"
 	"fmt"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
@@ -11,6 +12,12 @@ import (
 )
 
 var dest io.Writer
+
+// InitLogger
+// @Description: 初始化日志
+//
+
+var lumberjackLogger *lumberjack.Logger
 
 func InitLogger() {
 	writeSyncer := getLogWriter()
@@ -29,7 +36,7 @@ func getEncoder() zapcore.Encoder {
 }
 
 func getLogWriter() zapcore.WriteSyncer {
-	lumberjackLogger := &lumberjack.Logger{
+	lumberjackLogger = &lumberjack.Logger{
 		Filename:   createLogFileName(),
 		MaxSize:    1,
 		MaxAge:     5,
@@ -41,5 +48,5 @@ func getLogWriter() zapcore.WriteSyncer {
 
 func createLogFileName() string {
 	today := time.Now().Format("2006-01-02")
-	return fmt.Sprintf("./user_service/log/%s.log", today)
+	return fmt.Sprintf("%s/%s.log", global.FilePath.LogFile, today)
 }
