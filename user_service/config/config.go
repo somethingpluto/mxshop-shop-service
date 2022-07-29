@@ -1,9 +1,13 @@
 package config
 
+// ServiceConfig
+// @Description: 服务配置
+//
 type ServiceConfig struct {
-	Name       string       `mapstructure:"name"`
-	MysqlInfo  MysqlConfig  `mapstructure:"mysql_config"`
-	ConsulInfo ConsulConfig `mapstructure:"consul_config"`
+	Name        string        `mapstructure:"name"`
+	MysqlInfo   MysqlConfig   `mapstructure:"mysql_config"`
+	ConsulInfo  ConsulConfig  `mapstructure:"consul_config"`
+	RuntimeInfo RunTimeConfig `mapstructure:"runtime_config"`
 }
 
 // MysqlConfig
@@ -20,6 +24,10 @@ type MysqlConfig struct {
 type ConsulConfig struct {
 	Host string `mapstructure:"host"`
 	Port int    `mapstructure:"port"`
+}
+
+type RunTimeConfig struct {
+	Mode string `mapstructure:"mode"`
 }
 
 type FilePathConfig struct {
