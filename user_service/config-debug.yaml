@@ -12,4 +12,4 @@ consul_config:
   port: 8500
 
 runtime_config:
-  mode: "debug"
+  mode: "release"

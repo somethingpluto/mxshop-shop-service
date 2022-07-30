@@ -8,17 +8,19 @@ import (
 	"Shop_service/user_service/util"
 	"flag"
 	"fmt"
-	"net"
-
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
+	"net"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
 	IP := flag.String("ip", "127.0.0.1", "ip地址")
-	Port := flag.Int("port", 8000, "端口号")
+	global.Port = flag.Int("port", 8000, "端口号")
 	flag.Parse()
 	initialize.InitFileAbsPath()
 	initialize.InitLogger()
@@ -34,19 +36,33 @@ func main() {
 			zap.S().Errorw("获取端口失败", "err", err.Error())
 			return
 		}
-		*Port = createPort
-		fmt.Println(*Port)
+		*global.Port = createPort
+		fmt.Println(global.Port)
 	}
 
-	listen, err := net.Listen("tcp", fmt.Sprintf("%s:%d", *IP, *Port))
-	zap.S().Infow("服务开始运行", "IP", *IP, "Port", *Port)
+	listen, err := net.Listen("tcp", fmt.Sprintf("%s:%d", *IP, *global.Port))
+	zap.S().Infow("服务开始运行", "IP", *IP, "Port", *global.Port)
 	if err != nil {
 		panic("failed to listen: " + err.Error())
 	}
 	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
 	initialize.InitRegisterService()
-	err = server.Serve(listen)
+	go func() {
+		err = server.Serve(listen)
+		if err != nil {
+			panic("failed to start grpc: " + err.Error())
+		}
+	}()
+
+	// TODO:注册服务失败报错
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	fmt.Println("serviceID", global.ServiceID)
+	err = global.Client.Agent().ServiceDeregister(global.ServiceID)
 	if err != nil {
-		panic("failed to start grpc: " + err.Error())
+		zap.S().Errorw("global.Client.Agent().ServiceDeregister 失败", "err", err.Error())
+		return
 	}
+	zap.S().Infow("服务注销程", "serviceID", global.ServiceID)
 }

@@ -6,6 +6,7 @@ import (
 	"Shop_service/user_service/proto"
 	"Shop_service/user_service/util"
 	"context"
+	"fmt"
 	"time"
 
 	"google.golang.org/grpc/codes"
@@ -42,6 +43,7 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 		userInfoResponse := util.ModelToResponse(user)
 		response.Data = append(response.Data, userInfoResponse)
 	}
+	fmt.Println("用户列表")
 	return response, nil
 }
 

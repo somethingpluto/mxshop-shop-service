@@ -2,13 +2,15 @@ package global
 
 import (
 	"Shop_service/user_service/config"
+	"github.com/hashicorp/consul/api"
 	"gorm.io/gorm"
 )
 
-//  数据库连接
-var DB *gorm.DB
-
-//  配置文件
-var ServiceConfig = &config.ServiceConfig{}
-
-var FilePath = &config.FilePathConfig{}
+var (
+	DB            *gorm.DB
+	ServiceConfig = &config.ServiceConfig{}
+	FilePath      = &config.FilePathConfig{}
+	Port          *int
+	Client        *api.Client
+	ServiceID     string
+)
