@@ -1,10 +1,10 @@
 package initialize
 
 import (
-	"Shop_service/user_service/global"
 	"fmt"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
+	"user_service/global"
 )
 
 // InitConfig

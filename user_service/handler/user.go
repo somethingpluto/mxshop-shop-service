@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"Shop_service/user_service/global"
-	"Shop_service/user_service/model"
-	"Shop_service/user_service/proto"
-	"Shop_service/user_service/util"
 	"context"
 	"fmt"
 	"time"
+	"user_service/global"
+	"user_service/model"
+	"user_service/proto"
+	"user_service/util"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

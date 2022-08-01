@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Shop_service/user_service/model"
 	"crypto/sha512"
 	"fmt"
 	"github.com/anaskhan96/go-password-encoder"
@@ -11,6 +10,7 @@ import (
 	"log"
 	"os"
 	"time"
+	"user_service/model"
 )
 
 var DB *gorm.DB

@@ -1,11 +1,10 @@
 package initialize
 
 import (
-	"fmt"
+	"goods_service/config"
+	"goods_service/global"
 	"path"
 	"runtime"
-	"user_service/config"
-	"user_service/global"
 )
 
 func InitFileAbsPath() {
@@ -14,13 +13,13 @@ func InitFileAbsPath() {
 		ConfigFile: basePath + "/config-debug.yaml",
 		LogFile:    basePath + "/log",
 	}
-	fmt.Println(global.FilePath)
 }
+
 func getCurrentAbsolutePath() string {
 	var abPath string
-	_, filename, _, ok := runtime.Caller(2)
+	_, fileName, _, ok := runtime.Caller(2)
 	if ok {
-		abPath = path.Dir(filename)
+		abPath = path.Dir(fileName)
 	}
 	return abPath
 }

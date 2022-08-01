@@ -1,11 +1,6 @@
 package main
 
 import (
-	"Shop_service/user_service/global"
-	"Shop_service/user_service/handler"
-	"Shop_service/user_service/initialize"
-	"Shop_service/user_service/proto"
-	"Shop_service/user_service/util"
 	"flag"
 	"fmt"
 	"go.uber.org/zap"
@@ -16,6 +11,11 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"user_service/global"
+	"user_service/handler"
+	"user_service/initialize"
+	"user_service/proto"
+	"user_service/util"
 )
 
 func main() {

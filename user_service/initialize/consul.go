@@ -1,11 +1,11 @@
 package initialize
 
 import (
-	"Shop_service/user_service/global"
 	"fmt"
 	"github.com/hashicorp/consul/api"
 	uuid "github.com/satori/go.uuid"
 	"go.uber.org/zap"
+	"user_service/global"
 )
 
 func InitRegisterService() {

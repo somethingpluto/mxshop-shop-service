@@ -1,8 +1,6 @@
 package initialize
 
 import (
-	"Shop_service/user_service/global"
-	"Shop_service/user_service/model"
 	"fmt"
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
@@ -10,6 +8,8 @@ import (
 	"gorm.io/gorm/logger"
 	"log"
 	"time"
+	"user_service/global"
+	"user_service/model"
 )
 
 // InitDB

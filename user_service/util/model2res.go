@@ -1,8 +1,8 @@
 package util
 
 import (
-	"Shop_service/user_service/model"
-	"Shop_service/user_service/proto"
+	"user_service/model"
+	"user_service/proto"
 )
 
 // ModelToResponse

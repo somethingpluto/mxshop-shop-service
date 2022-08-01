@@ -1,7 +1,6 @@
 package initialize
 
 import (
-	"Shop_service/user_service/global"
 	"fmt"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
@@ -9,6 +8,7 @@ import (
 	"io"
 	"os"
 	"time"
+	"user_service/global"
 )
 
 var dest io.Writer

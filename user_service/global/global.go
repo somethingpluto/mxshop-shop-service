@@ -1,9 +1,9 @@
 package global
 
 import (
-	"Shop_service/user_service/config"
 	"github.com/hashicorp/consul/api"
 	"gorm.io/gorm"
+	"user_service/config"
 )
 
 var (
