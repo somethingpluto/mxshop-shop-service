@@ -18,9 +18,9 @@ func (g *GormList) Scan(value interface{}) error {
 }
 
 type BaseModel struct {
-	ID        int32     `gorm:"primaryKey"`
-	CreateAt  time.Time `gorm:"column:add_at"`
-	UpdateAt  time.Time `gorm:"column:update_at"`
-	DeleteAt  gorm.DeletedAt
-	IsDeleted bool
+	ID        int32          `gorm:"primarykey;type:int" json:"id"` //为什么使用int32， bigint
+	CreatedAt time.Time      `gorm:"column:add_time" json:"-"`
+	UpdatedAt time.Time      `gorm:"column:update_time" json:"-"`
+	DeletedAt gorm.DeletedAt `json:"-"`
+	IsDeleted bool           `json:"-"`
 }

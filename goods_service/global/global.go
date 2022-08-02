@@ -6,6 +6,7 @@ import (
 )
 
 var (
-	DB       *gorm.DB
-	FilePath *config.FilePathConfig
+	DB            *gorm.DB
+	FilePath      *config.FilePathConfig
+	ServiceConfig *config.ServiceConfig
 )
