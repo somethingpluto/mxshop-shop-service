@@ -10,9 +10,13 @@ type Category struct {
 	IsTab            bool        `gorm:"default:false;not null" json:"is_tab"`
 }
 
+func (Category) TableName() string {
+	return "category"
+}
+
 type Brands struct {
 	BaseModel
-	Name string `gorm:"type:varchar(20);not null"`
+	Name string `gorm:"type:varchar(50);not null"`
 	Logo string `gorm:"type:varchar(200);default:'';not null"`
 }
 
@@ -36,6 +40,10 @@ type Banner struct {
 	Index int32  `gorm:"type:int;default:1;not null"`
 }
 
+func (Banner) TableName() string {
+	return "banner"
+}
+
 type Goods struct {
 	BaseModel
 
@@ -49,7 +57,7 @@ type Goods struct {
 	IsNew    bool `gorm:"default:false;not null"`
 	IsHot    bool `gorm:"default:false;not null"`
 
-	Name            string   `gorm:"type:varchar(50);not null"`
+	Name            string   `gorm:"type:varchar(100);not null"`
 	GoodsSn         string   `gorm:"type:varchar(50);not null"`
 	ClickNum        int32    `gorm:"type:int;default:0;not null"`
 	SoldNum         int32    `gorm:"type:int;default:0;not null"`
@@ -58,6 +66,6 @@ type Goods struct {
 	ShopPrice       float32  `gorm:"not null"`
 	GoodsBrief      string   `gorm:"type:varchar(100);not null"`
 	Images          GormList `gorm:"type:varchar(1000);not null"`
-	DescImages      GormList `gorm:"type:varchar(1000);not null"`
+	DescImages      GormList `gorm:"not null"`
 	GoodsFrontImage string   `gorm:"type:varchar(200);not null"`
 }
