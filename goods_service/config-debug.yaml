@@ -1,8 +1,7 @@
-name: "goods_service"
-
-mysql_config:
-  host: "120.25.255.207"
-  port: 3306
-  user: "root"
-  password: "chx200205173214"
-  name: "mxshop_goods_service"
+host: "120.25.255.207"
+port: 8848
+namespace: "3b6052eb-03ae-4d18-83b2-2e9049c4a6c0"
+user: 'nacos'
+password: 'chx200205173214'
+dataid: 'goods_config.json'
+group: 'dev'

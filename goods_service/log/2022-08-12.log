@@ -1,0 +1,273 @@
+2022-08-12T09:29:47.065+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:30:39.066+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:31:27.591+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:31:27.591+0800	INFO	initialize/db.go:17	{ %!s(int=0)   }
+
+2022/08/12 09:31:27 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:26
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+
+2022/08/12 09:31:27 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 09:31:27 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253 dial tcp :0: connectex: The requested address is not valid in its context.
+[0.000ms] [rows:-] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE '%' ORDER BY SCHEMA_NAME='' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 09:31:27 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:29
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = '' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/12 09:31:27 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:29 dial tcp :0: connectex: The requested address is not valid in its context.
+[0.000ms] [rows:0] CREATE TABLE `category` (`id` int AUTO_INCREMENT,`add_time` datetime(3) NULL,`update_time` datetime(3) NULL,`deleted_at` datetime(3) NULL,`is_deleted` boolean,`name` varchar(20) NOT NULL,`parent_category_id` int,`level` int NOT NULL DEFAULT 1,`is_tab` boolean NOT NULL DEFAULT false,PRIMARY KEY (`id`),CONSTRAINT `fk_category_sub_category` FOREIGN KEY (`parent_category_id`) REFERENCES `category`(`id`))
+2022-08-12T09:35:21.121+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:35:21.121+0800	INFO	initialize/db.go:16	{ %!s(int=0)   }
+
+2022/08/12 09:35:21 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T09:35:21.123+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T09:35:42.148+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:35:42.149+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 09:35:42 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T09:35:42.151+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T09:36:14.598+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:36:14.599+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 09:36:14 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T09:36:14.600+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T09:37:21.596+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:37:21.596+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 09:37:21 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T09:37:21.598+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T09:38:42.968+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:39:29.409+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:47:35.379+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:48:17.014+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:48:33.674+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:56:51.557+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T09:56:51.558+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 09:56:51 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T09:56:51.559+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T10:17:15.348+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:17:15.348+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 10:17:15 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T10:17:15.349+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T10:17:54.370+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:17:54.371+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 10:17:54 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T10:17:54.373+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T10:18:16.824+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:18:16.825+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"", Port:0, User:"", Password:"", Name:""}
+
+2022/08/12 10:18:16 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:25
+[error] failed to initialize database, got error dial tcp :0: connectex: The requested address is not valid in its context.
+2022-08-12T10:18:16.826+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T10:21:13.795+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:22:05.875+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:23:28.798+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:24:40.864+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:24:40.865+0800	INFO	initialize/db.go:16	config.MySqlConfig{Host:"120.25.255.207", Port:3306, User:"root", Password:"chx200205173214", Name:"mxshop_goods_service"}
+2022-08-12T10:24:41.360+0800	INFO	initialize/db.go:32	数据库初始化成功
+2022-08-12T10:33:05.412+0800	INFO	initialize/logger.go:23	日志初始化成功
+2022-08-12T10:33:05.412+0800	INFO	initialize/db.go:18	config.MySqlConfig{Host:"120.25.255.207", Port:3306, User:"root", Password:"chx200205173214", Name:"mxshop_goods_service"}
+
+2022/08/12 10:33:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[75.147ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[162.477ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:06 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[157.986ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[80.195ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[159.874ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[97.999ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[154.222ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[88.967ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[96.050ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/12 10:33:06 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[64.802ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:07 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[158.608ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:07 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[158.520ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/12 10:33:07 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[79.349ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:07 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[162.633ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:07 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[187.254ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/12 10:33:07 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[80.489ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:07 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[140.558ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[81.232ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[180.672ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[76.145ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[88.153ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[80.200ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[167.119ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:08 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[159.814ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/12 10:33:08 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[88.668ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[162.433ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[80.177ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[160.608ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[77.808ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[68.290ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[192.838ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:09 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[164.331ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/12 10:33:09 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[83.866ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:10 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[150.552ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:10 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[169.557ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/12 10:33:10 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[75.025ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:10 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[153.047ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:10 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[177.596ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/12 10:33:10 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[92.826ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:10 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[164.730ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:11 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[159.410ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[79.692ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[159.139ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[80.452ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[171.927ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[87.954ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[73.477ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[153.842ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:12 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[154.713ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[86.538ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[157.622ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[83.387ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[156.699ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[84.258ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[115.650ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[99.693ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[83.939ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/12 10:33:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[94.644ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/12 10:33:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[69.042ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[157.575ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[159.433ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/12 10:33:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[77.431ms] [rows:-] SELECT DATABASE()
+
+2022/08/12 10:33:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[167.619ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/12 10:33:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:30
+[166.844ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-12T10:33:13.769+0800	INFO	initialize/db.go:34	数据库初始化成功

@@ -9,4 +9,5 @@ var (
 	DB            *gorm.DB
 	FilePath      *config.FilePathConfig
 	ServiceConfig *config.ServiceConfig
+	NacosConfig   *config.NacosConfig
 )
