@@ -15,7 +15,7 @@ service Goods{
   // 5.更新商品
   rpc UpdateGoods(CreateGoodsInfo) returns(GoodsInfoResponse);
   // 6.获取商品详情
-  rpc GetGoodsDetail(GoodInfoRequest) returns(GoodsInfoResponse);
+  rpc GetGoodsDetail(GoodsInfoRequest) returns(GoodsInfoResponse);
 
 
   // 目录接口
@@ -218,7 +218,7 @@ message CategoryFilterRequest {
   bool  isTab = 2;
 }
 
-message GoodInfoRequest {
+message GoodsInfoRequest {
   int32 id = 1;
 }
 
