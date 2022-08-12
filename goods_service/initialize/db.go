@@ -12,6 +12,9 @@ import (
 	"time"
 )
 
+// InitDB
+// @Description: 初始化DB
+//
 func InitDB() {
 	var err error
 	MySqlInfo := global.ServiceConfig.MySqlInfo

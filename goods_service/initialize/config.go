@@ -12,10 +12,12 @@ import (
 	"goods_service/global"
 )
 
+// InitConfig
+// @Description: 初始化配置
+//
 func InitConfig() {
 	// 获得配置文件路径
 	configFileName := fmt.Sprintf(global.FilePath.ConfigFile)
-	fmt.Println(configFileName)
 	// 生成viper
 	v := viper.New()
 	// 指定配置文件
@@ -32,7 +34,6 @@ func InitConfig() {
 		return
 	}
 	zap.S().Infof("%#v", global.NacosConfig)
-	fmt.Printf("%#v", global.NacosConfig)
 	// 连接nacos
 	sConfig := []constant.ServerConfig{
 		{
@@ -73,6 +74,5 @@ func InitConfig() {
 		zap.S().Errorw("读取的配置content解析到global.serviceConfig失败", "err", err.Error())
 		return
 	}
-	fmt.Printf("%#v", global.ServiceConfig)
 	zap.S().Infof("nacos配置拉取成功 %#v", global.ServiceConfig)
 }

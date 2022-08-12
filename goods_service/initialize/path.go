@@ -8,6 +8,9 @@ import (
 	"runtime"
 )
 
+// InitFileAbsPath
+// @Description: 初始化文件路径
+//
 func InitFileAbsPath() {
 	basePath := getCurrentAbsolutePath()
 	global.FilePath = &config.FilePathConfig{

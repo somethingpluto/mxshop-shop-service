@@ -29,6 +29,9 @@ type ServiceConfig struct {
 	MySqlInfo MySqlConfig `mapstructure:"mysql_config" json:"mysql_config"`
 }
 
+// MySqlConfig
+// @Description: Mysql连接信息
+//
 type MySqlConfig struct {
 	Host     string `mapstructure:"host" json:"host"`
 	Port     int    `mapstructure:"port" json:"port"`
