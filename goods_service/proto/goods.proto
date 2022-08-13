@@ -20,7 +20,7 @@ service Goods{
 
   // 目录接口
   // 1.获取所有分类
-  rpc GetAllCategoriesList(google.protobuf.Empty) returns(GoodsInfoResponse);
+  rpc GetAllCategoriesList(google.protobuf.Empty) returns(CategoryListResponse);
   // 2.获取子分类
   rpc GetSubCategory(CategoryListRequest) returns(SubCategoryListResponse);
   // 3.新建分类
