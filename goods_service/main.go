@@ -32,9 +32,11 @@ func main() {
 		zap.S().Errorw("net.Listen错误", "err", err.Error())
 		return
 	}
+	zap.S().Infof("服务启动成功 端口 %s:%d", *IP, *Port)
 	err = server.Serve(listen)
 	if err != nil {
 		zap.S().Errorw("server.Server错误", "err", err.Error())
 		return
 	}
+
 }

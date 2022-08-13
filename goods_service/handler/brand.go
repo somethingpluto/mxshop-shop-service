@@ -2,6 +2,9 @@ package handler
 
 import (
 	"context"
+	"fmt"
+	"goods_service/global"
+	"goods_service/model"
 	"goods_service/proto"
 )
 
@@ -14,8 +17,14 @@ import (
 // @return error
 //
 func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
-	response := &proto.BrandListResponse{}
-	return response, nil
+	brandListResponse := &proto.BrandListResponse{}
+	var brands []model.Brands
+	result := global.DB.Find(&brands)
+	fmt.Println(result.RowsAffected)
+	for _, brand := range brands {
+		fmt.Printf("%#v \n", brand)
+	}
+	return brandListResponse, nil
 }
 
 // CreateBrand
