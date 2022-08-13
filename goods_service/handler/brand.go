@@ -62,7 +62,7 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 		Logo: request.Logo,
 	}
 	zap.S().Infof("创建品牌 %#v", brand)
-	global.DB.Save(&brand)
+	global.DB.Create(&brand)
 	var newBrand model.Brands
 	global.DB.Where("name=?", request.Name).First(&newBrand)
 	response.Id = newBrand.ID

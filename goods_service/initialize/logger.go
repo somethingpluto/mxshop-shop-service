@@ -20,7 +20,7 @@ var logFileWriter io.Writer
 func InitLogger() {
 	writeSyncer := getLogWriter()
 	encoder := getEncoder()
-	core := zapcore.NewCore(encoder, writeSyncer, zapcore.DebugLevel)
+	core := zapcore.NewCore(encoder, writeSyncer, zapcore.InfoLevel)
 	logger := zap.New(core, zap.AddCaller())
 	zap.ReplaceGlobals(logger)
 	zap.S().Infow("日志初始化成功")

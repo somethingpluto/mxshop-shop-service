@@ -33,8 +33,8 @@ func TestBrandList() {
 
 func TestCreateBrand() {
 	test.InitRPCConnect()
-	name := "test" + time.Now().String()
-	logo := "logo" + time.Now().String()
+	name := fmt.Sprintf("test %d", time.Now().Minute())
+	logo := fmt.Sprintf("logl %d", time.Now().Minute())
 	response, err := test.GoodsClient.CreateBrand(context.Background(), &proto.BrandRequest{
 		Name: name,
 		Logo: logo,
