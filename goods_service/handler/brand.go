@@ -81,7 +81,7 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 //
 func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
-	result := global.DB.Delete(&model.Brands{}, request.Id)
+	result := global.DB.Where("name=?", request.Name).Delete(&model.Brands{})
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
@@ -101,7 +101,7 @@ func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandReques
 	response := &proto.BrandInfoResponse{}
 
 	var brand model.Brands
-	result := global.DB.Where("name=?", request.Name).First(&brand)
+	result := global.DB.Where("id=?", request.Id).First(&brand)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}

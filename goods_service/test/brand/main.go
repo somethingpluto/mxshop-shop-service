@@ -9,15 +9,18 @@ import (
 )
 
 func main() {
+	test.InitRPCConnect()
 	//TestBrandList()
-	TestCreateBrand()
+	//TestCreateBrand()
+	//TestDeleteBrand()
+	TestUpdateBrand()
 }
 
 // TestBrandList
 // @Description: 测试商品列表
 //
 func TestBrandList() {
-	test.InitRPCConnect()
+
 	response, err := test.GoodsClient.BrandList(context.Background(), &proto.BrandFilterRequest{
 		Pages:       1,
 		PagePerNums: 10,
@@ -32,12 +35,34 @@ func TestBrandList() {
 }
 
 func TestCreateBrand() {
-	test.InitRPCConnect()
 	name := fmt.Sprintf("test %d", time.Now().Minute())
 	logo := fmt.Sprintf("logl %d", time.Now().Minute())
 	response, err := test.GoodsClient.CreateBrand(context.Background(), &proto.BrandRequest{
 		Name: name,
 		Logo: logo,
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response)
+}
+
+func TestDeleteBrand() {
+	response, err := test.GoodsClient.DeleteBrand(context.Background(), &proto.BrandRequest{
+		Name: "test 29",
+		Logo: "logo 29",
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response.Success)
+}
+
+func TestUpdateBrand() {
+	response, err := test.GoodsClient.UpdateBrand(context.Background(), &proto.BrandRequest{
+		Id:   116,
+		Name: "update",
+		Logo: "update",
 	})
 	if err != nil {
 		panic(err)
