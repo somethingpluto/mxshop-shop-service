@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
@@ -56,11 +57,12 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 	if result.RowsAffected == 1 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌已存在")
 	}
-	brand := &model.Brands{
+	brand := model.Brands{
 		Name: request.Name,
 		Logo: request.Logo,
 	}
-	global.DB.Save(brand)
+	zap.S().Infof("创建品牌 %#v", brand)
+	global.DB.Save(&brand)
 	var newBrand model.Brands
 	global.DB.Where("name=?", request.Name).First(&newBrand)
 	response.Id = newBrand.ID

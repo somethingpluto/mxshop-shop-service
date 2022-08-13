@@ -2007,3 +2007,1470 @@
 
 2022/08/13 16:08:28 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:28
 [32.532ms] [rows:1] SELECT count(*) FROM `brands` WHERE `brands`.`deleted_at` IS NULL
+2022-08-13T16:42:46.166+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 16:42:47 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[38.432ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:47 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[75.402ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:48 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[81.535ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.539ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[77.304ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[38.517ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[77.441ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[45.560ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[47.000ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.516ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[76.023ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:48 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[75.111ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[39.171ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[75.828ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:48 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[76.551ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.038ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[75.337ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[38.520ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 16:42:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[75.365ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.517ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.520ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.517ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.575ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:49 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.434ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[39.523ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[75.414ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[36.522ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[75.093ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[46.535ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.027ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[76.422ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:49 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.792ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.534ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.965ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:49 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[75.436ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 16:42:49 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.443ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.226ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:50 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[74.290ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.514ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.459ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:50 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[74.383ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.521ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.551ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[37.425ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[71.524ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.516ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.514ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[75.556ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:50 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[76.929ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.577ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.161ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[36.522ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[82.304ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:42:50 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.535ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.548ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.541ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.053ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.218ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.534ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.079ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:51 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[74.022ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.566ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:42:51 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.142ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:42:51 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[72.709ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T16:42:51.533+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T16:42:51.534+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 16:42:57 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[75.423ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:42:57.5675301 +0800 CST m=+0.021434501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:42:57 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[148.791ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:42:57.685','2022-08-13 16:42:57.685',NULL,false,'test2022-08-13 16:42:57.5675301 +0800 CST m=+0.021434501','logo2022-08-13 16:42:57.5675301 +0800 CST m=+0.021434501')
+
+2022/08/13 16:42:57 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[75.030ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:42:57.5675301 +0800 CST m=+0.021434501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:43:13 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[75.064ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:43:13.0786169 +0800 CST m=+0.025311501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:43:13 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[148.097ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:43:13.194','2022-08-13 16:43:13.194',NULL,false,'test2022-08-13 16:43:13.0786169 +0800 CST m=+0.025311501','logo2022-08-13 16:43:13.0786169 +0800 CST m=+0.025311501')
+
+2022/08/13 16:43:13 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[74.656ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:43:13.0786169 +0800 CST m=+0.025311501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T16:51:58.041+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.379ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.312ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:51:59 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[75.305ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[38.117ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.272ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[36.864ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[73.500ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[45.744ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[48.549ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.538ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.873ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:51:59 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.836ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 16:51:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.554ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.943ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:00 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[70.842ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[37.525ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.863ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[37.533ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[73.209ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[46.561ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.526ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.051ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.051ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:00 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.908ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.521ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.224ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[37.519ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[73.502ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.156ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.817ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:00 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.262ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:01 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.162ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.533ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.677ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:01 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.530ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.960ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[73.206ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:01 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[72.289ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.554ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[71.576ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:01 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.563ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.538ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.787ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[36.396ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[74.165ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.523ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.526ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:01 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.002ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:02 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[73.177ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.526ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.204ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[40.551ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[75.859ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[47.030ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[48.523ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[48.547ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[49.539ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.064ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.544ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.473ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:02 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[74.129ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.530ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:52:02 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[72.514ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:52:02 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[71.192ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T16:52:02.871+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T16:52:02.872+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 16:52:14 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[75.311ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:52:14.7284821 +0800 CST m=+0.025608701' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:52:14 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[146.518ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:52:14.843','2022-08-13 16:52:14.843',NULL,false,'test2022-08-13 16:52:14.7284821 +0800 CST m=+0.025608701','logo2022-08-13 16:52:14.7289962 +0800 CST m=+0.026122801')
+
+2022/08/13 16:52:15 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[72.677ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:52:14.7284821 +0800 CST m=+0.025608701' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T16:57:22.395+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.865ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.104ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:23 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.469ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.533ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.848ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[34.534ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[64.290ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:57:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.516ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.528ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.517ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[74.673ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:24 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[68.464ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.540ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.133ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:24 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.522ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.528ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.641ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[30.514ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[62.756ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.519ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.520ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.365ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[61.729ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:24 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[61.095ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.008ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.321ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.027ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 16:57:24 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[67.843ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.541ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.071ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.191ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:25 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[61.934ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.534ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.406ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:25 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.785ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.549ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.438ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:25 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[67.347ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.534ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.413ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:25 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[60.990ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.516ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.952ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[30.515ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[66.234ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.012ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:57:25 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.008ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.962ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:26 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.483ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.007ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[61.128ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[31.518ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[64.972ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.061ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.592ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.538ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.544ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.515ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.046ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.761ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:26 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.466ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.434ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:57:26 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.302ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:57:26 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[60.801ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T16:57:26.807+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T16:57:26.807+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 16:57:54 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[1087.575ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:57:53.239116 +0800 CST m=+0.021532401' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:57:55 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[1537.987ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:57:55.578','2022-08-13 16:57:55.578',NULL,false,'test2022-08-13 16:57:53.239116 +0800 CST m=+0.021532401','logo2022-08-13 16:57:53.239116 +0800 CST m=+0.021532401')
+
+2022/08/13 16:57:55 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[64.108ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:57:53.239116 +0800 CST m=+0.021532401' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:58:01 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[571.100ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:58:00.7262756 +0800 CST m=+0.021694601' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:58:03 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[2126.712ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:58:02.336','2022-08-13 16:58:02.336',NULL,false,'test2022-08-13 16:58:00.7262756 +0800 CST m=+0.021694601','logo2022-08-13 16:58:00.7262756 +0800 CST m=+0.021694601')
+
+2022/08/13 16:58:03 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[61.958ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:58:00.7262756 +0800 CST m=+0.021694601' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T16:59:16.297+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.292ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.553ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:17 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[68.194ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.547ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.361ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.526ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 16:59:17 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[67.797ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[38.536ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[38.750ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.516ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.347ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:18 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.898ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.114ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.807ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:18 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.047ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.537ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.686ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.105ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[66.134ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[38.525ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[38.544ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.557ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.118ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:18 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.892ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.515ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.112ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:18 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.524ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[67.853ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.535ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.547ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.784ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:19 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[66.556ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.637ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[71.361ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:19 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.312ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.548ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.957ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:19 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[69.469ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.285ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.346ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:19 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.579ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.111ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.732ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[34.545ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 16:59:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[69.118ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[144.595ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.533ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.200ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:20 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.559ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.535ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.158ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.078ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[66.030ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.534ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.690ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.531ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.547ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.020ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.118ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.230ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:20 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.577ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.535ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 16:59:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.247ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 16:59:21 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[66.588ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T16:59:21.000+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T16:59:21.001+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 16:59:31 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[66.362ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:59:31.5540201 +0800 CST m=+0.023663601' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:59:31 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[129.477ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:59:31.657','2022-08-13 16:59:31.657',NULL,false,'test2022-08-13 16:59:31.5540201 +0800 CST m=+0.023663601','logo2022-08-13 16:59:31.5540201 +0800 CST m=+0.023663601')
+
+2022/08/13 16:59:31 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[69.061ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:59:31.5540201 +0800 CST m=+0.023663601' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:59:41 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[69.842ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:59:41.3286837 +0800 CST m=+0.026810201' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 16:59:41 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[133.464ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 16:59:41.436','2022-08-13 16:59:41.436',NULL,false,'test2022-08-13 16:59:41.3286837 +0800 CST m=+0.026810201','logo2022-08-13 16:59:41.3286837 +0800 CST m=+0.026810201')
+
+2022/08/13 16:59:41 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[66.760ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 16:59:41.3286837 +0800 CST m=+0.026810201' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 17:06:15 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:55 record not found
+[68.573ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:06:15.8433782 +0800 CST m=+0.025819901' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+
+2022/08/13 17:06:16 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:63 Error 1406: Data too long for column 'name' at row 1
+[140.555ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 17:06:15.95','2022-08-13 17:06:15.95',NULL,false,'test2022-08-13 17:06:15.8433782 +0800 CST m=+0.025819901','logo2022-08-13 17:06:15.8433782 +0800 CST m=+0.025819901')
+
+2022/08/13 17:06:16 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 record not found
+[68.400ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:06:15.8433782 +0800 CST m=+0.025819901' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:06:27.036+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.108ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.824ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.896ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.554ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.205ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.530ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[65.743ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.540ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.594ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.060ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.679ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[67.037ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.527ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.772ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:31 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.014ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[29.536ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.759ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.049ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[65.663ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.521ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.035ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.516ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.459ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:31 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.174ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.158ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.238ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.146ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[64.553ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.008ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.904ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.014ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:31 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[62.900ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.249ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.818ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:32 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.415ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.540ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[61.277ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:32 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.788ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[374.312ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.212ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:32 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[60.505ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.831ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.483ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.519ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[62.362ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.910ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:06:32 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.194ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.741ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:33 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.415ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[377.998ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[61.154ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.068ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[64.120ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.402ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[37.569ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.514ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.549ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.010ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.543ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:33 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.156ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:34 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[412.486ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 17:06:34 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.737ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:06:34 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.005ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:06:34 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[408.880ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T17:06:34.861+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T17:06:34.861+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 17:06:44 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:56 record not found
+[70.287ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:06:44.101+0800	INFO	handler/brand.go:64	创建品牌 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false} false} test2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701 logo2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701}
+
+2022/08/13 17:06:44 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 Error 1406: Data too long for column 'name' at row 1
+[124.550ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 17:06:44.133','2022-08-13 17:06:44.133',NULL,false,'test2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701','logo2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701')
+
+2022/08/13 17:06:44 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:67 record not found
+[63.151ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:06:44.0253487 +0800 CST m=+0.022194701' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:07:24.516+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.661ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.709ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:28 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[69.158ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.028ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.810ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[35.093ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[68.166ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.553ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.544ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.541ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.730ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:28 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.218ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.582ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.949ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:28 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[71.761ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[379.389ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.559ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.990ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[67.767ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.558ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.541ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.929ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.894ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:29 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.569ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.526ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.116ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.527ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[65.999ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.272ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.936ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.290ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[63.241ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.644ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.864ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.441ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.020ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[62.755ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.428ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.544ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.403ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.326ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[30.542ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[64.984ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[33.529ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[67.432ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.551ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.098ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.327ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:30 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[62.634ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.041ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[63.228ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[30.705ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[66.749ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.535ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[39.540ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.098ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.009ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.008ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.536ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.463ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:31 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.663ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.538ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:07:31 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.555ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:07:31 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[66.263ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T17:07:31.625+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T17:07:31.626+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 17:07:35 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:56 record not found
+[63.655ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:07:35.684+0800	INFO	handler/brand.go:64	创建品牌 model.Brands{BaseModel:model.BaseModel{ID:0, CreatedAt:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), UpdatedAt:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), DeletedAt:gorm.DeletedAt{Time:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), Valid:false}, IsDeleted:false}, Name:"test2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301", Logo:"logo2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301"}
+
+2022/08/13 17:07:35 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 Error 1406: Data too long for column 'name' at row 1
+[129.127ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 17:07:35.717','2022-08-13 17:07:35.717',NULL,false,'test2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301','logo2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301')
+
+2022/08/13 17:07:35 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:67 record not found
+[67.425ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:07:35.6152143 +0800 CST m=+0.022428301' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:10:00.588+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/08/13 17:10:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.831ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[70.925ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:11 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.966ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:10:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.564ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[70.200ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.536ms] [rows:-] SELECT * FROM `category` LIMIT 1
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[68.258ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'category' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.256ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.259ms] [rows:0] ALTER TABLE `category` MODIFY COLUMN `is_tab` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.145ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[70.481ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:12 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.890ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'category' AND constraint_name = 'fk_category_sub_category'
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.545ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[68.209ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:12 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.198ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.539ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.004ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[35.245ms] [rows:-] SELECT * FROM `brands` LIMIT 1
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[69.349ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'brands' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.586ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[44.006ms] [rows:0] ALTER TABLE `brands` MODIFY COLUMN `name` varchar(50) NOT NULL
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[35.171ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:12 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.392ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.897ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.539ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.331ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.529ms] [rows:-] SELECT * FROM `goodscategorybrand` LIMIT 1
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[65.684ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.425ms] [rows:0] ALTER TABLE `goodscategorybrand` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.601ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.664ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.500ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_category'
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[36.528ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.199ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.737ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND constraint_name = 'fk_goodscategorybrand_brands'
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[34.512ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.945ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[66.623ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goodscategorybrand' AND index_name = 'idx_category_brand'
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.529ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[66.910ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:13 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.983ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:10:13 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[32.193ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.403ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[31.533ms] [rows:-] SELECT * FROM `banner` LIMIT 1
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[68.169ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'banner' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.537ms] [rows:0] ALTER TABLE `banner` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.535ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[89.882ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:14 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[65.882ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' AND table_type = 'BASE TABLE'
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[33.536ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[67.297ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[32.554ms] [rows:-] SELECT * FROM `goods` LIMIT 1
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[69.050ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_goods_service' AND table_name = 'goods' ORDER BY ORDINAL_POSITION
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.553ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_deleted` boolean
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[42.092ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `on_sale` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[41.831ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `ship_free` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[45.842ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_new` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[40.560ms] [rows:0] ALTER TABLE `goods` MODIFY COLUMN `is_hot` boolean NOT NULL DEFAULT false
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.560ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[69.642ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:14 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[64.800ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_category'
+
+2022/08/13 17:10:14 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[31.595ms] [rows:-] SELECT DATABASE()
+
+2022/08/13 17:10:15 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[65.010ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_goods_service%' ORDER BY SCHEMA_NAME='mxshop_goods_service' DESC,SCHEMA_NAME limit 1
+
+2022/08/13 17:10:15 D:/C_Back/Go/Shop_service/goods_service/initialize/db.go:32
+[67.886ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'mxshop_goods_service' AND table_name = 'goods' AND constraint_name = 'fk_goods_brands'
+2022-08-13T17:10:15.132+0800	INFO	initialize/db.go:36	数据库初始化成功
+2022-08-13T17:10:15.133+0800	INFO	goods_service/main.go:35	服务启动成功 端口 127.0.0.1:8000
+
+2022/08/13 17:10:21 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:56 record not found
+[67.385ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
+2022-08-13T17:10:21.814+0800	INFO	handler/brand.go:64	创建品牌 model.Brands{BaseModel:model.BaseModel{ID:0, CreatedAt:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), UpdatedAt:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), DeletedAt:gorm.DeletedAt{Time:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), Valid:false}, IsDeleted:false}, Name:"test2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501", Logo:"logo2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501"}
+
+2022/08/13 17:10:21 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:65 Error 1406: Data too long for column 'name' at row 1
+[131.373ms] [rows:0] INSERT INTO `brands` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`name`,`logo`) VALUES ('2022-08-13 17:10:21.85','2022-08-13 17:10:21.85',NULL,false,'test2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501','logo2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501')
+
+2022/08/13 17:10:22 D:/C_Back/Go/Shop_service/goods_service/handler/brand.go:67 record not found
+[69.020ms] [rows:0] SELECT * FROM `brands` WHERE name='test2022-08-13 17:10:21.7416482 +0800 CST m=+0.022977501' AND `brands`.`deleted_at` IS NULL ORDER BY `brands`.`id` LIMIT 1
