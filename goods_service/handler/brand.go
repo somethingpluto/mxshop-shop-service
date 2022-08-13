@@ -2,10 +2,12 @@ package handler
 
 import (
 	"context"
-	"fmt"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
+	"goods_service/util"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 // BrandList
@@ -17,14 +19,27 @@ import (
 // @return error
 //
 func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
-	brandListResponse := &proto.BrandListResponse{}
+	response := &proto.BrandListResponse{}
+
 	var brands []model.Brands
-	result := global.DB.Find(&brands)
-	fmt.Println(result.RowsAffected)
-	for _, brand := range brands {
-		fmt.Printf("%#v \n", brand)
+	result := global.DB.Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&brands)
+	if result.Error != nil {
+		return nil, result.Error
 	}
-	return brandListResponse, nil
+	var total int64
+	global.DB.Model(&model.Brands{}).Count(&total)
+	response.Total = int32(total)
+	var brandList []*proto.BrandInfoResponse
+	for _, brand := range brands {
+		brandResponse := proto.BrandInfoResponse{
+			Id:   brand.ID,
+			Name: brand.Name,
+			Logo: brand.Name,
+		}
+		brandList = append(brandList, &brandResponse)
+	}
+	response.Data = brandList
+	return response, nil
 }
 
 // CreateBrand
@@ -37,6 +52,20 @@ func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRe
 //
 func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	response := &proto.BrandInfoResponse{}
+	result := global.DB.Where("name=?", request.Name).First(&model.Brands{})
+	if result.RowsAffected == 1 {
+		return nil, status.Errorf(codes.InvalidArgument, "品牌已存在")
+	}
+	brand := &model.Brands{
+		Name: request.Name,
+		Logo: request.Logo,
+	}
+	global.DB.Save(brand)
+	var newBrand model.Brands
+	global.DB.Where("name=?", request.Name).First(&newBrand)
+	response.Id = newBrand.ID
+	response.Name = newBrand.Name
+	response.Logo = newBrand.Logo
 	return response, nil
 }
 
@@ -50,6 +79,11 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 //
 func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
+	result := global.DB.Delete(&model.Brands{}, request.Id)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
+	}
+	response.Success = true
 	return response, nil
 }
 
@@ -63,5 +97,19 @@ func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandReques
 //
 func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	response := &proto.BrandInfoResponse{}
+
+	var brand model.Brands
+	result := global.DB.Where("name=?", request.Name).First(&brand)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
+	}
+	if request.Name != "" {
+		brand.Name = request.Name
+	}
+	if request.Logo != "" {
+		brand.Logo = request.Logo
+	}
+	global.DB.Save(brand)
+	response.Id = brand.ID
 	return response, nil
 }

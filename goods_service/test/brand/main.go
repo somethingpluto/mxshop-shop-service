@@ -19,4 +19,5 @@ func main() {
 	for _, brand := range response.Data {
 		fmt.Println(brand)
 	}
+	fmt.Println("品牌总条数", response.Total)
 }
