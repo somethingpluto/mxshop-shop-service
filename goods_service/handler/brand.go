@@ -101,7 +101,7 @@ func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandReques
 	response := &proto.BrandInfoResponse{}
 
 	var brand model.Brands
-	result := global.DB.Where("id=?", request.Id).First(&brand)
+	result := global.DB.First(&brand, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
@@ -111,7 +111,7 @@ func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandReques
 	if request.Logo != "" {
 		brand.Logo = request.Logo
 	}
-	global.DB.Save(brand)
+	global.DB.Save(&brand)
 	response.Id = brand.ID
 	return response, nil
 }

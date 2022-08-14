@@ -60,7 +60,7 @@ func TestDeleteBrand() {
 
 func TestUpdateBrand() {
 	response, err := test.GoodsClient.UpdateBrand(context.Background(), &proto.BrandRequest{
-		Id:   116,
+		Id:   1116,
 		Name: "update",
 		Logo: "update",
 	})
