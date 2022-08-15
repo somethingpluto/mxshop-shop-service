@@ -21,7 +21,7 @@ import (
 //
 func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
 	response := &proto.BrandListResponse{}
-
+	// 数据库操作
 	var brands []model.Brands
 	result := global.DB.Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&brands)
 	if result.Error != nil {
@@ -81,7 +81,9 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 //
 func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
-	result := global.DB.Where("name=?", request.Name).Delete(&model.Brands{})
+
+	var brand model.Brands
+	result := global.DB.Delete(&brand, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
