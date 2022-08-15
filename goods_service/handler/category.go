@@ -15,6 +15,7 @@ import (
 //
 func (g GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.Empty) (*proto.CategoryListResponse, error) {
 	response := &proto.CategoryListResponse{}
+
 	return response, nil
 }
 
