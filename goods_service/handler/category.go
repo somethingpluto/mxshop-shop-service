@@ -3,7 +3,6 @@ package handler
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -88,7 +87,6 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 	zap.S().Infof("CreateCategory request:%v", request)
 	response := &proto.CategoryInfoResponse{}
 
-	var category model.Category
 	cMap := map[string]interface{}{}
 	cMap["name"] = request.Name
 	cMap["level"] = request.Level
@@ -96,9 +94,7 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 	if request.Level != 1 {
 		cMap["parent_category_id"] = request.ParentCategory
 	}
-	result := global.DB.Model(&model.Category{}).Create(cMap)
-	fmt.Println(result)
-	response.Id = category.ID
+	global.DB.Model(&model.Category{}).Create(cMap)
 	return response, nil
 }
 
@@ -134,7 +130,7 @@ func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCa
 func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
 	zap.S().Infof("UpdateCategory request:%v", request)
 	response := &proto.CategoryInfoResponse{}
-
+	// TODO: 外键查询错误 Cannot add or update a child row: a foreign key constraint fails (`mxshop_goods_service`.`category`, CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent_category_id`) REFERENCES `category` (`id`))
 	var category model.Category
 	result := global.DB.First(&category, request.Id)
 	if result.RowsAffected == 0 {

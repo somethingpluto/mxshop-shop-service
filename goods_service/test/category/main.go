@@ -12,7 +12,9 @@ func main() {
 	test.InitRPCConnect()
 	//TestGetAllCategoriesList()
 	//TestGetSubCategory()
-	TestCreateCategory()
+	//TestCreateCategory()
+	//TestDeleteCategory()
+	TestUpdateCategory()
 }
 
 func TestGetAllCategoriesList() {
@@ -36,10 +38,32 @@ func TestGetSubCategory() {
 
 func TestCreateCategory() {
 	response, err := test.GoodsClient.CreateCategory(context.Background(), &proto.CategoryInfoRequest{
-		Name:           "test",
+		Name:           "test2",
 		ParentCategory: 0,
 		Level:          1,
 		IsTab:          true,
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("创建成功", response)
+}
+
+func TestDeleteCategory() {
+	response, err := test.GoodsClient.DeleteCategory(context.Background(), &proto.DeleteCategoryRequest{Id: 238013})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response.Success)
+}
+
+func TestUpdateCategory() {
+	response, err := test.GoodsClient.UpdateCategory(context.Background(), &proto.CategoryInfoRequest{
+		Id:             238012,
+		Name:           "update",
+		ParentCategory: 0,
+		Level:          0,
+		IsTab:          false,
 	})
 	if err != nil {
 		panic(err)
