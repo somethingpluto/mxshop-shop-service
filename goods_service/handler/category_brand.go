@@ -22,11 +22,14 @@ import (
 func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
 	response := &proto.CategoryBrandListResponse{}
 	zap.S().Infof("CategoryBrandList request:%v", request)
+
 	var categoryBrands []model.GoodsCategoryBrand
 	var total int64
+	// 获取记录总条数
 	global.DB.Find(&model.GoodsCategoryBrand{}).Count(&total)
 	response.Total = int32(total)
 
+	// 连表分页查询
 	global.DB.Preload("Category").Preload("Brands").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
 
 	var categroyBrandsResponse []*proto.CategoryBrandResponse
@@ -61,12 +64,15 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
 	response := &proto.BrandListResponse{}
 	zap.S().Infof("GetCategoryBrandList request:%v", request)
+	// 查询该商品分类是否存在
 	var category model.Category
 	result := global.DB.Find(&category, request.Id).First(&category)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
 	}
+	// 返回该分类下的 所有商品
 	var categoryBrands []model.GoodsCategoryBrand
+	// TODO:返回数据为空
 	result = global.DB.Preload("Brands").Where(&model.GoodsCategoryBrand{CategoryID: request.Id}).Find(&categoryBrands)
 	if result.RowsAffected > 0 {
 		response.Total = int32(result.RowsAffected)
@@ -151,7 +157,7 @@ func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.Cat
 	response := &proto.OperationResult{}
 	zap.S().Infof("UpdateCategoryBrand request:%v", request)
 
-	result := global.DB.Find(&model.GoodsCategoryBrand{}, request.Id)
+	result := global.DB.First(&model.GoodsCategoryBrand{}, request.Id)
 	if result.RowsAffected == 0 {
 		response.Success = false
 		return response, status.Errorf(codes.InvalidArgument, "商品分类不存在")
@@ -163,7 +169,7 @@ func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.Cat
 		return response, status.Errorf(codes.InvalidArgument, "分类不存在")
 	}
 
-	result = global.DB.Find(&model.Brands{}, request.Id)
+	result = global.DB.Find(&model.Brands{}, request.BrandId)
 	if result.RowsAffected == 0 {
 		response.Success = false
 		return response, status.Errorf(codes.InvalidArgument, "品牌不存在")
