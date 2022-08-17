@@ -2,7 +2,13 @@ package handler
 
 import (
 	"context"
+	"go.uber.org/zap"
+	"goods_service/global"
+	"goods_service/model"
 	"goods_service/proto"
+	"goods_service/util"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 // CategoryBrandList
@@ -15,6 +21,32 @@ import (
 //
 func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
 	response := &proto.CategoryBrandListResponse{}
+	zap.S().Infof("CategoryBrandList request:%v", request)
+	var categoryBrands []model.GoodsCategoryBrand
+	var total int64
+	global.DB.Find(&model.GoodsCategoryBrand{}).Count(&total)
+	response.Total = int32(total)
+
+	global.DB.Preload("Category").Preload("Brands").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
+
+	var categroyBrandsResponse []*proto.CategoryBrandResponse
+	for _, categoryBrand := range categoryBrands {
+		categroyBrandsResponse = append(categroyBrandsResponse, &proto.CategoryBrandResponse{
+			Category: &proto.CategoryInfoResponse{
+				Id:             categoryBrand.Category.ID,
+				Name:           categoryBrand.Category.Name,
+				ParentCategory: categoryBrand.Category.ParentCategoryID,
+				Level:          categoryBrand.Category.Level,
+				IsTab:          categoryBrand.Category.IsTab,
+			},
+			Brand: &proto.BrandInfoResponse{
+				Id:   categoryBrand.Brands.ID,
+				Name: categoryBrand.Brands.Name,
+				Logo: categoryBrand.Brands.Logo,
+			},
+		})
+	}
+	response.Data = categroyBrandsResponse
 	return response, nil
 }
 
@@ -28,6 +60,27 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 //
 func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
 	response := &proto.BrandListResponse{}
+	zap.S().Infof("GetCategoryBrandList request:%v", request)
+	var category model.Category
+	result := global.DB.Find(&category, request.Id).First(&category)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+	}
+	var categoryBrands []model.GoodsCategoryBrand
+	result = global.DB.Preload("Brands").Where(&model.GoodsCategoryBrand{CategoryID: request.Id}).Find(&categoryBrands)
+	if result.RowsAffected > 0 {
+		response.Total = int32(result.RowsAffected)
+	}
+
+	var brandInfoResponse []*proto.BrandInfoResponse
+	for _, categoryBrand := range categoryBrands {
+		brandInfoResponse = append(brandInfoResponse, &proto.BrandInfoResponse{
+			Id:   categoryBrand.Brands.ID,
+			Name: categoryBrand.Brands.Name,
+			Logo: categoryBrand.Brands.Logo,
+		})
+	}
+	response.Data = brandInfoResponse
 	return response, nil
 }
 
@@ -41,6 +94,26 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 //
 func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.CategoryBrandResponse, error) {
 	response := &proto.CategoryBrandResponse{}
+	zap.S().Infof("CreateCategoryBrand request:%v", request)
+
+	var category model.Category
+	result := global.DB.First(&category, request.CategoryId)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+	}
+
+	var brand model.Brands
+	result = global.DB.First(&brand, request.BrandId)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
+	}
+
+	categoryBrand := model.GoodsCategoryBrand{
+		CategoryID: request.CategoryId,
+		BrandsID:   request.BrandId,
+	}
+	global.DB.Save(&categoryBrand)
+	response.Id = categoryBrand.ID
 	return response, nil
 }
 
@@ -54,6 +127,15 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 //
 func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
+	zap.S().Infof("DeleteCategoryBrand request:%v", request)
+
+	result := global.DB.Delete(&model.GoodsCategoryBrand{}, request.Id)
+	if result.RowsAffected == 0 {
+		response.Success = false
+		return response, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+	}
+
+	response.Success = true
 	return response, nil
 }
 
@@ -67,5 +149,28 @@ func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.Cat
 //
 func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
+	zap.S().Infof("UpdateCategoryBrand request:%v", request)
+
+	result := global.DB.Find(&model.GoodsCategoryBrand{}, request.Id)
+	if result.RowsAffected == 0 {
+		response.Success = false
+		return response, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+	}
+
+	result = global.DB.Find(&model.Category{}, request.CategoryId)
+	if result.RowsAffected == 0 {
+		response.Success = false
+		return response, status.Errorf(codes.InvalidArgument, "分类不存在")
+	}
+
+	result = global.DB.Find(&model.Brands{}, request.Id)
+	if result.RowsAffected == 0 {
+		response.Success = false
+		return response, status.Errorf(codes.InvalidArgument, "品牌不存在")
+	}
+
+	var categoryBrand model.GoodsCategoryBrand
+	categoryBrand.CategoryID = request.CategoryId
+	categoryBrand.BrandsID = request.BrandId
 	return response, nil
 }
