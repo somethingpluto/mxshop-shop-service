@@ -25,8 +25,10 @@ type FilePathConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name      string      `mapstructure:"name" json:"name"`
-	MySqlInfo MySqlConfig `mapstructure:"mysql_config" json:"mysql_config"`
+	Name       string       `mapstructure:"name" json:"name"`
+	Mode       string       `json:"mode"`
+	MySqlInfo  MySqlConfig  `mapstructure:"mysql_config" json:"mysql_config"`
+	ConsulInfo ConsulConfig `json:"consul_config"`
 }
 
 // MySqlConfig
@@ -38,4 +40,9 @@ type MySqlConfig struct {
 	User     string `mapstructure:"user" json:"user"`
 	Password string `mapstructure:"password" json:"password"`
 	Name     string `mapstructure:"name" json:"name"`
+}
+
+type ConsulConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
 }
