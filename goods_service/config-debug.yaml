@@ -1,6 +1,6 @@
-host: "192.168.137.128"
+host: "120.25.255.207"
 port: 8848
-namespace: "253e4ac2-ce73-47e2-9c2f-abfa80611169"
+namespace: "3b6052eb-03ae-4d18-83b2-2e9049c4a6c0"
 user: 'nacos'
 password: 'chx200205173214'
 dataid: 'goods_config.json'

@@ -1,10 +1,15 @@
 {
   "name": "goods_service",
+  "mode": "release",
   "mysql_config": {
     "host": "120.25.255.207",
     "port": 3306,
     "user": "root",
     "password": "chx200205173214",
     "name": "mxshop_goods_service"
+  },
+  "consul_config":{
+    "host": "127.0.0.1",
+    "port:": 8500
   }
 }

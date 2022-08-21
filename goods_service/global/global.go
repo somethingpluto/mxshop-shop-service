@@ -11,7 +11,7 @@ var (
 	FilePath      *config.FilePathConfig
 	ServiceConfig *config.ServiceConfig
 	NacosConfig   *config.NacosConfig
-	FreePort      *int
+	FreePort      int
 	Client        *api.Client
 	ServiceID     string
 )

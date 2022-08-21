@@ -54,7 +54,6 @@ func main() {
 		}
 	}()
 
-	// TODO:注册服务失败报错
 	quit := make(chan os.Signal)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit

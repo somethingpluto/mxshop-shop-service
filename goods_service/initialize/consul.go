@@ -11,8 +11,8 @@ import (
 func InitRegisterService() {
 	var err error
 	cfg := api.DefaultConfig()
-	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
-
+	//cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
+	cfg.Address = "127.0.0.1:8500"
 	global.Client, err = api.NewClient(cfg)
 	if err != nil {
 		zap.S().Errorw("服务注册 NewClient失败", "err", err.Error())
@@ -20,7 +20,7 @@ func InitRegisterService() {
 	}
 	// 生成检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", *global.FreePort),
+		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", global.FreePort),
 		GRPCUseTLS:                     false,
 		Timeout:                        "5s",
 		Interval:                       "30s",
@@ -37,7 +37,7 @@ func InitRegisterService() {
 	serviceID := v4.String()
 	global.ServiceID = serviceID
 	registration.ID = serviceID
-	registration.Port = *global.FreePort
+	registration.Port = global.FreePort
 	registration.Tags = []string{"goods", "service"}
 	registration.Address = "127.0.0.1"
 	registration.Check = check

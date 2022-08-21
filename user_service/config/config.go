@@ -4,8 +4,8 @@ package config
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name        string        `mapstructure:"name"`
-	MysqlInfo   MysqlConfig   `mapstructure:"mysql_config"`
+	Name        string        `mapstructure:"name" json:"name"`
+	MysqlInfo   MysqlConfig   `mapstructure:"mysql_config" json:"mysqlInfo"`
 	ConsulInfo  ConsulConfig  `mapstructure:"consul_config"`
 	RuntimeInfo RunTimeConfig `mapstructure:"runtime_config"`
 }

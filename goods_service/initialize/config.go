@@ -24,14 +24,12 @@ func InitConfig() {
 	v.SetConfigFile(configFileName)
 	err := v.ReadInConfig()
 	if err != nil {
-		zap.S().Errorw("viper 读取配置文件失败", "err", err.Error())
-		return
+		panic(err)
 	}
 	global.NacosConfig = &config.NacosConfig{}
 	err = v.Unmarshal(global.NacosConfig)
 	if err != nil {
-		zap.S().Errorw("配置文件 解析到global.serviceConfig失败", "err", err.Error())
-		return
+		panic(err)
 	}
 	zap.S().Infof("%#v", global.NacosConfig)
 	// 连接nacos
@@ -57,8 +55,7 @@ func InitConfig() {
 		"clientConfig":  cConfig,
 	})
 	if err != nil {
-		zap.S().Errorw("客户端连接失败", "err", err.Error())
-		return
+		panic(err)
 	}
 	content, err := client.GetConfig(vo.ConfigParam{
 		DataId: global.NacosConfig.Dataid,
@@ -68,11 +65,12 @@ func InitConfig() {
 		zap.S().Errorw("client.GetConfig读取文件失败", "err", err.Error())
 		return
 	}
+	//TODO: 解析后 global.ServiceConfig中consul port为 0
 	global.ServiceConfig = &config.ServiceConfig{}
 	err = json.Unmarshal([]byte(content), global.ServiceConfig)
+	fmt.Printf("%v", global.ServiceConfig.ConsulInfo)
 	if err != nil {
-		zap.S().Errorw("读取的配置content解析到global.serviceConfig失败", "err", err.Error())
-		return
+		panic(err)
 	}
-	zap.S().Infof("nacos配置拉取成功 %#v", global.ServiceConfig)
+	fmt.Println("nacos配置拉取成功")
 }

@@ -9,9 +9,9 @@ import (
 
 func main() {
 	test.InitRPCConnect()
-	//TestGoodsList()
+	TestGoodsList()
 	//TestBatchGetGoods()
-	TestGetGoodsDetail()
+	//TestGetGoodsDetail()
 }
 
 func TestGoodsList() {
