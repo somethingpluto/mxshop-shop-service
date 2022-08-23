@@ -25,10 +25,14 @@ func (Category) TableName() string {
 // Brands
 // @Description: 品牌表结构
 //
-type Brands struct {
+type Brand struct {
 	BaseModel
 	Name string `gorm:"type:varchar(50);not null"`
 	Logo string `gorm:"type:varchar(200);default:'';not null"`
+}
+
+func (Brand) TableName() string {
+	return "brands"
 }
 
 // GoodsCategoryBrand
@@ -39,8 +43,8 @@ type GoodsCategoryBrand struct {
 	CategoryID int32 `gorm:"type:int;index:idx_category_brand,unique"`
 	Category   Category
 
-	BrandsID int32 `gorm:"type:int;index:idx_category_brand,unique"`
-	Brands   Brands
+	BrandID int32 `gorm:"type:int;index:idx_category_brand,unique"`
+	Brand   Brand
 }
 
 // TableName
@@ -79,8 +83,8 @@ type Goods struct {
 
 	CategoryID int32 `gorm:"type:int;not null"`
 	Category   Category
-	BrandsID   int32 `gorm:"type:int;not null"`
-	Brands     Brands
+	BrandID    int32 `gorm:"type:int;not null;column:brand_id"`
+	Brand      Brand
 
 	OnSale   bool `gorm:"default:false;not null"`
 	ShipFree bool `gorm:"default:false;not null"`
@@ -98,4 +102,5 @@ type Goods struct {
 	Images          GormList `gorm:"type:varchar(1000);not null"`
 	DescImages      GormList `gorm:"not null"`
 	GoodsFrontImage string   `gorm:"type:varchar(200);not null"`
+	Stocks          int32    `gorm:"type:int;default:0;not null;column:stocks"`
 }

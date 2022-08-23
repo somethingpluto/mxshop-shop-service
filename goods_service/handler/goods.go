@@ -3,11 +3,12 @@ package handler
 import (
 	"context"
 	"fmt"
-	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
 	"goods_service/util"
+
+	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -41,9 +42,9 @@ func ModelToResponse(goods model.Goods) proto.GoodsInfoResponse {
 			Name: goods.Category.Name,
 		},
 		Brand: &proto.BrandInfoResponse{
-			Id:   goods.Brands.ID,
-			Name: goods.Brands.Name,
-			Logo: goods.Brands.Logo,
+			Id:   goods.Brand.ID,
+			Name: goods.Brand.Name,
+			Logo: goods.Brand.Logo,
 		},
 	}
 }
@@ -149,18 +150,20 @@ func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGood
 func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infof("CreateGoods request:%v", request)
 	var category model.Category
-	result := global.DB.First(&category, request.CategoryId)
-	if result.RowsAffected == 0 {
+	if result := global.DB.First(&category, request.CategoryId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
 	}
-	var brand model.Brands
-	result = global.DB.First(&brand, request.BrandId)
-	if result.RowsAffected == 0 {
-		return nil, status.Errorf(codes.InvalidArgument, "品牌分类不存在")
+
+	var brand model.Brand
+	if result := global.DB.First(&brand, request.BrandId); result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
+	//先检查redis中是否有这个token
+	//防止同一个token的数据重复插入到数据库中，如果redis中没有这个token则放入redis
+	//这里没有看到图片文件是如何上传， 在微服务中 普通的文件上传已经不再使用
 	goods := model.Goods{
-		Brands:          brand,
-		BrandsID:        brand.ID,
+		Brand:           brand,
+		BrandID:         brand.ID,
 		Category:        category,
 		CategoryID:      category.ID,
 		Name:            request.Name,
@@ -175,8 +178,10 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 		IsNew:           request.IsNew,
 		IsHot:           request.IsHot,
 		OnSale:          request.OnSale,
+		Stocks:          request.Stocks,
 	}
-	global.DB.Create(&goods)
+	result := global.DB.Save(&goods)
+	fmt.Println(result.Error.Error())
 	response := ModelToResponse(goods)
 	return &response, nil
 }
@@ -220,12 +225,12 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
 	}
 
-	var brand model.Brands
+	var brand model.Brand
 	if result := global.DB.First(&brand, request.BrandId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
-	goods.Brands = brand
-	goods.BrandsID = brand.ID
+	goods.Brand = brand
+	goods.BrandID = brand.ID
 	goods.Category = category
 	goods.CategoryID = category.ID
 	goods.Name = request.Name

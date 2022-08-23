@@ -9,9 +9,12 @@ import (
 
 func main() {
 	test.InitRPCConnect()
-	TestGoodsList()
+	//TestGoodsList()
 	//TestBatchGetGoods()
 	//TestGetGoodsDetail()
+	//TestCreateGoods()
+	//TestDeleteGoods()
+	TestUpdateGoods()
 }
 
 func TestGoodsList() {
@@ -41,27 +44,51 @@ func TestBatchGetGoods() {
 }
 
 func TestCreateGoods() {
-	test.GoodsClient.CreateGoods(context.Background(), &proto.CreateGoodsInfo{
-		GoodsSn:         "",
-		Stocks:          0,
-		MarketPrice:     0,
-		ShopPrice:       0,
-		GoodsBrief:      "",
-		GoodsDesc:       "",
+	response, err := test.GoodsClient.CreateGoods(context.Background(), &proto.CreateGoodsInfo{
+		GoodsSn:         "111",
+		Stocks:          1111,
+		MarketPrice:     1111,
+		ShopPrice:       1111,
+		GoodsBrief:      "111",
+		GoodsDesc:       "111",
 		ShipFree:        false,
-		Images:          nil,
-		DescImages:      nil,
-		GoodsFrontImage: "",
+		Images:          []string{"11111111"},
+		DescImages:      []string{"1111111"},
+		GoodsFrontImage: "111111",
 		IsNew:           false,
 		IsHot:           false,
 		OnSale:          false,
-		CategoryId:      0,
-		BrandId:         0,
+		CategoryId:      136851,
+		BrandId:         934,
 	})
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(response)
 }
 
 func TestGetGoodsDetail() {
 	response, err := test.GoodsClient.GetGoodsDetail(context.Background(), &proto.GoodsInfoRequest{Id: 421})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response)
+}
+
+func TestDeleteGoods() {
+	response, err := test.GoodsClient.DeleteGoods(context.Background(), &proto.DeleteGoodsInfo{Id: 847})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response.Success)
+}
+
+func TestUpdateGoods() {
+	response, err := test.GoodsClient.UpdateGoods(context.Background(), &proto.CreateGoodsInfo{
+		Id:   846,
+		Name: "更行好吧",
+	})
 	if err != nil {
 		panic(err)
 	}

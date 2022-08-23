@@ -22,13 +22,13 @@ import (
 func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
 	response := &proto.BrandListResponse{}
 	// 数据库操作
-	var brands []model.Brands
+	var brands []model.Brand
 	result := global.DB.Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&brands)
 	if result.Error != nil {
 		return nil, result.Error
 	}
 	var total int64
-	global.DB.Model(&model.Brands{}).Count(&total)
+	global.DB.Model(&model.Brand{}).Count(&total)
 	response.Total = int32(total)
 	var brandList []*proto.BrandInfoResponse
 	for _, brand := range brands {
@@ -53,17 +53,17 @@ func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRe
 //
 func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	response := &proto.BrandInfoResponse{}
-	result := global.DB.Where("name=?", request.Name).First(&model.Brands{})
+	result := global.DB.Where("name=?", request.Name).First(&model.Brand{})
 	if result.RowsAffected == 1 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌已存在")
 	}
-	brand := model.Brands{
+	brand := model.Brand{
 		Name: request.Name,
 		Logo: request.Logo,
 	}
 	zap.S().Infof("创建品牌 %#v", brand)
 	global.DB.Create(&brand)
-	var newBrand model.Brands
+	var newBrand model.Brand
 	global.DB.Where("name=?", request.Name).First(&newBrand)
 	response.Id = newBrand.ID
 	response.Name = newBrand.Name
@@ -82,7 +82,7 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
 
-	var brand model.Brands
+	var brand model.Brand
 	result := global.DB.Delete(&brand, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
@@ -102,7 +102,7 @@ func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandReques
 func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	response := &proto.BrandInfoResponse{}
 
-	var brand model.Brands
+	var brand model.Brand
 	result := global.DB.First(&brand, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")

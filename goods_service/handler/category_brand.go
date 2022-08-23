@@ -43,9 +43,9 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 				IsTab:          categoryBrand.Category.IsTab,
 			},
 			Brand: &proto.BrandInfoResponse{
-				Id:   categoryBrand.Brands.ID,
-				Name: categoryBrand.Brands.Name,
-				Logo: categoryBrand.Brands.Logo,
+				Id:   categoryBrand.Brand.ID,
+				Name: categoryBrand.Brand.Name,
+				Logo: categoryBrand.Brand.Logo,
 			},
 		})
 	}
@@ -81,9 +81,9 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 	var brandInfoResponse []*proto.BrandInfoResponse
 	for _, categoryBrand := range categoryBrands {
 		brandInfoResponse = append(brandInfoResponse, &proto.BrandInfoResponse{
-			Id:   categoryBrand.Brands.ID,
-			Name: categoryBrand.Brands.Name,
-			Logo: categoryBrand.Brands.Logo,
+			Id:   categoryBrand.Brand.ID,
+			Name: categoryBrand.Brand.Name,
+			Logo: categoryBrand.Brand.Logo,
 		})
 	}
 	response.Data = brandInfoResponse
@@ -108,7 +108,7 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
 	}
 
-	var brand model.Brands
+	var brand model.Brand
 	result = global.DB.First(&brand, request.BrandId)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
@@ -116,7 +116,7 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 
 	categoryBrand := model.GoodsCategoryBrand{
 		CategoryID: request.CategoryId,
-		BrandsID:   request.BrandId,
+		BrandID:    request.BrandId,
 	}
 	global.DB.Save(&categoryBrand)
 	response.Id = categoryBrand.ID
@@ -169,7 +169,7 @@ func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.Cat
 		return response, status.Errorf(codes.InvalidArgument, "分类不存在")
 	}
 
-	result = global.DB.Find(&model.Brands{}, request.BrandId)
+	result = global.DB.Find(&model.Brand{}, request.BrandId)
 	if result.RowsAffected == 0 {
 		response.Success = false
 		return response, status.Errorf(codes.InvalidArgument, "品牌不存在")
@@ -177,6 +177,6 @@ func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.Cat
 
 	var categoryBrand model.GoodsCategoryBrand
 	categoryBrand.CategoryID = request.CategoryId
-	categoryBrand.BrandsID = request.BrandId
+	categoryBrand.BrandID = request.BrandId
 	return response, nil
 }
