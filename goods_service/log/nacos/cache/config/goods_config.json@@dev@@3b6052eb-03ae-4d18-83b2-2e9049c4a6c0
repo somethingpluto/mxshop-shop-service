@@ -1,6 +1,6 @@
 {
   "name": "goods_service",
-  "mode": "debug",
+  "mode": "release",
   "mysql": {
     "host": "120.25.255.207",
     "port": 3306,

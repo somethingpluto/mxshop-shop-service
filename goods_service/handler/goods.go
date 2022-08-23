@@ -180,8 +180,7 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 		OnSale:          request.OnSale,
 		Stocks:          request.Stocks,
 	}
-	result := global.DB.Save(&goods)
-	fmt.Println(result.Error.Error())
+	global.DB.Create(&goods)
 	response := ModelToResponse(goods)
 	return &response, nil
 }
