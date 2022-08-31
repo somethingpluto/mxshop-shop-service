@@ -31,7 +31,6 @@ func InitConfig() {
 	if err != nil {
 		panic(err)
 	}
-	zap.S().Infof("%#v", global.NacosConfig)
 	// 连接nacos
 	sConfig := []constant.ServerConfig{
 		{
@@ -65,10 +64,9 @@ func InitConfig() {
 		zap.S().Errorw("client.GetConfig读取文件失败", "err", err.Error())
 		return
 	}
-	//TODO: 解析后 global.ServiceConfig中consul port为 0
 	global.ServiceConfig = &config.ServiceConfig{}
 	err = json.Unmarshal([]byte(content), global.ServiceConfig)
-	fmt.Printf("%v", global.ServiceConfig.ConsulInfo)
+	fmt.Printf("%v\n", global.ServiceConfig.ConsulInfo)
 	if err != nil {
 		panic(err)
 	}

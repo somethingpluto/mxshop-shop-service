@@ -1,6 +1,5 @@
 {
   "name": "goods_service",
-  "mode": "release",
   "mysql": {
     "host": "120.25.255.207",
     "port": 3306,
@@ -10,6 +9,6 @@
   },
   "consul":{
     "host": "127.0.0.1",
-    "port:": 8500
+    "port": 8500
   }
 }

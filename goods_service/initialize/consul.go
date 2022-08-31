@@ -11,8 +11,7 @@ import (
 func InitRegisterService() {
 	var err error
 	cfg := api.DefaultConfig()
-	//cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
-	cfg.Address = "127.0.0.1:8500"
+	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
 	global.Client, err = api.NewClient(cfg)
 	if err != nil {
 		zap.S().Errorw("服务注册 NewClient失败", "err", err.Error())

@@ -130,7 +130,6 @@ func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCa
 func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
 	zap.S().Infof("UpdateCategory request:%v", request)
 	response := &proto.CategoryInfoResponse{}
-	// TODO: 外键查询错误 Cannot add or update a child row: a foreign key constraint fails (`mxshop_goods_service`.`category`, CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent_category_id`) REFERENCES `category` (`id`))
 	var category model.Category
 	result := global.DB.First(&category, request.Id)
 	if result.RowsAffected == 0 {
@@ -150,16 +149,9 @@ func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.Category
 	}
 	result = global.DB.Save(&category)
 
-	// 从数据库中再次获取
-	var newCategoryInfo model.Category
-	result = global.DB.First(&newCategoryInfo, request.Id)
-	if result.RowsAffected == 0 {
-		zap.S().Errorw("UpdateCategory 失败")
-		return nil, status.Errorf(codes.NotFound, "更新目录信息失败")
-	}
-	response.Id = newCategoryInfo.ID
-	response.Name = newCategoryInfo.Name
-	response.Level = newCategoryInfo.Level
-	response.IsTab = newCategoryInfo.IsTab
+	response.Id = category.ID
+	response.Name = category.Name
+	response.Level = category.Level
+	response.IsTab = category.IsTab
 	return response, nil
 }

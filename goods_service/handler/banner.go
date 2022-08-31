@@ -2,6 +2,8 @@ package handler
 
 import (
 	"context"
+	"fmt"
+	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
@@ -17,7 +19,7 @@ import (
 // @return *proto.BannerListResponse
 // @return error
 //
-func (g GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*proto.BannerListResponse, error) {
+func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*proto.BannerListResponse, error) {
 	response := &proto.BannerListResponse{}
 	var banners []model.Banner
 	result := global.DB.Find(&banners)
@@ -43,7 +45,8 @@ func (g GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*p
 // @return *proto.BannerResponse
 // @return error
 //
-func (g GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
+func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
+	fmt.Println("创建轮播图")
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner
@@ -51,22 +54,15 @@ func (g GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequ
 	banner.Index = request.Index
 	banner.Url = request.Url
 
-	global.DB.Create(&banner)
-
-	var insertBanner model.Banner
-	result := global.DB.Where(map[string]interface{}{
-		"image": request.Image,
-		"index": request.Index,
-		"url":   request.Url,
-	}).First(&insertBanner)
-	if result.RowsAffected == 0 {
-		return nil, status.Errorf(codes.NotFound, "创建轮播图失败")
+	result := global.DB.Create(&banner)
+	if result.Error != nil {
+		zap.S().Errorw("创建轮播图失败", "err", result.Error.Error())
+		return nil, result.Error
 	}
-
-	response.Id = insertBanner.ID
-	response.Image = insertBanner.Image
-	response.Index = insertBanner.Index
-	response.Url = insertBanner.Url
+	response.Id = banner.ID
+	response.Url = banner.Url
+	response.Image = banner.Image
+	response.Index = banner.Index
 	return response, nil
 }
 
@@ -78,7 +74,7 @@ func (g GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequ
 // @return *proto.OperationResult
 // @return error
 //
-func (g GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequest) (*proto.OperationResult, error) {
+func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequest) (*proto.OperationResult, error) {
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.Banner{}, request.Id)
@@ -98,7 +94,7 @@ func (g GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequ
 // @return *proto.BannerResponse
 // @return error
 //
-func (g GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
+func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner

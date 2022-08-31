@@ -11,9 +11,9 @@ import (
 func main() {
 	test.InitRPCConnect()
 	//TestBannerList()
-	//TestCreateBanner()
+	TestCreateBanner()
 	//TestDeleteBanner()
-	TestUpdateBanner()
+	//TestUpdateBanner()
 }
 
 // TestBannerList
@@ -52,8 +52,7 @@ func TestDeleteBanner() {
 
 func TestUpdateBanner() {
 	response, err := test.GoodsClient.UpdateBanner(context.Background(), &proto.BannerRequest{
-		Id:    6,
-		Index: 5,
+		Index: 6,
 		Image: "Test",
 		Url:   "Test",
 	})

@@ -115,5 +115,7 @@ func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandReques
 	}
 	global.DB.Save(&brand)
 	response.Id = brand.ID
+	response.Name = brand.Name
+	response.Logo = brand.Logo
 	return response, nil
 }

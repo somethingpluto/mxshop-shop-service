@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-	IP := flag.String("ip", "127.0.0.1", "ip地址")
-	Port := flag.Int("port", 8000, "port端口号")
+	IP := flag.String("ip", "127.0.0.1", "ip地址:服务启动ip地址")
+	Port := flag.Int("port", 8000, "port端口号: 服务启动端口号")
+	Mode := flag.String("mode", "debug", "mode启动模式:debug 本地调试/release 服务注册")
 	flag.Parse()
 	global.FreePort = *Port
 	// 初始化文件路径
@@ -23,11 +24,11 @@ func main() {
 	// 初始化数据库
 	initialize.InitDB()
 	server := grpc.NewServer()
-	if global.ServiceConfig.Mode == "debug" {
-		zap.S().Warnln("debug本地调试模式")
+	if *Mode == "debug" {
+		zap.S().Warnf("debug本地调试模式 \n")
 		mode.DebugMode(server, *IP)
-	} else if global.ServiceConfig.Mode == "release" {
-		zap.S().Warnln("online 服务注册模式")
+	} else if *Mode == "release" {
+		zap.S().Warnf("online 服务注册模式 \n")
 		mode.OnlineMode(server, *IP)
 	}
 }

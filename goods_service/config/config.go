@@ -26,7 +26,6 @@ type FilePathConfig struct {
 //
 type ServiceConfig struct {
 	Name       string       `mapstructure:"name" json:"name"`
-	Mode       string       `json:"mode"`
 	MySqlInfo  MySqlConfig  `mapstructure:"mysql_config" json:"mysql"`
 	ConsulInfo ConsulConfig `json:"consul"`
 }
