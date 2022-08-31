@@ -47,6 +47,7 @@ func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*
 //
 func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
 	fmt.Println("创建轮播图")
+	fmt.Println(request)
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner
@@ -111,7 +112,13 @@ func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerReq
 	if request.Index != 0 {
 		banner.Index = request.Index
 	}
-	global.DB.Save(&banner)
-
+	result = global.DB.Save(&banner)
+	if result.RowsAffected != 1 {
+		return nil, result.Error
+	}
+	response.Id = banner.ID
+	response.Index = banner.Index
+	response.Url = banner.Url
+	response.Image = banner.Image
 	return response, nil
 }

@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -87,14 +88,24 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 	zap.S().Infof("CreateCategory request:%v", request)
 	response := &proto.CategoryInfoResponse{}
 
-	cMap := map[string]interface{}{}
-	cMap["name"] = request.Name
-	cMap["level"] = request.Level
-	cMap["is_tab"] = request.IsTab
+	var category model.Category
+	category.Name = request.Name
 	if request.Level != 1 {
-		cMap["parent_category_id"] = request.ParentCategory
+		category.ParentCategoryID = request.ParentCategory
 	}
-	global.DB.Model(&model.Category{}).Create(cMap)
+	result := global.DB.Create(&category)
+	if result.RowsAffected == 0 {
+		fmt.Println(result.Error)
+		zap.S().Errorw("创建目录失败", "err", result.Error)
+		return nil, result.Error
+	}
+
+	response.Id = category.ID
+	response.IsTab = category.IsTab
+	response.Level = category.Level
+	response.Name = category.Name
+	response.ParentCategory = category.ParentCategoryID
+
 	return response, nil
 }
 
@@ -148,7 +159,11 @@ func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.Category
 		category.IsTab = request.IsTab
 	}
 	result = global.DB.Save(&category)
-
+	if result.Error != nil {
+		zap.S().Errorw("更新目录失败", "err", result.Error)
+		fmt.Println(result.Error)
+		return nil, result.Error
+	}
 	response.Id = category.ID
 	response.Name = category.Name
 	response.Level = category.Level

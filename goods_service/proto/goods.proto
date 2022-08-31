@@ -16,7 +16,8 @@ service Goods{
   rpc UpdateGoods(CreateGoodsInfo) returns(GoodsInfoResponse);
   // 6.获取商品详情
   rpc GetGoodsDetail(GoodsInfoRequest) returns(GoodsInfoResponse);
-
+  // 6.更新商品状态
+  rpc UpdateGoodsStatus(CreateGoodsInfo) returns(GoodsInfoResponse);
 
   // 目录接口
   // 1.获取所有分类

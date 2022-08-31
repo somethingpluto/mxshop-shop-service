@@ -18,7 +18,7 @@ import (
 // @param goods
 // @return proto.GoodsInfoResponse
 //
-func ModelToResponse(goods model.Goods) proto.GoodsInfoResponse {
+func ModelToResponse(goods *model.Goods) proto.GoodsInfoResponse {
 	return proto.GoodsInfoResponse{
 		Id:              goods.ID,
 		CategoryId:      goods.CategoryID,
@@ -109,7 +109,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 
 	var goodsListResponse []*proto.GoodsInfoResponse
 	for _, goods := range goodsList {
-		goodsResponse := ModelToResponse(goods)
+		goodsResponse := ModelToResponse(&goods)
 		goodsListResponse = append(goodsListResponse, &goodsResponse)
 	}
 	response.Data = goodsListResponse
@@ -131,7 +131,7 @@ func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGood
 	result := global.DB.Where(request.Id).Find(&goodsList)
 	var goodsListResponse []*proto.GoodsInfoResponse
 	for _, goods := range goodsList {
-		goodsInfoResponse := ModelToResponse(goods)
+		goodsInfoResponse := ModelToResponse(&goods)
 		goodsListResponse = append(goodsListResponse, &goodsInfoResponse)
 	}
 	response.Total = int32(result.RowsAffected)
@@ -181,7 +181,7 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 		Stocks:          request.Stocks,
 	}
 	global.DB.Create(&goods)
-	response := ModelToResponse(goods)
+	response := ModelToResponse(&goods)
 	return &response, nil
 }
 
@@ -245,7 +245,7 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 	goods.IsHot = request.IsHot
 	goods.OnSale = request.OnSale
 	global.DB.Save(&goods)
-	response := ModelToResponse(goods)
+	response := ModelToResponse(&goods)
 	return &response, nil
 }
 
@@ -264,6 +264,24 @@ func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInf
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
-	response := ModelToResponse(goods)
+	response := ModelToResponse(&goods)
+	return &response, nil
+}
+
+func (g GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
+	zap.S().Infof("UpdateGoodsStatus request:%v", request)
+	var goods model.Goods
+	result := global.DB.First(&goods, request.Id)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.NotFound, "商品不存在")
+	}
+	goods.IsHot = request.IsHot
+	goods.IsNew = request.IsNew
+	goods.OnSale = request.OnSale
+	result = global.DB.Save(&goods)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	response := ModelToResponse(&goods)
 	return &response, nil
 }
