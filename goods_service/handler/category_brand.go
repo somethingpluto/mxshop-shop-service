@@ -30,7 +30,7 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 	response.Total = int32(total)
 
 	// 连表分页查询
-	global.DB.Preload("Category").Preload("Brands").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
+	global.DB.Preload("Category").Preload("Brand").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
 
 	var categroyBrandsResponse []*proto.CategoryBrandResponse
 	for _, categoryBrand := range categoryBrands {

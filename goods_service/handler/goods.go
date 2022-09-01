@@ -101,18 +101,19 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 	var count int64
 	localDB.Count(&count)
 	response.Total = int32(count)
-
-	result := localDB.Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&goodsList)
+	result := localDB.Preload("Category").Preload("Brand").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&goodsList)
 	if result.Error != nil {
 		return nil, result.Error
 	}
 
 	var goodsListResponse []*proto.GoodsInfoResponse
 	for _, goods := range goodsList {
+		fmt.Println(goods.Brand)
 		goodsResponse := ModelToResponse(&goods)
 		goodsListResponse = append(goodsListResponse, &goodsResponse)
 	}
 	response.Data = goodsListResponse
+
 	return response, nil
 }
 
@@ -260,7 +261,7 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInfoRequest) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infof("GetGoodsDetail request:%v", request)
 	var goods model.Goods
-	result := global.DB.Preload("Category").Preload("Brands").First(&goods, request.Id)
+	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
@@ -271,7 +272,7 @@ func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInf
 func (g GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infof("UpdateGoodsStatus request:%v", request)
 	var goods model.Goods
-	result := global.DB.First(&goods, request.Id)
+	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
