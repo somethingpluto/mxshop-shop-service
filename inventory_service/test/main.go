@@ -20,21 +20,24 @@ func init() {
 }
 
 func main() {
-	//TestSetInv()
+	TestSetInv()
 	//TestInvDetail()
 	//TestSell()
-	TestReback()
+	//TestReback()
 }
 
 func TestSetInv() {
-	_, err := InventoryClient.SetInv(context.Background(), &proto.GoodsInvInfo{
-		GoodsId: 421,
-		Num:     100,
-	})
-	if err != nil {
-		panic(err)
+	for i := 421; i <= 840; i++ {
+		_, err := InventoryClient.SetInv(context.Background(), &proto.GoodsInvInfo{
+			GoodsId: int32(i),
+			Num:     100,
+		})
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("设置库存成功")
 	}
-	fmt.Println("设置库存成功")
+
 }
 func TestInvDetail() {
 	response, err := InventoryClient.InvDetail(context.Background(), &proto.GoodsInvInfo{
