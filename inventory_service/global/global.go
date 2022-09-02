@@ -1,6 +1,7 @@
 package global
 
 import (
+	"github.com/hashicorp/consul/api"
 	"gorm.io/gorm"
 	"inventory_service/config"
 )
@@ -10,4 +11,7 @@ var (
 	NacosConfig   *config.NacosConfig
 	ServiceConfig *config.ServiceConfig
 	DB            *gorm.DB
+	Client        *api.Client
+	FreePort      int
+	ServiceID     string
 )
