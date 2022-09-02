@@ -1,0 +1,14 @@
+{
+  "name": "inventory_service",
+  "mysql": {
+    "host": "120.25.255.207",
+    "port": 3306,
+    "user": "root",
+    "password": "chx200205173214",
+    "name": "mxshop_inventory_service"
+  },
+  "consul":{
+    "host": "127.0.0.1",
+    "port": 8500
+  }
+}

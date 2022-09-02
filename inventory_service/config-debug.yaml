@@ -1,0 +1,7 @@
+host: "120.25.255.207"
+port: 8848
+namespace: "88fd9788-d19f-4ba3-a752-afdc8e0358e1"
+user: 'nacos'
+password: 'chx200205173214'
+dataid: 'inventory_service.json'
+group: 'dev'
