@@ -4535,3 +4535,1490 @@
 
 2022/09/03 13:10:46 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
 [72.926ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=160,`version`=0 WHERE `id` = 1
+2022-09-03T13:15:40.202+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[35.185ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[70.121ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:15:40 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[68.311ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[33.997ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[69.143ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[34.359ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[69.105ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[41.850ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[34.751ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:15:40 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[68.507ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:15:41 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[68.288ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T13:15:41.005+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T13:15:41.005+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T13:15:41.005+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T13:15:41.005+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/03 13:15:49 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[231.436ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:49 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.105ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=150,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[79.413ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[77.351ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=140,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.478ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.677ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=130,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.093ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[77.547ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=120,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.194ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[78.438ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=110,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.213ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.028ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=100,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.507ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[77.718ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=90,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[86.972ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.358ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=80,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.321ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[82.748ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=70,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.264ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.414ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=60,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.098ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.232ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=50,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[84.078ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[76.589ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=40,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.671ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.566ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=30,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.091ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[85.764ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=20,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.201ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.146ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=10,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.205ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:15:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.807ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=0,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:15:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.180ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:15:56.743+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:15:57.007+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:15:57.636+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:22.191+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[37.889ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[74.311ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:25:22 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[74.234ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[36.929ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[74.118ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[36.616ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[74.447ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[45.014ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 13:25:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[36.715ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:25:23 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[78.196ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:25:23 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[73.737ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T13:25:23.074+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T13:25:23.074+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T13:25:23.074+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T13:25:23.075+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/03 13:25:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[238.061ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:50 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.672ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9990,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.104ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.453ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9980,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[75.458ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[70.450ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9970,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[80.614ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.149ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9960,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.568ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[74.014ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9950,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.561ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:51 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.156ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9940,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.066ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.490ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9930,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.654ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.414ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9920,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.445ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[86.668ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9910,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[65.615ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.945ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9900,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.583ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.240ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9890,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.406ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:52 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.470ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9880,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.922ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[74.081ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9870,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[67.693ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.515ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9860,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.799ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[70.046ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9850,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.531ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[64.787ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9840,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.438ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:53 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.088ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9830,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.985ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.204ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9820,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[66.358ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[66.465ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9810,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.479ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.981ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9800,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.666ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.212ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9790,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[66.583ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.166ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9780,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[66.531ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:54 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.790ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9770,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.495ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.858ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9760,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.097ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.343ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9750,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.524ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.677ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9740,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.234ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.455ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9730,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.471ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:55 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.292ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9720,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.965ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[74.224ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9710,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.086ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.176ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9700,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.107ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.171ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9690,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.868ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.419ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9680,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.258ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.421ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9670,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.679ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.827ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9660,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.517ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.572ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9650,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:57.195+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.233+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.241+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.255+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.933ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[70.647ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9640,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:57.387+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.412+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.434+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.470+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.739ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:25:57.497+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.500+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.523+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.524+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.534+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.551+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.459ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9630,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:57.566+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.573+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.574+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.584+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.592+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.592+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.604+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.620+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.486ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:25:57.698+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.740+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.746+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.754+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.874ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9620,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:57.770+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.772+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.789+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.790+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.794+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.796+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.814+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.820+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.821+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.401ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:25:57.879+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.890+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.909+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.940+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.945+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:57 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[78.107ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9610,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:57.968+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.987+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:57.989+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.012+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.013+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.030+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.037+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.039+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.048+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[67.409ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:25:58.071+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.084+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.127+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.685ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9600,`version`=0 WHERE `id` = 1
+2022-09-03T13:25:58.168+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.171+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.180+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:25:58.238+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.623ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.508ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9590,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[82.102ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:25:58.462+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[66.786ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9580,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.439ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:25:58 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[74.031ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9570,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:28.573+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 13:26:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[34.834ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:26:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[70.305ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:26:28 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[69.215ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 13:26:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[34.806ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[70.439ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[34.725ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[72.042ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[43.800ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[34.011ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:26:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[70.165ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:26:29 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[69.823ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T13:26:29.394+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T13:26:29.395+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T13:26:29.395+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T13:26:29.395+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[238.677ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[70.315ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9560,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[78.382ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.529ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9550,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.965ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.503ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9540,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[78.109ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.155ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9530,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.379ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.382ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9520,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.633ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.921ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9510,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.789ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.025ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9500,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.570ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[78.824ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9490,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.256ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.609ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9480,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.783ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.412ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9470,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.647ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.718ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9460,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.898ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.790ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9450,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[75.920ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[64.511ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9440,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[79.174ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.258ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9430,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.214ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.546ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9420,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.339ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.778ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9410,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[75.045ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.109ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9400,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.365ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.658ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9390,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.937ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.816ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9380,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[67.578ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.368ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9370,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.656ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[66.734ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9360,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.532ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.471ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9350,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[73.138ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[67.055ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9340,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[69.053ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[66.336ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9330,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[82.356ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[72.172ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9320,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.080ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[68.113ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9310,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[67.245ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[65.873ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9300,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.895ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.346ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9290,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.449ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.678ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9280,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[68.937ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[74.030ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9270,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[70.087ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[73.689ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9260,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[67.257ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[69.924ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9250,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.329ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[65.956ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9240,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[74.755ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.945ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9230,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[71.246ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[76.960ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9220,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:39.426+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.478+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.496+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.960ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[75.719ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9210,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:39.620+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.644+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.673+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[72.684ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:26:39.726+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.741+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.745+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.778+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.791+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.800+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[76.745ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9200,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:39.802+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.820+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.848+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.863+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.864+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.880+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.904+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.907+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.118ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:26:39.981+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.986+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:39.988+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.962ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9190,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:40.018+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.021+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.033+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.044+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.076+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.082+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.098+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.425ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:26:40.123+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.124+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.147+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.149+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.154+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.164+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[77.335ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9180,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:40.194+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.212+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.219+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.221+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.222+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.224+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.243+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.247+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.256+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.274+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.276+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.303+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[75.126ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-03T13:26:40.317+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.328+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.361+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.372+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.983ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9170,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:40.395+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.400+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.423+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.492+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[76.036ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[79.127ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9160,`version`=0 WHERE `id` = 1
+2022-09-03T13:26:40.691+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+2022-09-03T13:26:40.719+0800	ERROR	handler/inventory.go:54	redisync锁错误	{"goods_id": 421, "err": "redsync: failed to acquire lock"}
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:61
+[77.602ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:26:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:71
+[71.897ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9150,`version`=0 WHERE `id` = 1
+2022-09-03T13:29:18.858+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[35.992ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[72.819ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:29:19 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[72.325ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[35.911ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[72.550ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[36.638ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[74.117ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[43.978ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[36.012ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 13:29:19 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[72.701ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 13:29:19 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[72.099ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T13:29:19.707+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T13:29:19.707+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T13:29:19.707+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T13:29:19.707+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/03 13:29:25 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[212.421ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:25 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.602ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9140,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.343ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.178ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9130,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.037ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.140ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9120,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.296ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[64.954ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9110,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.645ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.425ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9100,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.567ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[79.691ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9090,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.009ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.621ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9080,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.216ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[67.364ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9070,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.673ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[74.357ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9060,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.891ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[66.054ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9050,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.346ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.998ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9040,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[85.175ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:27 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.362ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9030,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[65.671ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.010ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9020,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.988ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.008ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9010,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.385ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.368ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=9000,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.890ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[66.555ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8990,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.458ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[81.919ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8980,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:28 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[74.334ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.084ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8970,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.696ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.128ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8960,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[64.731ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.847ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8950,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.298ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.299ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8940,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[76.483ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.045ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8930,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[77.178ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:29 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[66.462ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8920,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.495ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.681ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8910,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.876ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.418ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8900,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.533ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.002ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8890,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.889ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.246ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8880,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[70.558ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.535ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8870,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.374ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.120ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8860,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.094ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[66.332ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8850,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.423ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.086ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8840,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.577ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.745ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8830,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.642ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.484ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8820,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.730ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:31 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.688ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8810,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.502ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.630ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8800,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.165ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.271ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8790,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.572ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[66.526ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8780,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.644ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[77.295ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8770,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.003ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[83.677ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8760,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:32 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.511ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.176ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8750,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[80.419ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.544ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8740,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[76.195ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.700ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8730,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.288ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.696ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8720,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[70.424ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.472ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8710,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[80.582ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:33 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.048ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8700,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.105ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.761ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8690,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.203ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.338ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8680,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.661ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.961ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8670,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.310ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.620ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8660,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.750ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:34 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[89.015ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8650,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.537ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.971ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8640,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.077ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.706ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8630,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.739ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[63.496ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8620,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.629ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.013ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8610,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.329ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.472ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8600,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:35 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.054ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.501ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8590,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.611ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.315ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8580,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.706ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.459ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8570,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[70.638ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[74.365ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8560,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.647ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.531ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8550,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.731ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:36 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[75.338ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8540,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.936ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.023ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8530,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.180ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.700ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8520,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.056ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.887ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8510,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.377ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[75.290ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8500,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.274ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.799ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8490,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[68.284ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.883ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8480,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[76.282ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[67.066ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8470,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[65.961ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[64.172ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8460,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.346ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.181ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8450,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.746ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.773ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8440,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.044ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.714ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8430,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.311ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.607ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8420,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[77.639ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.986ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8410,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.796ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.284ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8400,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.682ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[69.071ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8390,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.618ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:39 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[75.093ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8380,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.313ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[74.790ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8370,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[69.663ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[65.924ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8360,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[70.131ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.607ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8350,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[74.669ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[75.009ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8340,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.099ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.342ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8330,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:40 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.128ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.822ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8320,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.504ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[74.540ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8310,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.531ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.875ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8300,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[77.300ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.137ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8290,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.254ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:41 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.057ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8280,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.999ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.481ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8270,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.012ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[77.312ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8260,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[67.449ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.721ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8250,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[74.168ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.897ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8240,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[75.816ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:42 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[75.443ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8230,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.156ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[68.397ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8220,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.759ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.699ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8210,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[66.133ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[72.884ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8200,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[70.179ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.950ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8190,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[72.968ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[71.424ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8180,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[73.781ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[70.184ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8170,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.898ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[73.472ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8160,`version`=0 WHERE `id` = 1
+
+2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63
+[71.982ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[76.511ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8150,`version`=0 WHERE `id` = 1

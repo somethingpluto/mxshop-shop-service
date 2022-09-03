@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"fmt"
+	"github.com/go-redsync/redsync/v4"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -10,6 +11,7 @@ import (
 	"inventory_service/global"
 	"inventory_service/model"
 	"inventory_service/proto"
+	"time"
 )
 
 type InventoryService struct {
@@ -48,7 +50,7 @@ func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInv
 func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
 	tx := global.DB.Begin()
 	for _, goodInfo := range request.GoodsInfo {
-		mutex := global.Redsync.NewMutex(fmt.Sprintf("goods_%d", goodInfo.GoodsId))
+		mutex := global.Redsync.NewMutex(fmt.Sprintf("goods_%d", goodInfo.GoodsId), redsync.WithTries(100), redsync.WithExpiry(time.Second*20))
 		err := mutex.Lock()
 		if err != nil {
 			zap.S().Errorw("redisync锁错误", "goods_id", goodInfo.GoodsId, "err", err)

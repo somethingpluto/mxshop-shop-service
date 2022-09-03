@@ -26,8 +26,8 @@ func main() {
 	//TestSell()
 	//TestReback()
 	var wg sync.WaitGroup
-	wg.Add(20)
-	for i := 0; i < 20; i++ {
+	wg.Add(100)
+	for i := 0; i < 100; i++ {
 		go TestSell(&wg)
 	}
 	wg.Wait()
