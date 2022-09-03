@@ -6,6 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"inventory_service/proto"
+	"sync"
 )
 
 var InventoryClient proto.InventoryClient
@@ -20,10 +21,16 @@ func init() {
 }
 
 func main() {
-	TestSetInv()
+	//TestSetInv()
 	//TestInvDetail()
 	//TestSell()
 	//TestReback()
+	var wg sync.WaitGroup
+	wg.Add(20)
+	for i := 0; i < 20; i++ {
+		go TestSell(&wg)
+	}
+	wg.Wait()
 }
 
 func TestSetInv() {
@@ -44,18 +51,18 @@ func TestInvDetail() {
 		GoodsId: 421,
 	})
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	fmt.Println(response)
 }
 
-func TestSell() {
-
+func TestSell(wg *sync.WaitGroup) {
+	defer wg.Done()
 	_, err := InventoryClient.Sell(context.Background(), &proto.SellInfo{
 		GoodsInfo: []*proto.GoodsInvInfo{{GoodsId: 421, Num: 10}},
 	})
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	fmt.Println("销售成功")
 }

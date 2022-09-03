@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"fmt"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -47,6 +48,13 @@ func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInv
 func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
 	tx := global.DB.Begin()
 	for _, goodInfo := range request.GoodsInfo {
+		mutex := global.Redsync.NewMutex(fmt.Sprintf("goods_%d", goodInfo.GoodsId))
+		err := mutex.Lock()
+		if err != nil {
+			zap.S().Errorw("redisync锁错误", "goods_id", goodInfo.GoodsId, "err", err)
+			return nil, status.Errorf(codes.Internal, "内部错误")
+		}
+
 		var inventory model.Inventory
 		result := global.DB.Where(&model.Inventory{
 			Goods: goodInfo.GoodsId,
@@ -62,6 +70,11 @@ func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*e
 		inventory.Stocks -= goodInfo.Num
 		result = tx.Save(&inventory)
 		if result.Error != nil {
+			return nil, status.Errorf(codes.Internal, "内部错误")
+		}
+		ok, err := mutex.Unlock()
+		if !ok || err != nil {
+			zap.S().Errorw("redisync解锁失败", "goods_id", goodInfo.GoodsId, "err", err.Error())
 			return nil, status.Errorf(codes.Internal, "内部错误")
 		}
 	}

@@ -10,3 +10,10 @@
 2022-09-02T14:38:41.021+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
 2022-09-02T14:43:41.900+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
 2022-09-02T14:55:25.286+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T12:54:41.692+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T12:55:26.252+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T13:05:02.850+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T13:07:22.138+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T13:08:56.690+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T13:10:29.484+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
+2022-09-03T13:15:40.124+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/inventory_service/log/nacos/cache>
