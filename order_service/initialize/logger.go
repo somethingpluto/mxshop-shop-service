@@ -5,8 +5,8 @@ import (
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"inventory_service/global"
 	"io"
+	"order_service/global"
 	"os"
 	"time"
 )

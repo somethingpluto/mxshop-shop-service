@@ -6,7 +6,7 @@ import (
 	"github.com/go-redsync/redsync/v4"
 	"github.com/go-redsync/redsync/v4/redis/goredis/v8"
 	"go.uber.org/zap"
-	"inventory_service/global"
+	"order_service/global"
 )
 
 func InitRedis() {

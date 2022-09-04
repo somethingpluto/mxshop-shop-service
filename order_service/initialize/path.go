@@ -2,8 +2,8 @@ package initialize
 
 import (
 	"fmt"
-	"inventory_service/config"
-	"inventory_service/global"
+	"order_service/config"
+	"order_service/global"
 	"path"
 	"runtime"
 )

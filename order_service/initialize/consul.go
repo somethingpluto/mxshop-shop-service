@@ -5,7 +5,7 @@ import (
 	"github.com/hashicorp/consul/api"
 	"github.com/nacos-group/nacos-sdk-go/inner/uuid"
 	"go.uber.org/zap"
-	"inventory_service/global"
+	"order_service/global"
 )
 
 func InitConsul() {

@@ -6,9 +6,9 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"inventory_service/global"
-	"inventory_service/model"
 	"log"
+	"order_service/global"
+	"order_service/model"
 	"time"
 )
 

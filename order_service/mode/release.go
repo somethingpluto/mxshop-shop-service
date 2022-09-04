@@ -6,11 +6,12 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
-	"inventory_service/global"
-	"inventory_service/handler"
-	"inventory_service/initialize"
-	"inventory_service/proto"
-	"inventory_service/util"
+	"order_service/global"
+	"order_service/handler"
+	"order_service/initialize"
+	"order_service/proto"
+	"order_service/util"
+
 	"net"
 	"os"
 	"os/signal"
@@ -25,7 +26,7 @@ func ReleaseMode(server *grpc.Server, ip string) {
 	}
 	global.FreePort = freePort
 	zap.S().Infof("获取 系统空闲端口 %d", global.FreePort)
-	proto.RegisterInventoryServer(server, &handler.InventoryService{})
+	proto.RegisterOrderServer(server, &handler.OrderService{})
 	listen, err := net.Listen("tcp", fmt.Sprintf("%s:%d", ip, global.FreePort))
 	if err != nil {
 		zap.S().Errorw("net.Listen错误", "err", err.Error())

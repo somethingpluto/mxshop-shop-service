@@ -4,8 +4,8 @@ import (
 	"flag"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
-	"inventory_service/initialize"
-	"inventory_service/mode"
+	"order_service/initialize"
+	"order_service/mode"
 )
 
 func main() {

@@ -8,8 +8,8 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
-	"inventory_service/config"
-	"inventory_service/global"
+	"order_service/config"
+	"order_service/global"
 )
 
 func InitConfig() {

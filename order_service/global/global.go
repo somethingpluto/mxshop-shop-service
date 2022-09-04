@@ -4,7 +4,7 @@ import (
 	"github.com/go-redsync/redsync/v4"
 	"github.com/hashicorp/consul/api"
 	"gorm.io/gorm"
-	"inventory_service/config"
+	"order_service/config"
 )
 
 var (
