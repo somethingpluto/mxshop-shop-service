@@ -1,0 +1,122 @@
+2022-09-05T14:13:55.730+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T14:13:55.848+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T14:13:55.850+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T14:13:55.850+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 14:14:08 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:75 Error 1146: Table 'mxshop_inventory_service.shoppingcart' doesn't exist
+[19.447ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:14:08 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:85 Error 1146: Table 'mxshop_inventory_service.shoppingcart' doesn't exist
+[58.418ms] [rows:0] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-05 14:14:08.718','2022-09-05 14:14:08.718',NULL,false,1,421,1,false)
+2022-09-05T14:14:08.758+0800	ERROR	handler/cartItem.go:87	CreateCartItem save failed	{"err": "Error 1146: Table 'mxshop_inventory_service.shoppingcart' doesn't exist"}
+2022-09-05T14:15:35.778+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T14:15:35.899+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T14:15:35.901+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T14:15:35.902+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 14:15:41 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:75 record not found
+[42.391ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:15:41 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:85
+[90.430ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-05 14:15:41.398','2022-09-05 14:15:41.398',NULL,false,1,421,1,false)
+
+2022/09/05 14:21:39 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.441ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/05 14:23:54 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:75
+[40.815ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:23:54 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:85
+[88.383ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:15:41.398',`update_time`='2022-09-05 14:23:54.629',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=101,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 1
+
+2022/09/05 14:24:09 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.864ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/05 14:27:32 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:105
+[40.968ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:27:32 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:113
+[82.445ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:15:41.398',`update_time`='2022-09-05 14:27:32.86',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=200,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 1
+
+2022/09/05 14:31:03 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:131
+[86.836ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-05 14:31:03.576' WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/05 14:31:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:75 record not found
+[41.377ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:31:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:85
+[94.209ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-05 14:31:26.268','2022-09-05 14:31:26.268',NULL,false,1,421,200,false)
+2022-09-05T14:43:16.760+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T14:43:16.878+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T14:43:16.879+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T14:43:16.879+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-05T14:43:24.046+0800	WARN	handler/order.go:21	[OrderList] 获取订单总数失败
+2022-09-05T14:44:34.003+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T14:44:34.124+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T14:44:34.126+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T14:44:34.127+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 14:44:40 D:/C_Back/Go/Shop_service/order_service/handler/order.go:21
+[19.320ms] [rows:0] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-05T14:44:40.101+0800	WARN	handler/order.go:23	[orderList] 订单分页查询失败
+
+2022/09/05 14:48:53 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.404ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/05 14:49:11 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:105
+[39.831ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:49:11 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:113
+[96.708ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:31:26.268',`update_time`='2022-09-05 14:49:11.404',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=200,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 2
+
+2022/09/05 14:49:11 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.760ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-05T14:50:20.576+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T14:50:20.717+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T14:50:20.718+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T14:50:20.719+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 14:50:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:105
+[40.809ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 14:50:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:113
+[84.957ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:31:26.268',`update_time`='2022-09-05 14:50:26.031',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=200,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 2
+
+2022/09/05 14:50:26 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.872ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-05T14:50:26.137+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: address consul://127.0.0.1:8500/{goods_service}: too many colons in address\""}
+2022-09-05T15:16:28.935+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T15:16:29.051+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T15:16:29.052+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T15:16:29.052+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 15:16:33 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:105
+[39.638ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 15:16:33 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:113
+[86.125ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:31:26.268',`update_time`='2022-09-05 15:16:33.688',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=200,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 2
+
+2022/09/05 15:16:33 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.866ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-05T15:16:33.799+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: address consul://127.0.0.1:8500/{goods_service}: too many colons in address\""}
+2022-09-05T15:17:12.421+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-05T15:17:12.540+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-05T15:17:12.542+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-05T15:17:12.542+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/05 15:17:17 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:105
+[41.369ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/05 15:17:17 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:113
+[86.203ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-05 14:31:26.268',`update_time`='2022-09-05 15:17:17.805',`deleted_at`=NULL,`is_deleted`=false,`user`=1,`goods`=421,`nums`=200,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 2
+
+2022/09/05 15:17:17 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[38.676ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-05T15:17:17.913+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: lookup tcp/8500/{goods_service}: getaddrinfow: The specified class was not found.\""}

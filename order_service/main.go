@@ -17,7 +17,7 @@ func main() {
 	initialize.InitConfig()
 	initialize.InitLogger()
 	initialize.InitDB()
-	initialize.InitRedis()
+	initialize.InitOtherService()
 	server := grpc.NewServer()
 	if *Mode == "debug" {
 		zap.S().Warnf("debug本地调试模式 \n")

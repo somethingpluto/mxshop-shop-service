@@ -42,6 +42,7 @@ func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo
 	response := &proto.CartItemListResponse{}
 
 	var shopCarts []model.ShoppingCart
+	// 根据UserId 查询购物车
 	result := global.DB.Where(&model.ShoppingCart{User: request.Id}).Find(&shopCarts)
 	if result.Error != nil {
 		zap.S().Errorw("CartItemList failed", "err", result.Error)

@@ -1,0 +1,309 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option go_package = ".;proto";
+
+service Goods{
+  // 商品接口
+  // 1.获取商品列表
+  rpc GoodsList(GoodsFilterRequest) returns(GoodsListResponse);
+  // 2.批量查询用户信息
+  rpc BatchGetGoods(BatchGoodsIdInfo) returns(GoodsListResponse);
+  // 3.创建商品
+  rpc CreateGoods(CreateGoodsInfo) returns(GoodsInfoResponse);
+  // 4.删除商品
+  rpc DeleteGoods(DeleteGoodsInfo) returns (OperationResult);
+  // 5.更新商品
+  rpc UpdateGoods(CreateGoodsInfo) returns(GoodsInfoResponse);
+  // 6.获取商品详情
+  rpc GetGoodsDetail(GoodsInfoRequest) returns(GoodsInfoResponse);
+  // 6.更新商品状态
+  rpc UpdateGoodsStatus(CreateGoodsInfo) returns(GoodsInfoResponse);
+
+  // 目录接口
+  // 1.获取所有分类
+  rpc GetAllCategoriesList(google.protobuf.Empty) returns(CategoryListResponse);
+  // 2.获取子分类
+  rpc GetSubCategory(CategoryListRequest) returns(SubCategoryListResponse);
+  // 3.新建分类
+  rpc CreateCategory(CategoryInfoRequest) returns(CategoryInfoResponse);
+  // 4.删除分类
+  rpc DeleteCategory(DeleteCategoryRequest) returns(OperationResult);
+  // 5.更新分类
+  rpc UpdateCategory(CategoryInfoRequest) returns(CategoryInfoResponse);
+
+  // 品牌
+  // 1.获取品牌列表
+  rpc BrandList(BrandFilterRequest) returns(BrandListResponse);
+  // 2.新建品牌
+  rpc CreateBrand(BrandRequest) returns(BrandInfoResponse);
+  // 3.删除品牌
+  rpc DeleteBrand(BrandRequest) returns(OperationResult);
+  // 4.更新品牌
+  rpc UpdateBrand(BrandRequest) returns(BrandInfoResponse);
+
+  // 轮播图
+  // 1.获取轮播图
+  rpc BannerList(google.protobuf.Empty) returns(BannerListResponse);
+  // 2.新建轮播图
+  rpc CreateBanner(BannerRequest) returns(BannerResponse);
+  // 3.删除轮播图
+  rpc DeleteBanner(BannerRequest) returns(OperationResult);
+  // 4.更新轮播图
+  rpc UpdateBanner(BannerRequest) returns(BannerResponse);
+
+  // 品牌
+  // 1.获取品牌列表
+  rpc CategoryBrandList(CategoryBrandFilterRequest) returns(CategoryBrandListResponse);
+  // 2.获取目录下的品牌列表
+  rpc GetCategoryBrandList(CategoryInfoRequest) returns(BrandListResponse);
+  // 3.创建目录下的品牌
+  rpc CreateCategoryBrand(CategoryBrandRequest) returns(CategoryBrandResponse);
+  // 4.删除目录下的品牌
+  rpc DeleteCategoryBrand(CategoryBrandRequest) returns(OperationResult);
+  // 5.更新目录下的品牌
+  rpc UpdateCategoryBrand(CategoryBrandRequest) returns(OperationResult);
+}
+
+// 获取目录列表 请求
+message CategoryListRequest {
+  int32 id = 1;
+  int32 level = 2;
+}
+
+// 获取目录信息 请求
+message CategoryInfoRequest {
+  int32 id = 1;
+  string name = 2;
+  int32 parentCategory = 3;
+  int32 level = 4;
+  bool isTab = 5;
+}
+
+// 删除目录 请求
+message DeleteCategoryRequest {
+  int32 id = 1;
+}
+
+// 查询目录 请求
+message QueryCategoryRequest {
+  int32 id = 1;
+  string name = 2;
+}
+
+// 目录信息
+message CategoryInfoResponse {
+  int32 id = 1;
+  string name = 2;
+  int32 parentCategory = 3;
+  int32 level = 4;
+  bool isTab = 5;
+}
+
+// 目录列表 响应
+message CategoryListResponse {
+  int32 total = 1;
+  repeated CategoryInfoResponse data = 2;
+  string jsonData = 3;
+}
+
+// 二级目录列表 响应
+message SubCategoryListResponse {
+  int32 total = 1;
+  CategoryInfoResponse info = 2;
+  repeated CategoryInfoResponse subCategory = 3;
+}
+
+// 目录分页查询 请求
+message CategoryBrandFilterRequest  {
+  int32 pages = 1;
+  int32 pagePerNums = 2;
+}
+
+message FilterRequest  {
+  int32 pages = 1;
+  int32 pagePerNums = 2;
+}
+
+// 目录下平品牌信息查询 请求
+message CategoryBrandRequest{
+  int32 id = 1;
+  int32 categoryId = 2;
+  int32 brandId = 3;
+}
+
+// 目录下品牌信息 响应
+message CategoryBrandResponse{
+  int32 id = 1;
+  BrandInfoResponse brand = 2;
+  CategoryInfoResponse category = 3;
+}
+
+// -----------------------
+// 横幅
+
+// 获取横幅信息
+message BannerRequest {
+  int32 id = 1;
+  int32 index = 2;
+  string image = 3;
+  string url = 4;
+}
+
+// 横幅信息响应
+message BannerResponse {
+  int32 id = 1;
+  int32 index = 2;
+  string image = 3;
+  string url = 4;
+}
+
+// -------------------------
+// 品牌操作
+
+// 品牌分页查询
+message BrandFilterRequest {
+  int32 pages = 1;
+  int32 pagePerNums = 2;
+}
+
+// 获取品牌信息 查询
+message BrandRequest {
+  int32 id = 1;
+  string name = 2;
+  string logo = 3;
+}
+
+// 品牌信息 响应
+message BrandInfoResponse {
+  int32 id = 1;
+  string name = 2;
+  string logo = 3;
+}
+
+// 品牌列表响应
+message BrandListResponse {
+  int32 total = 1;
+  repeated BrandInfoResponse data = 2;
+}
+
+// 横幅列表
+message BannerListResponse {
+  int32 total = 1;
+  repeated BannerResponse data = 2;
+}
+
+// 目录下品牌信息
+message CategoryBrandListResponse {
+  int32 total = 1;
+  repeated CategoryBrandResponse data = 2;
+}
+
+
+// 通过id查询商品
+message BatchGoodsIdInfo {
+  repeated int32 id = 1;
+}
+
+// 删除商品
+message DeleteGoodsInfo {
+  int32 id = 1;
+}
+
+message CategoryBriefInfoResponse {
+  int32 id = 1;
+  string name = 2;
+}
+
+message CategoryFilterRequest {
+  int32 id = 1;
+  bool  isTab = 2;
+}
+
+message GoodsInfoRequest {
+  int32 id = 1;
+}
+
+// 创建商品
+message CreateGoodsInfo {
+  int32 id = 1;
+  string name = 2;
+  string goodsSn = 3;
+  int32 stocks = 7; //库存，
+  float marketPrice = 8;
+  float shopPrice = 9;
+  string goodsBrief = 10;
+  string goodsDesc = 11;
+  bool shipFree = 12;
+  repeated string images = 13;
+  repeated string descImages = 14;
+  string goodsFrontImage = 15;
+  bool isNew = 16;
+  bool isHot = 17;
+  bool onSale = 18;
+  int32 categoryId = 19;
+  int32 brandId = 20;
+}
+
+// 商品售出
+message GoodsReduceRequest {
+  int32 GoodsId = 1;
+  int32 nums = 2;
+}
+
+
+message BatchCategoryInfoRequest {
+  repeated int32 id = 1;
+  int32 goodsNums = 2;
+  int32 brandNums = 3;
+}
+
+// 商品查询条件
+message GoodsFilterRequest  {
+  int32 priceMin = 1;
+  int32 priceMax = 2;
+  bool  isHot = 3;
+  bool  isNew = 4;
+  bool  isTab = 5;
+  int32 topCategory = 6;
+  int32 pages = 7;
+  int32 pagePerNums = 8;
+  string keyWords = 9;
+  int32 brand = 10;
+}
+
+
+// 商品信息 响应
+message GoodsInfoResponse {
+  int32 id = 1;
+  int32 categoryId = 2;
+  string name = 3;
+  string goodsSn = 4;
+  int32 clickNum = 5;
+  int32 soldNum = 6;
+  int32 favNum = 7;
+  float marketPrice = 9;
+  float shopPrice = 10;
+  string goodsBrief = 11;
+  string goodsDesc = 12;
+  bool shipFree = 13;
+  repeated string images = 14;
+  repeated string descImages = 15;
+  string goodsFrontImage = 16;
+  bool isNew = 17;
+  bool isHot = 18;
+  bool onSale = 19;
+  int64 addTime = 20;
+  CategoryBriefInfoResponse category = 21;
+  BrandInfoResponse brand = 22;
+}
+
+// 商品列表 响应
+message GoodsListResponse {
+  int32 total = 1;
+  repeated GoodsInfoResponse data = 2;
+}
+
+// 操作结果
+message OperationResult{
+  bool success = 1;
+}

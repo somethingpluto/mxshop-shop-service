@@ -25,11 +25,13 @@ type NacosConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name   string       `json:"name"`
-	Mode   string       `json:"mode"`
-	Mysql  MysqlConfig  `json:"mysql"`
-	Consul ConsulConfig `json:"consul"`
-	Redis  RedisConfig  `json:"redis"`
+	Name             string                 `json:"name"`
+	Mode             string                 `json:"mode"`
+	Mysql            MysqlConfig            `json:"mysql"`
+	Consul           ConsulConfig           `json:"consul"`
+	Redis            RedisConfig            `json:"redis"`
+	GoodsService     GoodsServiceConfig     `json:"goods_service"`
+	InventoryService InventoryServiceConfig `json:"inventory_service"`
 }
 
 // MysqlConfig
@@ -59,4 +61,12 @@ type RedisConfig struct {
 	Port     int    `json:"port"`
 	Password string `json:"password"`
 	PoolSize int    `json:"poolSize"`
+}
+
+type GoodsServiceConfig struct {
+	Name string `json:"name"`
+}
+
+type InventoryServiceConfig struct {
+	Name string `json:"name"`
 }
