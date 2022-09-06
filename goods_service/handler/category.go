@@ -21,7 +21,8 @@ import (
 // @return err
 //
 func (g GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.Empty) (*proto.CategoryListResponse, error) {
-	zap.S().Infof("GetAllCategoriesList request:%v \n", request)
+	zap.S().Infow("service", serviceName, "method", "GetAllCategoriesList", "request", request)
+
 	response := &proto.CategoryListResponse{}
 
 	var categorys []model.Category
@@ -44,7 +45,8 @@ func (g GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.
 // @return err
 //
 func (g GoodsServer) GetSubCategory(ctx context.Context, request *proto.CategoryListRequest) (*proto.SubCategoryListResponse, error) {
-	zap.S().Infof("GetSubCategory request:%v \n", request)
+	zap.S().Infow("service", serviceName, "method", "GetSubCategory", "request", request)
+
 	response := &proto.SubCategoryListResponse{}
 
 	var category model.Category
@@ -85,7 +87,7 @@ func (g GoodsServer) GetSubCategory(ctx context.Context, request *proto.Category
 // @return error
 //
 func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
-	zap.S().Infof("CreateCategory request:%v", request)
+	zap.S().Infow("service", serviceName, "method", "CreateCategory", "request", request)
 	response := &proto.CategoryInfoResponse{}
 
 	var category model.Category
@@ -118,7 +120,7 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 // @return error
 //
 func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCategoryRequest) (*proto.OperationResult, error) {
-	zap.S().Infof("DeleteCategory request:%v", request)
+	zap.S().Infow("service", serviceName, "method", "DeleteCategory", "request", request)
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.Category{}, request.Id)
@@ -139,7 +141,7 @@ func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCa
 // @return error
 //
 func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
-	zap.S().Infof("UpdateCategory request:%v", request)
+	zap.S().Infow("service", serviceName, "method", "UpdateCategory", "request", request)
 	response := &proto.CategoryInfoResponse{}
 	var category model.Category
 	result := global.DB.First(&category, request.Id)

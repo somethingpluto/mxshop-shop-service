@@ -20,8 +20,9 @@ import (
 // @return error
 //
 func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
+	zap.S().Infow("service", serviceName, "method", "CategoryBrandList", "request", request)
+
 	response := &proto.CategoryBrandListResponse{}
-	zap.S().Infof("CategoryBrandList request:%v", request)
 
 	var categoryBrands []model.GoodsCategoryBrand
 	var total int64
@@ -62,9 +63,9 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 // @return error
 //
 func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
-	response := &proto.BrandListResponse{}
-	zap.S().Infof("GetCategoryBrandList request:%v", request)
-	// 查询该商品分类是否存在
+	zap.S().Infow("service", serviceName, "method", "GetCategoryBrandList", "request", request)
+
+	response := &proto.BrandListResponse{} // 查询该商品分类是否存在
 	var category model.Category
 	result := global.DB.Find(&category, request.Id).First(&category)
 	if result.RowsAffected == 0 {
@@ -99,8 +100,9 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 // @return error
 //
 func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.CategoryBrandResponse, error) {
+	zap.S().Infow("service", serviceName, "method", "CreateCategoryBrand", "request", request)
+
 	response := &proto.CategoryBrandResponse{}
-	zap.S().Infof("CreateCategoryBrand request:%v", request)
 
 	var category model.Category
 	result := global.DB.First(&category, request.CategoryId)
@@ -132,8 +134,9 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 // @return error
 //
 func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
+	zap.S().Infow("service", serviceName, "method", "DeleteCategoryBrand", "request", request)
+
 	response := &proto.OperationResult{}
-	zap.S().Infof("DeleteCategoryBrand request:%v", request)
 
 	result := global.DB.Delete(&model.GoodsCategoryBrand{}, request.Id)
 	if result.RowsAffected == 0 {
@@ -154,8 +157,9 @@ func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.Cat
 // @return error
 //
 func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
+	zap.S().Infow("service", serviceName, "method", "UpdateCategoryBrand", "request", request)
+
 	response := &proto.OperationResult{}
-	zap.S().Infof("UpdateCategoryBrand request:%v", request)
 
 	result := global.DB.First(&model.GoodsCategoryBrand{}, request.Id)
 	if result.RowsAffected == 0 {

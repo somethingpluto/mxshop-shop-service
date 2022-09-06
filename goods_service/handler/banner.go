@@ -2,7 +2,6 @@ package handler
 
 import (
 	"context"
-	"fmt"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -20,6 +19,7 @@ import (
 // @return error
 //
 func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*proto.BannerListResponse, error) {
+	zap.S().Infow("service", serviceName, "method", "BannerList", "request", request)
 	response := &proto.BannerListResponse{}
 	var banners []model.Banner
 	result := global.DB.Find(&banners)
@@ -46,8 +46,8 @@ func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*
 // @return error
 //
 func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
-	fmt.Println("创建轮播图")
-	fmt.Println(request)
+	zap.S().Infow("service", serviceName, "method", "CreateBanner", "request", request)
+
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner
@@ -76,6 +76,8 @@ func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerReq
 // @return error
 //
 func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequest) (*proto.OperationResult, error) {
+	zap.S().Infow("service", serviceName, "method", "DeleteBanner", "request", request)
+
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.Banner{}, request.Id)
@@ -96,6 +98,8 @@ func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerReq
 // @return error
 //
 func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
+	zap.S().Infow("service", serviceName, "method", "UpdateBanner", "request", request)
+
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner

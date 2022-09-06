@@ -8,3 +8,5 @@ import "goods_service/proto"
 type GoodsServer struct {
 	proto.UnimplementedGoodsServer
 }
+
+var serviceName = "【Goods_Service】"
