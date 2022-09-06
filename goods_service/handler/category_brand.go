@@ -20,7 +20,7 @@ import (
 // @return error
 //
 func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "CategoryBrandList", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "CategoryBrandList", "request", request)
 
 	response := &proto.CategoryBrandListResponse{}
 
@@ -63,7 +63,7 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 // @return error
 //
 func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "GetCategoryBrandList", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "GetCategoryBrandList", "request", request)
 
 	response := &proto.BrandListResponse{} // 查询该商品分类是否存在
 	var category model.Category
@@ -100,7 +100,7 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 // @return error
 //
 func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.CategoryBrandResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "CreateCategoryBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateCategoryBrand", "request", request)
 
 	response := &proto.CategoryBrandResponse{}
 
@@ -134,7 +134,7 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 // @return error
 //
 func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
-	zap.S().Infow("service", serviceName, "method", "DeleteCategoryBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "DeleteCategoryBrand", "request", request)
 
 	response := &proto.OperationResult{}
 
@@ -157,7 +157,7 @@ func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.Cat
 // @return error
 //
 func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
-	zap.S().Infow("service", serviceName, "method", "UpdateCategoryBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateCategoryBrand", "request", request)
 
 	response := &proto.OperationResult{}
 

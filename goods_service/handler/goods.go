@@ -58,7 +58,7 @@ func ModelToResponse(goods *model.Goods) proto.GoodsInfoResponse {
 // @return err
 //
 func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "GoodsList", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "GoodsList", "request", request)
 
 	response := &proto.GoodsListResponse{}
 	var goodsList []model.Goods
@@ -127,7 +127,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 // @return err
 //
 func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGoodsIdInfo) (*proto.GoodsListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "BatchGetGoods", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "BatchGetGoods", "request", request)
 
 	response := &proto.GoodsListResponse{}
 	var goodsList []model.Goods
@@ -151,7 +151,7 @@ func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGood
 // @return err
 //
 func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "CreateGoods", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateGoods", "request", request)
 	var category model.Category
 	if result := global.DB.First(&category, request.CategoryId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
@@ -197,7 +197,7 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 // @return err
 //
 func (g GoodsServer) DeleteGoods(ctx context.Context, request *proto.DeleteGoodsInfo) (*proto.OperationResult, error) {
-	zap.S().Infow("service", serviceName, "method", "DeleteGoods", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "DeleteGoods", "request", request)
 
 	response := &proto.OperationResult{}
 	result := global.DB.Delete(&model.Goods{BaseModel: model.BaseModel{ID: request.Id}}, request.Id)
@@ -217,7 +217,7 @@ func (g GoodsServer) DeleteGoods(ctx context.Context, request *proto.DeleteGoods
 // @return err
 //
 func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "UpdateGoods", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateGoods", "request", request)
 
 	var goods model.Goods
 
@@ -264,7 +264,7 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 // @return err
 //
 func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInfoRequest) (*proto.GoodsInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "GetGoodsDetail", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "GetGoodsDetail", "request", request)
 
 	var goods model.Goods
 	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)
@@ -276,7 +276,7 @@ func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInf
 }
 
 func (g GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "UpdateGoodsStatus", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateGoodsStatus", "request", request)
 
 	var goods model.Goods
 	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)

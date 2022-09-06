@@ -20,7 +20,7 @@ import (
 // @return error
 //
 func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "BrandList", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "BrandList", "request", request)
 	response := &proto.BrandListResponse{}
 	// 数据库操作
 	var brands []model.Brand
@@ -53,7 +53,7 @@ func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRe
 // @return error
 //
 func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "CreateBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateBrand", "request", request)
 
 	response := &proto.BrandInfoResponse{}
 	result := global.DB.Where("name=?", request.Name).First(&model.Brand{})
@@ -83,7 +83,7 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 // @return error
 //
 func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
-	zap.S().Infow("service", serviceName, "method", "DeleteBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "DeleteBrand", "request", request)
 
 	response := &proto.OperationResult{}
 
@@ -105,7 +105,7 @@ func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandReques
 // @return error
 //
 func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "UpdateBrand", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateBrand", "request", request)
 
 	response := &proto.BrandInfoResponse{}
 

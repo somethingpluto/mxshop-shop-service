@@ -19,7 +19,7 @@ import (
 // @return error
 //
 func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*proto.BannerListResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "BannerList", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "BannerList", "request", request)
 	response := &proto.BannerListResponse{}
 	var banners []model.Banner
 	result := global.DB.Find(&banners)
@@ -46,7 +46,7 @@ func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*
 // @return error
 //
 func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "CreateBanner", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateBanner", "request", request)
 
 	response := &proto.BannerResponse{}
 
@@ -76,7 +76,7 @@ func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerReq
 // @return error
 //
 func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequest) (*proto.OperationResult, error) {
-	zap.S().Infow("service", serviceName, "method", "DeleteBanner", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "DeleteBanner", "request", request)
 
 	response := &proto.OperationResult{}
 
@@ -98,7 +98,7 @@ func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerReq
 // @return error
 //
 func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
-	zap.S().Infow("service", serviceName, "method", "UpdateBanner", "request", request)
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateBanner", "request", request)
 
 	response := &proto.BannerResponse{}
 
