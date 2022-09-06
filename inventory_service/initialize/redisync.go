@@ -11,7 +11,7 @@ import (
 
 func InitRedis() {
 	redisConfig := global.ServiceConfig.Redis
-	client := goredislib.NewClient(&goredislib.Options{Addr: fmt.Sprintf("%s:%d", redisConfig.Host, redisConfig.Port), Password: redisConfig.Password, PoolSize: 110})
+	client := goredislib.NewClient(&goredislib.Options{Addr: fmt.Sprintf("%s:%d", redisConfig.Host, redisConfig.Port), Password: redisConfig.Password, PoolSize: redisConfig.PoolSize})
 	pool := goredis.NewPool(client)
 	global.Redsync = redsync.New(pool)
 	zap.S().Infof("redsync初始化成功 \n")

@@ -6022,3 +6022,107 @@
 
 2022/09/03 13:29:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
 [76.511ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8150,`version`=0 WHERE `id` = 1
+2022-09-03T14:51:03.613+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 14:51:03 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[37.317ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:03 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[76.364ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:04 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[76.198ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[38.468ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[77.528ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[37.158ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[76.957ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[48.470ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[38.606ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:04 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[76.301ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:04 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[76.891ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T14:51:04.511+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T14:51:04.511+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T14:51:04.511+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T14:51:04.511+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-03T14:51:26.985+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.992+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.993+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.993+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.992+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.993+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.993+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.995+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.995+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.996+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.996+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:26.998+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:27.291+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:29.181+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:29.798+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+
+2022/09/03 14:51:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:63 SLOW SQL >= 1s
+[4157.278ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/03 14:51:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
+[83.403ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=8140,`version`=0 WHERE `id` = 1
+2022-09-03T14:51:37.459+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:37.459+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:38.905+0800	ERROR	handler/inventory.go:56	redisync锁错误	{"goods_id": 421, "err": "1 error occurred:\n\t* context deadline exceeded\n\n"}
+2022-09-03T14:51:45.329+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[36.637ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[71.969ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:45 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[72.059ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[35.051ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[71.891ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[35.686ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[72.646ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/03 14:51:45 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[45.719ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/03 14:51:46 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[34.968ms] [rows:-] SELECT DATABASE()
+
+2022/09/03 14:51:46 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[73.534ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/03 14:51:46 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[71.362ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-03T14:51:46.171+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-03T14:51:46.171+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-03T14:51:46.171+0800	WARN	inventory_service/main.go:23	debug本地调试模式 
+
+2022-09-03T14:51:46.171+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000

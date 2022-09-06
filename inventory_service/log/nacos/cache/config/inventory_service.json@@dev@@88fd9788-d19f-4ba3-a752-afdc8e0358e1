@@ -14,6 +14,7 @@
   "redis":{
     "host":"120.25.255.207",
     "port":6380,
-    "password":"chx200205173214"
+    "password":"chx200205173214",
+    "poolSize":300
   }
 }

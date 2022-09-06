@@ -14,11 +14,14 @@ import (
 	"time"
 )
 
+var serviceName = "【Inventory_Service】"
+
 type InventoryService struct {
 	proto.UnimplementedInventoryServer
 }
 
 func (i *InventoryService) SetInv(ctx context.Context, request *proto.GoodsInvInfo) (*empty.Empty, error) {
+	zap.S().Infow("service", serviceName, "method", "SetInv", "request", request)
 	var inventory model.Inventory
 	global.DB.Where(&model.Inventory{Goods: request.GoodsId}).First(&inventory)
 	inventory.Goods = request.GoodsId
@@ -28,6 +31,8 @@ func (i *InventoryService) SetInv(ctx context.Context, request *proto.GoodsInvIn
 }
 
 func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInvInfo) (*proto.GoodsInvInfo, error) {
+	zap.S().Infow("service", serviceName, "method", "InvDetail", "request", request)
+
 	response := &proto.GoodsInvInfo{}
 
 	var inventory model.Inventory
@@ -48,6 +53,8 @@ func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInv
 }
 
 func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
+	zap.S().Infow("service", serviceName, "method", "Sell", "request", request)
+
 	tx := global.DB.Begin()
 	for _, goodInfo := range request.GoodsInfo {
 		mutex := global.Redsync.NewMutex(fmt.Sprintf("goods_%d", goodInfo.GoodsId), redsync.WithTries(100), redsync.WithExpiry(time.Second*20))
@@ -85,6 +92,8 @@ func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*e
 }
 
 func (i *InventoryService) ReBack(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
+	zap.S().Infow("service", serviceName, "method", "ReBack", "request", request)
+
 	// 库存归还
 	// 1.订单超时归还
 	// 2.订单创建失败 归还之前扣减的归还
