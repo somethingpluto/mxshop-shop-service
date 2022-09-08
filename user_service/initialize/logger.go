@@ -12,17 +12,15 @@ import (
 )
 
 var dest io.Writer
+var logFileWriter io.Writer
 
 // InitLogger
-// @Description: 初始化日志
+// @Description: 初始化Logger
 //
-
-var lumberjackLogger *lumberjack.Logger
-
 func InitLogger() {
 	writeSyncer := getLogWriter()
 	encoder := getEncoder()
-	core := zapcore.NewCore(encoder, writeSyncer, zapcore.DebugLevel)
+	core := zapcore.NewCore(encoder, writeSyncer, zapcore.InfoLevel)
 	logger := zap.New(core, zap.AddCaller())
 	zap.ReplaceGlobals(logger)
 	zap.S().Infow("日志初始化成功")
@@ -36,13 +34,13 @@ func getEncoder() zapcore.Encoder {
 }
 
 func getLogWriter() zapcore.WriteSyncer {
-	lumberjackLogger = &lumberjack.Logger{
+	logFileWriter = &lumberjack.Logger{
 		Filename:   createLogFileName(),
 		MaxSize:    1,
 		MaxAge:     5,
 		MaxBackups: 30,
 	}
-	dest = io.MultiWriter(lumberjackLogger, os.Stdout)
+	dest = io.MultiWriter(logFileWriter, os.Stdout)
 	return zapcore.AddSync(dest)
 }
 

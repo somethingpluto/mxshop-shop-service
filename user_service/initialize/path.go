@@ -8,19 +8,23 @@ import (
 	"user_service/global"
 )
 
+// InitFileAbsPath
+// @Description: 初始化文件路径
+//
 func InitFileAbsPath() {
-	basePath := getCurrentAbsolutePath()
+	basePath := getCurrentAbsplutePath()
 	global.FilePath = &config.FilePathConfig{
 		ConfigFile: basePath + "/config-debug.yaml",
 		LogFile:    basePath + "/log",
 	}
-	fmt.Println(global.FilePath)
+	fmt.Println("文件路径初始化成功", basePath)
 }
-func getCurrentAbsolutePath() string {
+
+func getCurrentAbsplutePath() string {
 	var abPath string
-	_, filename, _, ok := runtime.Caller(2)
+	_, fileName, _, ok := runtime.Caller(2)
 	if ok {
-		abPath = path.Dir(filename)
+		abPath = path.Dir(fileName)
 	}
 	return abPath
 }

@@ -1,15 +1,7 @@
-name: "user-service"
-
-mysql_config:
-  host: "120.25.255.207"
-  port: 3306
-  name: "mxshop_user_service"
-  user: "root"
-  password: "chx200205173214"
-
-consul_config:
-  host: "127.0.0.1"
-  port: 8500
-
-runtime_config:
-  mode: "release"
+host: "120.25.255.207"
+port: 8848
+namespace: "24fac59d-3774-4e8b-a28c-ecdca9833413"
+user: 'nacos'
+password: 'chx200205173214'
+dataid: 'user_service.json'
+group: 'dev'

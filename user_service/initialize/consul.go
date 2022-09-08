@@ -8,7 +8,10 @@ import (
 	"user_service/global"
 )
 
-func InitRegisterService() {
+// InitConsul
+// @Description: 初始化consul 服务注册连接
+//
+func InitConsul() {
 	var err error
 	cfg := api.DefaultConfig()
 	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
@@ -20,7 +23,7 @@ func InitRegisterService() {
 	}
 	// 生成检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", *global.Port),
+		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", global.Port),
 		GRPCUseTLS:                     false,
 		Timeout:                        "5s",
 		Interval:                       "5s",
@@ -33,7 +36,7 @@ func InitRegisterService() {
 	fmt.Println(serviceID)
 	global.ServiceID = serviceID
 	registration.ID = serviceID
-	registration.Port = *global.Port
+	registration.Port = global.Port
 	registration.Tags = []string{"user", "service"}
 	registration.Address = "127.0.0.1"
 	registration.Check = check

@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"fmt"
+	"go.uber.org/zap"
 	"time"
 	"user_service/global"
 	"user_service/model"
@@ -12,6 +13,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
+
+var serviceName = "【User_Service】"
 
 type UserService struct{}
 
@@ -24,6 +27,7 @@ type UserService struct{}
 // @return error
 //
 func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.PageInfoRequest) (*proto.UserListResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "GetUserList", "request", pageInfoRequest)
 	// 实例化 response
 	response := &proto.UserListResponse{}
 	// 获取总行数
@@ -47,7 +51,17 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 	return response, nil
 }
 
+// GetUserByMobile
+// @Description: 通过电话号码获取用户信息
+// @receiver s
+// @param ctx
+// @param mobileRequest
+// @return *proto.UserInfoResponse
+// @return error
+//
 func (s *UserService) GetUserByMobile(ctx context.Context, mobileRequest *proto.MobileRequest) (*proto.UserInfoResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "GetUserByMobile", "request", mobileRequest)
+
 	response := &proto.UserInfoResponse{}
 	var user model.User
 	mobile := mobileRequest.Mobile
@@ -60,7 +74,18 @@ func (s *UserService) GetUserByMobile(ctx context.Context, mobileRequest *proto.
 	return response, nil
 }
 
+// GetUserById
+// @Description: 通过ID获取用户信息
+// @receiver s
+// @param ctx
+// @param idRequest
+// @return *proto.UserInfoResponse
+// @return error
+//
 func (s *UserService) GetUserById(ctx context.Context, idRequest *proto.IdRequest) (*proto.UserInfoResponse, error) {
+
+	zap.S().Infow("Info", "service", serviceName, "method", "GetUserById", "request", idRequest)
+
 	response := &proto.UserInfoResponse{}
 
 	var user model.User
@@ -73,7 +98,17 @@ func (s *UserService) GetUserById(ctx context.Context, idRequest *proto.IdReques
 	return response, nil
 }
 
+// CreateUser
+// @Description: 创建用户
+// @receiver s
+// @param ctx
+// @param createUserInfoRequest
+// @return *proto.UserInfoResponse
+// @return error
+//
 func (s *UserService) CreateUser(ctx context.Context, createUserInfoRequest *proto.CreateUserInfoRequest) (*proto.UserInfoResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateUser", "request", createUserInfoRequest)
+
 	response := &proto.UserInfoResponse{}
 	mobile := createUserInfoRequest.Mobile
 
@@ -97,7 +132,17 @@ func (s *UserService) CreateUser(ctx context.Context, createUserInfoRequest *pro
 	return response, nil
 }
 
+// UpdateUser
+// @Description: 更新用户
+// @receiver s
+// @param ctx
+// @param UpdateUserInfoRequest
+// @return *proto.UpdateResponse
+// @return error
+//
 func (s UserService) UpdateUser(ctx context.Context, UpdateUserInfoRequest *proto.UpdateUserInfoRequest) (*proto.UpdateResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateUser", "request", UpdateUserInfoRequest)
+
 	response := &proto.UpdateResponse{}
 	var user model.User
 	result := global.DB.First(&user, UpdateUserInfoRequest.Id)
@@ -117,7 +162,17 @@ func (s UserService) UpdateUser(ctx context.Context, UpdateUserInfoRequest *prot
 	return response, nil
 }
 
+// CheckPassword
+// @Description: 检查用户密码
+// @receiver s
+// @param ctx
+// @param checkPasswordRequest
+// @return *proto.CheckPasswordResponse
+// @return error
+//
 func (s UserService) CheckPassword(ctx context.Context, checkPasswordRequest *proto.CheckPasswordRequest) (*proto.CheckPasswordResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "CheckPassword", "request", checkPasswordRequest)
+
 	response := &proto.CheckPasswordResponse{}
 	password := checkPasswordRequest.Password
 	EncryptedPassword := checkPasswordRequest.EncryptedPassword

@@ -8,9 +8,10 @@ import (
 
 var (
 	DB            *gorm.DB
-	ServiceConfig = &config.ServiceConfig{}
-	FilePath      = &config.FilePathConfig{}
-	Port          *int
+	ServiceConfig *config.ServiceConfig
+	FilePath      *config.FilePathConfig
+	NacosConfig   *config.NacosConfig
+	Port          int
 	Client        *api.Client
 	ServiceID     string
 )

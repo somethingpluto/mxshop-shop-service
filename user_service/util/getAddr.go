@@ -5,6 +5,11 @@ import (
 	"net"
 )
 
+// GetFreePort
+// @Description: 获取自由端口
+// @return int
+// @return error
+//
 func GetFreePort() (int, error) {
 	addr, err := net.ResolveTCPAddr("tcp", "localhost:0")
 	if err != nil {
