@@ -46,3 +46,45 @@
 2022/09/06 12:56:09 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:73
 [39.368ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=7940,`version`=0 WHERE `id` = 1
 2022-09-06T12:57:00.630+0800	ERROR	mode/release.go:46	global.Client.Agent().ServiceDeregister 失败	{"err": "Put \"http://127.0.0.1:8500/v1/agent/service/deregister/6a17f078-32c8-445a-bcc6-b5fd01c243b5\": dial tcp 127.0.0.1:8500: connectex: No connection could be made because the target machine actively refused it."}
+2022-09-06T13:19:53.124+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[21.979ms] [rows:-] SELECT DATABASE()
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[40.532ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/06 13:19:53 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[31.686ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[10.072ms] [rows:-] SELECT DATABASE()
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[41.460ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[10.332ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[31.615ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[26.345ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[23.004ms] [rows:-] SELECT DATABASE()
+
+2022/09/06 13:19:53 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[45.595ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/06 13:19:53 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[31.595ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-06T13:19:53.626+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-06T13:19:53.626+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-06T13:19:53.627+0800	WARN	inventory_service/main.go:26	release服务注册模式 
+
+2022-09-06T13:19:53.641+0800	INFO	mode/release.go:27	获取 系统空闲端口 52987
+2022-09-06T13:19:53.644+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 52987, "ID": "3d9817e2-41f2-4737-bc13-fc71340c8cfa"}
+2022-09-06T13:38:58.063+0800	ERROR	mode/release.go:46	global.Client.Agent().ServiceDeregister 失败	{"err": "Put \"http://127.0.0.1:8500/v1/agent/service/deregister/3d9817e2-41f2-4737-bc13-fc71340c8cfa\": dial tcp 127.0.0.1:8500: connectex: No connection could be made because the target machine actively refused it."}

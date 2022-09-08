@@ -9,10 +9,12 @@ import (
 )
 
 func main() {
+	// 命令行参数
 	IP := flag.String("ip", "127.0.0.1", "ip地址：服务启动ip地址")
 	Port := flag.Int("port", 8000, "port端口号：服务启动端口号")
 	Mode := flag.String("mode", "release", "mode启动模式：debug 本地调试/release 服务注册")
 	flag.Parse()
+
 	initialize.InitFileAbsPath()
 	initialize.InitConfig()
 	initialize.InitLogger()
