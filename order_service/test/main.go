@@ -20,12 +20,14 @@ func init() {
 }
 
 func main() {
-	//TestCreateCartItem(1, 200, 421)
-	//TestCartItemList(1)
-	TestUpdateCartItem(1, 421, true, 200)
-	//TestDeleteCartItem(1, 421)
-	//TestOrderList(1, 1, 10)
-	TestCreateOrder()
+	//TestCreateCartItem(1, 200, 421) success
+	TestCartItemList(1) // success
+	//TestUpdateCartItem(1, 421, true, 200) success
+	//TestDeleteCartItem(1, 421) success
+	//TestOrderList(1, 1, 10) success
+	//TestCreateOrder() success
+	//TestOrderList(1, 1, 10) success
+	//TestOrderDetail()
 }
 
 func TestCreateCartItem(userId int32, nums int32, goodsId int32) {
@@ -91,6 +93,17 @@ func TestCreateOrder() {
 		Name:    "pluto",
 		Mobile:  "1234567",
 		Post:    "支付宝",
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response)
+}
+
+func TestOrderDetail() {
+	response, err := OrderServiceClient.OrderDetail(context.Background(), &proto.OrderRequest{
+		Id:     1,
+		UserId: 1,
 	})
 	if err != nil {
 		panic(err)

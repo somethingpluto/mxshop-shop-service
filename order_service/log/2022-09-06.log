@@ -1,0 +1,126 @@
+2022-09-06T12:38:51.609+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:38:51.729+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:38:51.730+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:38:51.731+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:39:17 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.912ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:39:17.551+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: lookup tcp/8500/{goods_service}: getaddrinfow: The specified class was not found.\""}
+2022-09-06T12:43:54.932+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:43:55.054+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:43:55.055+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:43:55.056+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:44:02 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.320ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:44:02.748+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: lookup tcp/8500/{goods_service}: getaddrinfow: The specified class was not found.\""}
+2022-09-06T12:44:28.332+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:44:28.453+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:44:28.454+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:44:28.455+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:44:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[42.041ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:44:34.317+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: lookup tcp/8500/goods_service: getaddrinfow: The specified class was not found.\""}
+2022-09-06T12:49:12.551+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:49:12.679+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:49:12.681+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:49:12.681+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:49:25 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[41.440ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:49:25.957+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: address http://127.0.0.1:8500/goods_service: too many colons in address\""}
+2022-09-06T12:49:51.595+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:49:51.745+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:49:51.747+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:49:51.748+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:49:56 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[42.281ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:49:56.705+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: address http://v1/127.0.0.1:8500/goods_service: too many colons in address\""}
+2022-09-06T12:50:17.982+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:50:18.109+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:50:18.110+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:50:18.110+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:50:22 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[40.259ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:50:22.585+0800	ERROR	handler/order.go:107	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing dial tcp: address http://127.0.0.1:8500/v1/goods_service: too many colons in address\""}
+2022-09-06T12:53:02.893+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:53:03.014+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:53:03.015+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:53:03.016+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:53:11 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[39.030ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/06 12:53:21 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[41.325ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:53:31.387+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:53:31.511+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:53:31.511+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:53:31.512+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:53:36 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[43.148ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T12:56:02.386+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T12:56:02.503+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T12:56:02.505+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T12:56:02.505+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/09/06 12:56:08 D:/C_Back/Go/Shop_service/order_service/handler/order.go:95
+[38.840ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/06 12:56:09 D:/C_Back/Go/Shop_service/order_service/handler/order.go:141
+[39.839ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-09-06 12:56:09.203','2022-09-06 12:56:09.203',NULL,false,0,'2022961256203123500183','','','',8980.000000,NULL,'湖北省武汉市','pluto','1234567','支付宝')
+
+2022/09/06 12:56:09 D:/C_Back/Go/Shop_service/order_service/handler/order.go:153
+[38.227ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-06 12:56:09.243' WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T13:23:02.158+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T13:23:02.270+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T13:23:02.281+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T13:23:02.282+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-06T13:23:11.477+0800	ERROR	zap@v1.23.0/sugar.go:202	Ignored key without a value.	{"ignored": "userId:1  pages:1  pagePerNums:10"}
+2022-09-06T13:23:11.477+0800	INFO	handler/order.go:17	service	{"【Order_Service】": "method", "OrderList": "request"}
+
+2022/09/06 13:23:11 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[13.111ms] [rows:1] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-06T13:26:34.676+0800	ERROR	zap@v1.23.0/sugar.go:202	Ignored key without a value.	{"ignored": "id:1  userId:1"}
+2022-09-06T13:26:34.676+0800	INFO	handler/order.go:55	service	{"【Order_Service】": "method", "OrderDetail": "request"}
+
+2022/09/06 13:26:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:59 record not found
+[40.769ms] [rows:0] SELECT * FROM `orderinfo` WHERE `orderinfo`.`id` = 1 AND `orderinfo`.`user` = 1 AND `orderinfo`.`deleted_at` IS NULL ORDER BY `orderinfo`.`id` LIMIT 1
+2022-09-06T13:27:16.603+0800	ERROR	zap@v1.23.0/sugar.go:202	Ignored key without a value.	{"ignored": "id:1  userId:1"}
+2022-09-06T13:27:16.603+0800	INFO	handler/order.go:55	service	{"【Order_Service】": "method", "OrderDetail": "request"}
+
+2022/09/06 13:27:16 D:/C_Back/Go/Shop_service/order_service/handler/order.go:59 record not found
+[40.563ms] [rows:0] SELECT * FROM `orderinfo` WHERE `orderinfo`.`id` = 1 AND `orderinfo`.`user` = 1 AND `orderinfo`.`deleted_at` IS NULL ORDER BY `orderinfo`.`id` LIMIT 1
+2022-09-06T13:28:04.402+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T13:28:04.511+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T13:28:04.525+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T13:28:04.525+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-06T13:28:26.370+0800	INFO	handler/cartItem.go:42	--	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:1"}
+
+2022/09/06 13:28:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:47
+[40.581ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-06T14:38:26.839+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T14:38:26.962+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T14:38:26.963+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T14:38:26.964+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-06T14:39:05.081+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-06T14:39:05.215+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-06T14:39:05.216+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-06T14:39:05.217+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000

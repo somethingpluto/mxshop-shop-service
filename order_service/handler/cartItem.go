@@ -39,8 +39,8 @@ func GenerateOrderSn(userId int32) string {
 // @return error
 //
 func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo) (*proto.CartItemListResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "CartItemList", "request", request)
 	response := &proto.CartItemListResponse{}
-
 	var shopCarts []model.ShoppingCart
 	// 根据UserId 查询购物车
 	result := global.DB.Where(&model.ShoppingCart{User: request.Id}).Find(&shopCarts)
@@ -70,6 +70,7 @@ func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo
 // @return error
 //
 func (s OrderService) CreateCartItem(ctx context.Context, request *proto.CartItemRequest) (*proto.ShopCartInfoResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateCartItem", "request", request)
 	response := &proto.ShopCartInfoResponse{}
 	var shopCart model.ShoppingCart
 	result := global.DB.Where(&model.ShoppingCart{Goods: request.GoodsId, User: request.UserId}).First(&shopCart)
@@ -100,6 +101,7 @@ func (s OrderService) CreateCartItem(ctx context.Context, request *proto.CartIte
 // @return error
 //
 func (s OrderService) UpdateCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateCartItem", "request", request)
 	var shopCart model.ShoppingCart
 
 	result := global.DB.Where(&model.ShoppingCart{Goods: request.GoodsId, User: request.UserId}).First(&shopCart)
@@ -127,6 +129,8 @@ func (s OrderService) UpdateCartItem(ctx context.Context, request *proto.CartIte
 // @return error
 //
 func (s OrderService) DeleteCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "DeleteCartItem", "request", request)
+
 	var shopCart model.ShoppingCart
 	result := global.DB.Where(&model.ShoppingCart{User: request.UserId, Goods: request.GoodsId}).Delete(&shopCart)
 	if result.RowsAffected == 0 {

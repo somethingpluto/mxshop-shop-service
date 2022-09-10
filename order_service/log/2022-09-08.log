@@ -1,0 +1,7 @@
+2022-09-08T21:20:08.699+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-08T21:20:08.841+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-08T21:20:08.849+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-08T21:20:08.861+0800	INFO	mode/release.go:28	获取 系统空闲端口 52327
+2022-09-08T21:20:08.864+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 52327, "ID": "76b94ddb-7ea7-4320-9a18-987f09976d00"}
+2022-09-08T21:26:02.854+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "76b94ddb-7ea7-4320-9a18-987f09976d00"}

@@ -11,7 +11,10 @@ import (
 	"order_service/proto"
 )
 
+var serviceName = "【Order_Service】"
+
 func (s *OrderService) OrderList(ctx context.Context, request *proto.OrderFilterRequest) (*proto.OrderListResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "OrderList", "request", request)
 	response := &proto.OrderListResponse{}
 
 	var orders []model.OrderInfo
@@ -49,6 +52,7 @@ func (s *OrderService) OrderList(ctx context.Context, request *proto.OrderFilter
 // @return error
 //
 func (s *OrderService) OrderDetail(ctx context.Context, request *proto.OrderRequest) (*proto.OrderInfoDetailResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "OrderDetail", "request", request)
 	response := &proto.OrderInfoDetailResponse{}
 	var order model.OrderInfo
 
@@ -87,6 +91,8 @@ func (s *OrderService) OrderDetail(ctx context.Context, request *proto.OrderRequ
 }
 
 func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequest) (*proto.OrderInfoResponse, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "CreateOrder", "request", request)
+
 	response := &proto.OrderInfoResponse{}
 
 	var goodsId []int32
@@ -165,6 +171,8 @@ func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequ
 }
 
 func (s *OrderService) UpdateOrderStatus(ctx context.Context, request *proto.OrderStatus) (*emptypb.Empty, error) {
+	zap.S().Infow("Info", "service", serviceName, "method", "UpdateOrderStatus", "request", request)
+
 	result := global.DB.Model(&model.OrderInfo{}).Where(&model.OrderInfo{OrderSn: request.OrderSn}).Update("status", request.Status)
 	if result.RowsAffected == 0 || result.Error != nil {
 		return nil, status.Errorf(codes.Internal, "更新订单状态失败")

@@ -1,0 +1,63 @@
+2022-09-10T16:59:42.738+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-10T16:59:42.861+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-10T16:59:42.868+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-10T16:59:42.878+0800	INFO	mode/release.go:28	获取 系统空闲端口 51057
+2022-09-10T16:59:42.881+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 51057, "ID": "fe06c62f-43d9-4550-805d-f9eb40ef12f3"}
+
+2022/09/10 17:56:38 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.476ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 17:56:56 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.550ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 17:56:57 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.121ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 17:56:57 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.903ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 17:57:41 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.269ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 18:00:28 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.429ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/10 18:00:48 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[42.814ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-10T18:01:58.003+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "fe06c62f-43d9-4550-805d-f9eb40ef12f3"}
+2022-09-10T18:01:59.640+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-10T18:01:59.756+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-10T18:01:59.757+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-10T18:01:59.770+0800	INFO	mode/release.go:28	获取 系统空闲端口 53206
+2022-09-10T18:01:59.775+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53206, "ID": "9e5c3271-a9b8-47e8-adf9-564368570cd3"}
+
+2022/09/10 18:02:14 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.127ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-10T18:02:24.213+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "9e5c3271-a9b8-47e8-adf9-564368570cd3"}
+2022-09-10T18:03:18.915+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-10T18:03:19.031+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-10T18:03:19.033+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-10T18:03:19.045+0800	INFO	mode/release.go:28	获取 系统空闲端口 53263
+2022-09-10T18:03:19.048+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53263, "ID": "63829ec2-48a9-4c94-9f68-61f7c6b8202f"}
+2022-09-10T18:03:30.029+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/10 18:03:30 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[47.155ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-10T18:05:03.779+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "63829ec2-48a9-4c94-9f68-61f7c6b8202f"}
+2022-09-10T18:05:06.135+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-10T18:05:06.252+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-10T18:05:06.253+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-10T18:05:06.263+0800	INFO	mode/release.go:28	获取 系统空闲端口 53327
+2022-09-10T18:05:06.267+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53327, "ID": "980e7adf-a854-49c5-b4d1-205b4b97a728"}
+2022-09-10T18:05:08.040+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "980e7adf-a854-49c5-b4d1-205b4b97a728"}
+2022-09-10T18:05:13.039+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-10T18:05:13.161+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-10T18:05:13.163+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-10T18:05:13.179+0800	INFO	mode/release.go:28	获取 系统空闲端口 53338
+2022-09-10T18:05:13.182+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53338, "ID": "ef9366f8-9fc4-4db6-847f-70ec4745a375"}
+2022-09-10T18:05:23.940+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
