@@ -1,0 +1,84 @@
+2022-09-09T21:34:36.055+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[20.406ms] [rows:-] SELECT DATABASE()
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[42.840ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/09 21:34:36 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:37
+[40.967ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[20.203ms] [rows:-] SELECT DATABASE()
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[42.214ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[22.570ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[43.516ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[43.006ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[29.562ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[28.631ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[31.636ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[20.305ms] [rows:-] SELECT DATABASE()
+
+2022/09/09 21:34:36 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[43.585ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/09 21:34:36 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:37
+[47.500ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-09-09T21:34:36.746+0800	INFO	initialize/db.go:41	数据库连接成功
+2022-09-09T21:34:36.751+0800	WARN	user_service/main.go:25	release服务注册模式 
+
+2022-09-09T21:34:36.761+0800	INFO	mode/release.go:33	获取 系统空闲端口 58300
+2022-09-09T21:34:36.772+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 58300, "ID": "4c763ab6-50c1-4391-afe8-66679527529c"}
+2022-09-09T21:43:55.871+0800	INFO	handler/user.go:63	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618780\""}
+
+2022/09/09 21:43:55 D:/C_Back/Go/Shop_service/user_service/handler/user.go:68
+[42.560ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618780' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-09-09T21:43:55.917+0800	INFO	handler/user.go:174	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\"  encryptedPassword:\"$pbkdf2-sha512$7Gl65WNvPbgn0A44$a9bdcf3caff6782f2faa6019dbae3adbbb70a8fcba9702750387f61dd429c956\""}
+2022-09-09T22:01:34.592+0800	INFO	handler/user.go:63	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618790\""}
+
+2022/09/09 22:01:34 D:/C_Back/Go/Shop_service/user_service/handler/user.go:68
+[39.784ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618790' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-09-09T22:01:34.638+0800	INFO	handler/user.go:174	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\"  encryptedPassword:\"$pbkdf2-sha512$FlSI7f8169giD63u$782108d44f543d824287291c701eef98f31580cfeaedeb5e063af4e074e9758d\""}
+2022-09-09T22:02:18.155+0800	INFO	handler/user.go:63	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618790\""}
+
+2022/09/09 22:02:18 D:/C_Back/Go/Shop_service/user_service/handler/user.go:68
+[42.125ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618790' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-09-09T22:02:18.198+0800	INFO	handler/user.go:174	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\"  encryptedPassword:\"$pbkdf2-sha512$FlSI7f8169giD63u$782108d44f543d824287291c701eef98f31580cfeaedeb5e063af4e074e9758d\""}
+2022-09-09T22:10:25.833+0800	INFO	handler/user.go:110	Info	{"service": "【User_Service】", "method": "CreateUser", "request": "nickName:\"15171618793\"  password:\"admin\"  mobile:\"15171618793\""}
+
+2022/09/09 22:10:25 D:/C_Back/Go/Shop_service/user_service/handler/user.go:127
+[94.761ms] [rows:1] INSERT INTO `users` (`add_time`,`update_time`,`deleted_at`,`mobile`,`password`,`nick_name`,`birthday`,`gender`,`role`) VALUES ('0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,'15171618793','$pbkdf2-sha512$cN7Rae1i1CkhRH7k$0d23115f8a625f6d2b18e9d4d4705220c07c8af28c0ab0d397294d4c68e4e5ed','15171618793',NULL,'male',1)
+2022-09-09T22:14:12.383+0800	INFO	handler/user.go:110	Info	{"service": "【User_Service】", "method": "CreateUser", "request": "nickName:\"15171618793\"  password:\"admin\"  mobile:\"15171618793\""}
+
+2022/09/09 22:14:12 D:/C_Back/Go/Shop_service/user_service/handler/user.go:127 Error 1062: Duplicate entry '15171618793' for key 'mobile'
+[88.299ms] [rows:0] INSERT INTO `users` (`add_time`,`update_time`,`deleted_at`,`mobile`,`password`,`nick_name`,`birthday`,`gender`,`role`) VALUES ('0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,'15171618793','$pbkdf2-sha512$cIhipv46TJ7iRNeY$9eef85575cd3d972b8cf9b72d3d8f6e548829dda073ebd00dbfcd062e815c2f6','15171618793',NULL,'male',1)
+2022-09-09T22:16:12.714+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1  pageSize:10"}
+
+2022/09/09 22:16:12 D:/C_Back/Go/Shop_service/user_service/handler/user.go:35
+[21.928ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/09/09 22:16:12 D:/C_Back/Go/Shop_service/user_service/handler/user.go:44
+[19.657ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-09-09T22:18:31.048+0800	INFO	handler/user.go:63	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618793\""}
+
+2022/09/09 22:18:31 D:/C_Back/Go/Shop_service/user_service/handler/user.go:68
+[40.027ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618793' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-09-09T22:18:31.089+0800	INFO	handler/user.go:174	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\"  encryptedPassword:\"$pbkdf2-sha512$cN7Rae1i1CkhRH7k$0d23115f8a625f6d2b18e9d4d4705220c07c8af28c0ab0d397294d4c68e4e5ed\""}
+2022-09-09T22:24:22.130+0800	INFO	mode/release.go:55	服务注销程	{"serviceID": "4c763ab6-50c1-4391-afe8-66679527529c"}
