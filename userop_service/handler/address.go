@@ -55,7 +55,7 @@ func (s UserOpService) CreateAddress(ctx context.Context, request *proto.Address
 		zap.S().Errorw("Error", "message", "创建地址失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "创建地址失败")
 	}
-	return &proto.AddressResponse{Id: address.ID}, nil
+	return &proto.AddressResponse{Id: address.ID, Province: address.Province, City: address.City, District: address.District, SignerName: address.SignerName, SignerMobile: address.SignerMobile, Address: address.Address}, nil
 }
 
 func (s UserOpService) DeleteAddress(ctx context.Context, request *proto.AddressRequest) (*emptypb.Empty, error) {
