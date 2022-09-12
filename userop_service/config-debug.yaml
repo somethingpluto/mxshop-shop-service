@@ -1,0 +1,7 @@
+host: "120.25.255.207"
+port: 8848
+namespace: "59d048d0-edd3-428c-afa2-62d06d6f9335"
+user: 'nacos'
+password: 'chx200205173214'
+dataid: 'userop_service.json'
+group: 'dev'

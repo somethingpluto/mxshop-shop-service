@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option go_package = ".;proto";
+
+service UserFavorite{
+  rpc GetFavoriteList(UserFavoriteRequest) returns(UserFavoriteListResponse); // 获取用户收藏信息列表
+  rpc AddUserFavorite(UserFavoriteRequest) returns(google.protobuf.Empty); // 添加收藏
+  rpc DeleteUserFavorite(UserFavoriteRequest) returns(google.protobuf.Empty); // 删除收藏
+  rpc GetUserFavoriteDetail(UserFavoriteRequest) returns(google.protobuf.Empty); // 查看用户收藏
+}
+
+message UserFavoriteRequest {
+  int32 userId = 1;
+  int32 goodsId = 2;
+}
+
+message UserFavoriteResponse{
+  int32 userId = 1;
+  int32 goodsId = 2;
+}
+
+message UserFavoriteListResponse {
+  int32 total = 1;
+  repeated UserFavoriteListResponse data = 2;
+}
