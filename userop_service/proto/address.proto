@@ -10,13 +10,14 @@ service Address{
 }
 
 message AddressRequest{
-  int32 id =1 ;
+  int32 id = 1;
   int32 userId = 2;
   string province = 3;
+  string city = 4;
   string district = 5;
   string address = 6;
-  string singerName = 7;
-  string singerMobile=8;
+  string signerName = 7;
+  string signerMobile = 8;
 }
 
 message  AddressResponse{
