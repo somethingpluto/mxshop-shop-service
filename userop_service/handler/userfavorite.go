@@ -50,6 +50,7 @@ func (s UserOpService) GetFavoriteList(ctx context.Context, request *proto.UserF
 // @return error
 //
 func (s UserOpService) AddUserFavorite(ctx context.Context, request *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
+	zap.S().Infow("Info", "method", "AddUserFavorite", "request", request)
 	var userFav model.UserFavorite
 
 	userFav.User = request.UserId
