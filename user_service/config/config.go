@@ -13,22 +13,22 @@ type NacosConfig struct {
 	Group     string `mapstructure:"group"`
 }
 
-// FilePathConfig
-// @Description: 文件路径配置
-//
-type FilePathConfig struct {
-	ConfigFile string
-	LogFile    string
-}
-
 // ServiceConfig
 // @Description: 服务配置
 //
+type UserServiceConfig struct {
+	ServiceInfo ServiceConfig `json:"service"`
+	MysqlInfo   MysqlConfig   `json:"mysql"`
+	ConsulInfo  ConsulConfig  `json:"consul"`
+	RedisInfo   RedisConfig   `json:"redis"`
+}
+
 type ServiceConfig struct {
-	Name       string       `json:"name"`
-	MysqlInfo  MysqlConfig  `json:"mysql"`
-	ConsulInfo ConsulConfig `json:"consul"`
-	RedisInfo  RedisConfig  `json:"redis"`
+	Name           string   `json:"name"`
+	Tags           []string `json:"tags"`
+	CheckTimeOut   string   `json:"check_time_out"`
+	CheckInterval  string   `json:"check_interval"`
+	DeregisterTime string   `json:"deregister_time"`
 }
 
 // MysqlConfig
@@ -57,4 +57,12 @@ type RedisConfig struct {
 	Host     string `json:"host"`
 	Port     int    `json:"port"`
 	Password string `json:"password"`
+}
+
+// FilePathConfig
+// @Description: 文件路径配置
+//
+type FilePathConfig struct {
+	ConfigFile string
+	LogFile    string
 }

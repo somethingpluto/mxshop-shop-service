@@ -1,11 +1,11 @@
 package main
 
 import (
-	"Shop_service/user_service/proto"
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	"user_service/proto"
 )
 
 var userClient proto.UserClient

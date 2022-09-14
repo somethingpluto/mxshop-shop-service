@@ -17,11 +17,11 @@ import (
 //
 func InitDB() {
 	var err error
-	user := global.ServiceConfig.MysqlInfo.User
-	password := global.ServiceConfig.MysqlInfo.Password
-	name := global.ServiceConfig.MysqlInfo.Name
-	host := global.ServiceConfig.MysqlInfo.Host
-	port := global.ServiceConfig.MysqlInfo.Port
+	user := global.UserServiceConfig.MysqlInfo.User
+	password := global.UserServiceConfig.MysqlInfo.Password
+	name := global.UserServiceConfig.MysqlInfo.Name
+	host := global.UserServiceConfig.MysqlInfo.Host
+	port := global.UserServiceConfig.MysqlInfo.Port
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", user, password, host, port, name)
 	newLogger := logger.New(log.New(logFileWriter, "\r\n", log.LstdFlags), logger.Config{
 		SlowThreshold: time.Second,

@@ -2,3 +2,4 @@
 2022-09-08T21:56:31.049+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/cache>
 2022-09-08T22:02:34.185+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/cache>
 2022-09-09T21:34:36.063+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/cache>
+2022-09-10T16:48:15.953+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/user_service/log/nacos/cache>
