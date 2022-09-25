@@ -2,16 +2,20 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"github.com/olivere/elastic/v7"
+	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
-	"goods_service/util"
-
-	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
+
+type Result struct {
+	ID int32
+}
 
 // ModelToResponse
 // @Description: model数据结构 转换成response数据结构
@@ -61,28 +65,35 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 	zap.S().Infow("Info", "service", serviceName, "method", "GoodsList", "request", request)
 
 	response := &proto.GoodsListResponse{}
-	var goodsList []model.Goods
 	localDB := global.DB.Model(&model.Goods{})
+	q := elastic.NewBoolQuery()
 	if request.KeyWords != "" {
-		localDB = localDB.Where("name LIKE ?", "%"+request.KeyWords+"%")
+		//localDB = localDB.Where("name LIKE ?", "%"+request.KeyWords+"%")
+		q = q.Must(elastic.NewMultiMatchQuery(request.KeyWords, "name", "desc"))
 	}
 	if request.IsHot {
-		localDB = localDB.Where("is_hot=true")
+		//localDB = localDB.Where("is_hot=true")
+		q = q.Filter(elastic.NewTermQuery("is_hot", request.IsHot))
 	}
 	if request.IsNew {
-		localDB = localDB.Where("is_new=true")
+		//localDB = localDB.Where("is_new=true")
+		q = q.Filter(elastic.NewTermQuery("is_new", request.IsNew))
 	}
 	if request.PriceMin > 0 {
-		localDB = localDB.Where("shop_price>=?", request.PriceMin)
+		//localDB = localDB.Where("shop_price>=?", request.PriceMin)
+		q = q.Filter(elastic.NewRangeQuery("shop_price").Gte(request.PriceMin))
 	}
 	if request.PriceMax > 0 {
-		localDB = localDB.Where("shop_price<=?", request.PriceMax)
+		//localDB = localDB.Where("shop_price<=?", request.PriceMax)
+		q = q.Filter(elastic.NewRangeQuery("shop_price").Lte(request.PriceMax))
 	}
 	if request.Brand > 0 {
-		localDB = localDB.Where("brand_id=?", request.Brand)
+		//localDB = localDB.Where("brand_id=?", request.Brand)
+		q = q.Filter(elastic.NewTermQuery("brands_id", request.Brand))
 	}
 	// 通过category查询
 	var subQuery string
+	categoryIds := make([]interface{}, 0)
 	if request.TopCategory > 0 {
 		var category model.Category
 		result := global.DB.First(&category, request.TopCategory)
@@ -97,19 +108,49 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		} else if category.Level == 3 {
 			subQuery = fmt.Sprintf("select id from category WHERE id=%d", request.TopCategory)
 		}
-		localDB = localDB.Where(fmt.Sprintf("category_id in (%s)", subQuery))
+		//localDB = localDB.Where(fmt.Sprintf("category_id in (%s)", subQuery))
+		var results []Result
+		global.DB.Model(model.Category{}).Raw(subQuery).Scan(&results)
+		for _, re := range results {
+			categoryIds = append(categoryIds, re.ID)
+		}
+		// 生成term查询
+		q = q.Filter(elastic.NewTermsQuery("category_id", categoryIds...))
 	}
-	var count int64
-	localDB.Count(&count)
-	response.Total = int32(count)
-	result := localDB.Preload("Category").Preload("Brand").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&goodsList)
-	if result.Error != nil {
-		return nil, result.Error
+
+	// 分页
+	if request.Pages == 0 {
+		request.Pages = 1
+	}
+	switch {
+	case request.PagePerNums > 100:
+		request.PagePerNums = 100
+	case request.PagePerNums <= 0:
+		request.PagePerNums = 10
+	}
+	result, err := global.EsClient.Search().Index(model.EsGoods{}.GetIndexName()).Query(q).From(int(request.Pages)).Size(int(request.PagePerNums)).Do(context.Background())
+	if err != nil {
+		zap.S().Errorw("Error", "message", "es 查询goods失败", "err", err.Error())
+	}
+
+	goodsIds := make([]int32, 0)
+	response.Total = int32(result.Hits.TotalHits.Value)
+	for _, value := range result.Hits.Hits {
+		goods := model.EsGoods{}
+		_ = json.Unmarshal(value.Source, &goods)
+		goodsIds = append(goodsIds, goods.ID)
+	}
+
+	// 查询Id在某个数组中的值
+	var goods []model.Goods
+	localResult := localDB.Preload("Category").Preload("Brand").Find(&goods, goodsIds)
+	if localResult.Error != nil {
+		zap.S().Errorw("Error", "message", "localDB.Preload 失败", "err", err.Error())
+		return nil, status.Errorf(codes.Internal, "数据查询失败")
 	}
 
 	var goodsListResponse []*proto.GoodsInfoResponse
-	for _, goods := range goodsList {
-		fmt.Println(goods.Brand)
+	for _, goods := range goods {
 		goodsResponse := ModelToResponse(&goods)
 		goodsListResponse = append(goodsListResponse, &goodsResponse)
 	}
