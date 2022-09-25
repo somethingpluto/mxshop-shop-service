@@ -23,5 +23,4 @@ func DebugMode(server *grpc.Server, ip string) {
 		zap.S().Errorw("server.Serve错误", "err", err.Error())
 		return
 	}
-
 }

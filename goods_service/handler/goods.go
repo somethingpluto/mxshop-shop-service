@@ -63,9 +63,10 @@ func ModelToResponse(goods *model.Goods) proto.GoodsInfoResponse {
 //
 func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GoodsList", "request", request)
-
 	response := &proto.GoodsListResponse{}
 	localDB := global.DB.Model(&model.Goods{})
+
+	// es条件查询
 	q := elastic.NewBoolQuery()
 	if request.KeyWords != "" {
 		//localDB = localDB.Where("name LIKE ?", "%"+request.KeyWords+"%")
@@ -91,7 +92,8 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		//localDB = localDB.Where("brand_id=?", request.Brand)
 		q = q.Filter(elastic.NewTermQuery("brands_id", request.Brand))
 	}
-	// 通过category查询
+
+	// 查询category 获取categoryID
 	var subQuery string
 	categoryIds := make([]interface{}, 0)
 	if request.TopCategory > 0 {
@@ -114,9 +116,10 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		for _, re := range results {
 			categoryIds = append(categoryIds, re.ID)
 		}
-		// 生成term查询
-		q = q.Filter(elastic.NewTermsQuery("category_id", categoryIds...))
 	}
+
+	// 生成term查询
+	q = q.Filter(elastic.NewTermsQuery("category_id", categoryIds...))
 
 	// 分页
 	if request.Pages == 0 {
@@ -133,6 +136,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		zap.S().Errorw("Error", "message", "es 查询goods失败", "err", err.Error())
 	}
 
+	// 获取es中查询出来的所有商品Id
 	goodsIds := make([]int32, 0)
 	response.Total = int32(result.Hits.TotalHits.Value)
 	for _, value := range result.Hits.Hits {
@@ -141,7 +145,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		goodsIds = append(goodsIds, goods.ID)
 	}
 
-	// 查询Id在某个数组中的值
+	// 交给mysql进行商品的查询
 	var goods []model.Goods
 	localResult := localDB.Preload("Category").Preload("Brand").Find(&goods, goodsIds)
 	if localResult.Error != nil {
@@ -149,6 +153,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		return nil, status.Errorf(codes.Internal, "数据查询失败")
 	}
 
+	// 转换成响应的数据
 	var goodsListResponse []*proto.GoodsInfoResponse
 	for _, goods := range goods {
 		goodsResponse := ModelToResponse(&goods)

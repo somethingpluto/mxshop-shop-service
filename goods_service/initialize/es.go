@@ -32,5 +32,5 @@ func InitEs() {
 			panic(err)
 		}
 	}
-	zap.S().Infow("Info", "message", "es初始化成功")
+	zap.S().Infof("elastic search 服务初始化成功")
 }
