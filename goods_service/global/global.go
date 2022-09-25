@@ -2,6 +2,7 @@ package global
 
 import (
 	"github.com/hashicorp/consul/api"
+	"github.com/olivere/elastic/v7"
 	"goods_service/config"
 	"gorm.io/gorm"
 )
@@ -14,4 +15,5 @@ var (
 	FreePort      int
 	Client        *api.Client
 	ServiceID     string
+	EsClient      *elastic.Client
 )

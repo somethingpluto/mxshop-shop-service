@@ -28,6 +28,7 @@ type ServiceConfig struct {
 	Name       string       `mapstructure:"name" json:"name"`
 	MySqlInfo  MySqlConfig  `mapstructure:"mysql_config" json:"mysql"`
 	ConsulInfo ConsulConfig `json:"consul"`
+	EsInfo     EsConfig     `json:"es"`
 }
 
 // MySqlConfig
@@ -42,6 +43,10 @@ type MySqlConfig struct {
 }
 
 type ConsulConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
+}
+type EsConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
 }
