@@ -1,0 +1,8 @@
+2022-10-09T22:30:33.257+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-09T22:30:33.390+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-09T22:30:33.398+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-10-09T22:30:33.398+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+
+2022/10/09 22:30:48 D:/C_Back/Go/Shop_service/order_service/handler/order.go:21
+[29.660ms] [rows:5] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10

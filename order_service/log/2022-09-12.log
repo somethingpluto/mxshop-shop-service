@@ -1,0 +1,130 @@
+2022-09-12T13:36:09.186+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-12T13:36:09.411+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-12T13:36:09.416+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-12T13:36:09.417+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-12T13:43:16.980+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-12T13:43:17.097+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-12T13:43:17.099+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-12T13:43:17.100+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-12T13:45:17.998+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-12T13:45:18.116+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-12T13:45:18.117+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-12T13:45:18.118+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-12T13:47:47.503+0800	INFO	handler/order.go:17	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:26 pages:1 pagePerNums:10"}
+
+2022/09/12 13:47:47 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[23.107ms] [rows:2] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-12T13:47:52.238+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/12 13:47:52 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.444ms] [rows:4] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T13:48:30.095+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/12 13:48:30 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[39.303ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 13:48:30 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[85.069ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-12 13:48:30.154','2022-09-12 13:48:30.154',NULL,false,26,421,0,false)
+2022-09-12T13:48:33.671+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/12 13:48:33 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.397ms] [rows:5] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T13:49:26.990+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:48"}
+
+2022/09/12 13:49:27 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[38.604ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 13:49:27 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[84.410ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-12 13:48:30.154',`update_time`='2022-09-12 13:49:27.049',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=48,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 9
+2022-09-12T13:49:38.954+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:11111"}
+
+2022/09/12 13:49:38 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[38.104ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 13:49:39 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[84.508ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-12 13:48:30.154',`update_time`='2022-09-12 13:49:39.013',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=11159,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 9
+2022-09-12T13:49:45.636+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:11"}
+
+2022/09/12 13:49:45 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[37.770ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 13:49:45 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[88.155ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-12 13:48:30.154',`update_time`='2022-09-12 13:49:45.697',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=11170,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 9
+2022-09-12T13:50:11.878+0800	INFO	handler/order.go:17	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:26 pages:1 pagePerNums:10"}
+
+2022/09/12 13:50:11 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[19.661ms] [rows:2] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-12T13:51:43.322+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:11"}
+
+2022/09/12 13:51:43 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[38.603ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 13:51:43 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[86.169ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-12 13:48:30.154',`update_time`='2022-09-12 13:51:43.38',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=11181,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 9
+2022-09-12T13:53:44.469+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 13:53:44 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[38.274ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/12 13:53:44 D:/C_Back/Go/Shop_service/order_service/handler/order.go:147
+[39.813ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-09-12 13:53:44.872','2022-09-12 13:53:44.872',NULL,false,0,'202291213538715957002697','','','',449.000000,NULL,'辽宁省内江市琼山区','约准程而住近','18636662128','支付宝')
+
+2022/09/12 13:53:44 D:/C_Back/Go/Shop_service/order_service/handler/order.go:159
+[47.873ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-12 13:53:44.911' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:11:40.260+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:11:40 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[37.253ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:12:22.724+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:11"}
+
+2022/09/12 14:12:22 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[39.366ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 14:12:22 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[84.356ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-12 14:12:22.784','2022-09-12 14:12:22.784',NULL,false,26,421,11,false)
+2022-09-12T14:12:27.266+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:12:27 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[41.049ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:12:40.589+0800	INFO	handler/order.go:17	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:26 pages:1 pagePerNums:10"}
+
+2022/09/12 14:12:40 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[19.035ms] [rows:3] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-12T14:13:18.784+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:13:18 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[38.879ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/12 14:13:19 D:/C_Back/Go/Shop_service/order_service/handler/order.go:147
+[39.367ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-09-12 14:13:19.088','2022-09-12 14:13:19.088',NULL,false,0,'20229121413875577002679','','','',1990.000000,NULL,'辽宁省内江市琼山区','约准程而住近','18636662128','支付宝')
+
+2022/09/12 14:13:19 D:/C_Back/Go/Shop_service/order_service/handler/order.go:159
+[38.487ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-12 14:13:19.127' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:15:37.395+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:422 nums:27"}
+
+2022/09/12 14:15:37 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[38.711ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 422 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/12 14:15:37 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[85.092ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 20:48:47.569',`update_time`='2022-09-12 14:15:37.453',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=422,`nums`=27,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 5
+2022-09-12T14:15:46.174+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:15:46 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[39.230ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:17:34.865+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:17:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[39.147ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-12T14:17:56.365+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"辽宁省内江市琼山区\" name:\"约准程而住近\" mobile:\"18636662128\" post:\"支付宝\""}
+
+2022/09/12 14:17:56 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[38.799ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/12 14:17:56 D:/C_Back/Go/Shop_service/order_service/handler/order.go:147
+[38.761ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-09-12 14:17:56.631','2022-09-12 14:17:56.631',NULL,false,0,'202291214176309720002628','','','',1347.000000,NULL,'辽宁省内江市琼山区','约准程而住近','18636662128','支付宝')
+
+2022/09/12 14:17:56 D:/C_Back/Go/Shop_service/order_service/handler/order.go:159
+[38.055ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-12 14:17:56.67' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL

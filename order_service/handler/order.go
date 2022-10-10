@@ -92,7 +92,7 @@ func (s *OrderService) OrderDetail(ctx context.Context, request *proto.OrderRequ
 
 func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequest) (*proto.OrderInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateOrder", "request", request)
-
+	//parentSpan := opentracing.SpanFromContext(ctx)
 	response := &proto.OrderInfoResponse{}
 
 	var goodsId []int32
@@ -178,4 +178,12 @@ func (s *OrderService) UpdateOrderStatus(ctx context.Context, request *proto.Ord
 		return nil, status.Errorf(codes.Internal, "更新订单状态失败")
 	}
 	return &emptypb.Empty{}, nil
+}
+
+type OrderListener struct {
+	Code        codes.Code
+	Detail      string
+	ID          int32
+	OrderAmount float32
+	Ctx         context.Context
 }

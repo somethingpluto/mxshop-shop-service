@@ -1,0 +1,181 @@
+2022-09-11T17:30:47.638+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:30:47.757+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:30:47.758+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-11T17:30:47.773+0800	INFO	mode/release.go:28	获取 系统空闲端口 53853
+2022-09-11T17:30:47.776+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53853, "ID": "0bcff5a9-070e-41a6-bd13-7b698681f85c"}
+2022-09-11T17:31:32.833+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "0bcff5a9-070e-41a6-bd13-7b698681f85c"}
+2022-09-11T17:31:35.139+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:31:35.259+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:31:35.264+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-11T17:31:35.281+0800	INFO	mode/release.go:28	获取 系统空闲端口 53875
+2022-09-11T17:31:35.285+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 53875, "ID": "e7eb7c2f-4226-4192-a051-d0a6f7d5f981"}
+2022-09-11T17:32:22.976+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "e7eb7c2f-4226-4192-a051-d0a6f7d5f981"}
+2022-09-11T17:32:25.304+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:32:25.422+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:32:25.424+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-11T17:32:25.425+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-11T17:32:29.189+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421 nums:200"}
+
+2022/09/11 17:32:29 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[41.560ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 17:32:29 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[86.650ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 17:32:29.251','2022-09-11 17:32:29.251',NULL,false,26,421,200,false)
+2022-09-11T17:32:39.688+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:32:39 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[43.241ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:32:57.587+0800	INFO	handler/order.go:17	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:1 pages:1 pagePerNums:10"}
+
+2022/09/11 17:32:57 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[20.020ms] [rows:1] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-11T17:33:36.164+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:33:36.284+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:33:36.286+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-11T17:33:36.300+0800	INFO	mode/release.go:28	获取 系统空闲端口 54032
+2022-09-11T17:33:36.305+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 54032, "ID": "00b06741-ad82-49c5-9c0f-3fb348c0977c"}
+2022-09-11T17:34:09.089+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:34:09 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[42.186ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:34:33.373+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:34:33 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[40.928ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:34:39.135+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:34:39 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[42.428ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:35:29.686+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "00b06741-ad82-49c5-9c0f-3fb348c0977c"}
+2022-09-11T17:35:32.059+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:35:32.188+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:35:32.189+0800	WARN	order_service/main.go:23	debug本地调试模式 
+
+2022-09-11T17:35:32.190+0800	INFO	mode/debug.go:19	服务启动成功 端口 127.0.0.1:8000
+2022-09-11T17:36:09.157+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-09-11T17:36:09.277+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-09-11T17:36:09.278+0800	WARN	order_service/main.go:26	release服务注册模式 
+
+2022-09-11T17:36:09.289+0800	INFO	mode/release.go:28	获取 系统空闲端口 54156
+2022-09-11T17:36:09.292+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 54156, "ID": "5c3ffa78-d510-48a9-81f3-32273de79e19"}
+2022-09-11T17:36:21.872+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:36:21 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.585ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:37:28.986+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 17:37:29 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.012ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T17:59:49.160+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/11 17:59:49 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[42.464ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 17:59:49 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[86.321ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 17:32:29.251',`update_time`='2022-09-11 17:59:49.222',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=200,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 3
+2022-09-11T18:13:11.572+0800	INFO	handler/cartItem.go:132	Info	{"service": "【Order_Service】", "method": "DeleteCartItem", "request": "userId:26 goodsId:3"}
+
+2022/09/11 18:13:11 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:135
+[92.146ms] [rows:0] UPDATE `shoppingcart` SET `deleted_at`='2022-09-11 18:13:11.593' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 3 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T18:13:36.150+0800	INFO	handler/cartItem.go:132	Info	{"service": "【Order_Service】", "method": "DeleteCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/11 18:13:36 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:135
+[85.302ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-11 18:13:36.17' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T18:30:45.591+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/11 18:30:45 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[39.447ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 18:30:45 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[88.067ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 18:30:45.652','2022-09-11 18:30:45.652',NULL,false,26,421,0,false)
+2022-09-11T18:36:52.076+0800	INFO	handler/cartItem.go:104	Info	{"service": "【Order_Service】", "method": "UpdateCartItem", "request": "userId:26 goodsId:421 nums:10000 checked:true"}
+
+2022/09/11 18:36:52 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:107
+[38.609ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 18:36:52 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:115
+[82.423ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 18:30:45.652',`update_time`='2022-09-11 18:36:52.134',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=10000,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 4
+2022-09-11T18:37:26.083+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 18:37:26 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[39.395ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T18:38:13.094+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/11 18:38:13 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[39.428ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 18:38:13 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[83.019ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 18:30:45.652',`update_time`='2022-09-11 18:38:13.155',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=10000,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 4
+2022-09-11T18:38:24.482+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:421"}
+
+2022/09/11 18:38:24 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76
+[39.480ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 18:38:24 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[81.266ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 18:30:45.652',`update_time`='2022-09-11 18:38:24.541',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=421,`nums`=10000,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 4
+2022-09-11T20:24:29.841+0800	INFO	handler/order.go:17	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:26 pages:1 pagePerNums:10"}
+
+2022/09/11 20:24:29 D:/C_Back/Go/Shop_service/order_service/handler/order.go:24
+[24.610ms] [rows:1] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-09-11T20:45:34.001+0800	INFO	handler/order.go:55	Info	{"service": "【Order_Service】", "method": "OrderDetail", "request": "id:1 userId:26"}
+
+2022/09/11 20:45:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:59
+[39.256ms] [rows:1] SELECT * FROM `orderinfo` WHERE `orderinfo`.`id` = 1 AND `orderinfo`.`user` = 26 AND `orderinfo`.`deleted_at` IS NULL ORDER BY `orderinfo`.`id` LIMIT 1
+
+2022/09/11 20:45:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:78
+[39.453ms] [rows:0] SELECT * FROM `ordergoods` WHERE `ordergoods`.`order` = 1 AND `ordergoods`.`deleted_at` IS NULL
+2022-09-11T20:48:47.511+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:422"}
+
+2022/09/11 20:48:47 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[38.596ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 422 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 20:48:47 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[85.082ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 20:48:47.569','2022-09-11 20:48:47.569',NULL,false,26,422,0,false)
+2022-09-11T20:48:51.230+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:423"}
+
+2022/09/11 20:48:51 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[38.289ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 423 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 20:48:51 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[237.901ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 20:48:51.442','2022-09-11 20:48:51.442',NULL,false,26,423,0,false)
+2022-09-11T20:48:54.343+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:424"}
+
+2022/09/11 20:48:54 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[37.918ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 424 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 20:48:54 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[84.145ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 20:48:54.4','2022-09-11 20:48:54.4',NULL,false,26,424,0,false)
+2022-09-11T20:48:57.755+0800	INFO	handler/cartItem.go:73	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:425"}
+
+2022/09/11 20:48:57 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:76 record not found
+[38.038ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 425 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/09/11 20:48:57 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:86
+[100.490ms] [rows:1] INSERT INTO `shoppingcart` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`,`nums`,`checked`) VALUES ('2022-09-11 20:48:57.825','2022-09-11 20:48:57.825',NULL,false,26,425,0,false)
+2022-09-11T20:49:03.431+0800	INFO	handler/cartItem.go:42	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/09/11 20:49:03 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:46
+[38.042ms] [rows:5] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T21:02:01.032+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北大学\" name:\"pluto\" mobile:\"15171618793\" post:\"支付宝\""}
+
+2022/09/11 21:02:01 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[38.577ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T21:03:11.826+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北大学\" name:\"pluto\" mobile:\"15171618793\" post:\"支付宝\""}
+
+2022/09/11 21:03:11 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[39.934ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/09/11 21:03:12 D:/C_Back/Go/Shop_service/order_service/handler/order.go:147
+[38.381ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-09-11 21:03:12.101','2022-09-11 21:03:12.101',NULL,false,0,'20229112131007778002621','','','',449.000000,NULL,'湖北大学','pluto','15171618793','支付宝')
+
+2022/09/11 21:03:12 D:/C_Back/Go/Shop_service/order_service/handler/order.go:159
+[39.352ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-09-11 21:03:12.139' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T21:06:30.134+0800	INFO	handler/order.go:94	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北大学\" name:\"pluto\" mobile:\"15171618793\" post:\"支付宝\""}
+
+2022/09/11 21:06:30 D:/C_Back/Go/Shop_service/order_service/handler/order.go:101
+[39.270ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-09-11T22:02:21.492+0800	INFO	mode/release.go:50	服务注销程	{"serviceID": "5c3ffa78-d510-48a9-81f3-32273de79e19"}

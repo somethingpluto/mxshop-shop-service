@@ -20,11 +20,11 @@ func init() {
 }
 
 func main() {
-	//TestCreateCartItem(1, 200, 421) success
-	TestCartItemList(1) // success
+	//TestCreateCartItem(26, 200, 421)
+	//TestCartItemList(26)
 	//TestUpdateCartItem(1, 421, true, 200) success
 	//TestDeleteCartItem(1, 421) success
-	//TestOrderList(1, 1, 10) success
+	//TestOrderList(1, 1, 10)
 	//TestCreateOrder() success
 	//TestOrderList(1, 1, 10) success
 	//TestOrderDetail()
@@ -88,7 +88,7 @@ func TestOrderList(userId int32, pages int32, pagePerNums int32) {
 
 func TestCreateOrder() {
 	response, err := OrderServiceClient.CreateOrder(context.Background(), &proto.OrderRequest{
-		UserId:  1,
+		UserId:  26,
 		Address: "湖北省武汉市",
 		Name:    "pluto",
 		Mobile:  "1234567",
