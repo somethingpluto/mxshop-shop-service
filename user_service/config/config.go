@@ -17,11 +17,13 @@ type NacosConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name        string       `json:"name"`
+	Name        string `json:"name"`
+	Host        string
 	ServiceInfo Register     `json:"register"`
 	MysqlInfo   MysqlConfig  `json:"mysql"`
 	ConsulInfo  ConsulConfig `json:"consul"`
 	RedisInfo   RedisConfig  `json:"redis"`
+	JaegerInfo  JaegerConfig `json:"jaeger"`
 }
 
 type Register struct {
@@ -57,6 +59,11 @@ type RedisConfig struct {
 	Host     string `json:"host"`
 	Port     int    `json:"port"`
 	Password string `json:"password"`
+}
+
+type JaegerConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
 }
 
 // FilePathConfig

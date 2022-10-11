@@ -66,9 +66,9 @@ func InitConfig() {
 	}
 	global.ServiceConfig = &config.ServiceConfig{}
 	err = json.Unmarshal([]byte(content), global.ServiceConfig)
-	fmt.Printf("%v\n")
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println("nacos配置拉取成功")
+	global.ServiceConfig.Host = "192.168.8.1"
 }

@@ -25,6 +25,7 @@ import (
 //
 func ReleaseMode(server *grpc.Server, ip string) {
 	var err error
+	// 获取端口
 	freePort, err := util.GetFreePort()
 	if err != nil {
 		zap.S().Errorw("获取端口失败", "err", err.Error())
@@ -32,32 +33,15 @@ func ReleaseMode(server *grpc.Server, ip string) {
 	}
 	global.Port = freePort
 	zap.S().Infow("Info", "message", fmt.Sprintf("获取主机端口: %d", global.Port))
+
 	proto.RegisterUserServer(server, &handler.UserService{})
 	listen, err := net.Listen("tcp", fmt.Sprintf("%s:%d", ip, global.Port))
 	if err != nil {
 		zap.S().Errorw("net.Listen错误", "err", err.Error())
 		return
 	}
-	registerService()
-	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
-	go func() {
-		err = server.Serve(listen)
-		panic(err)
-	}()
-	quit := make(chan os.Signal)
-	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
-	<-quit
-	fmt.Println("serviceID", global.ServiceID)
-	err = global.Client.Agent().ServiceDeregister(global.ServiceID)
-	if err != nil {
-		zap.S().Errorw("global.Client.Agent().ServiceDeregister 失败", "err", err.Error())
-		return
-	}
-	zap.S().Infow("服务注销程", "serviceID", global.ServiceID)
-}
 
-func registerService() {
-	var err error
+	// 生成检查对象
 	cfg := api.DefaultConfig()
 	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
 
@@ -69,7 +53,7 @@ func registerService() {
 	// 生成检查对象
 	checkConfig := global.ServiceConfig.ServiceInfo
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "192.168.8.1", global.Port),
+		GRPC:                           fmt.Sprintf("%s:%d", global.ServiceConfig.Host, global.Port),
 		GRPCUseTLS:                     false,
 		Timeout:                        "5s",
 		Interval:                       "10s",
@@ -84,7 +68,7 @@ func registerService() {
 	registration.ID = serviceID
 	registration.Port = global.Port
 	registration.Tags = checkConfig.Tags
-	registration.Address = "192.168.8.1"
+	registration.Address = global.ServiceConfig.Host
 	registration.Check = check
 	err = global.Client.Agent().ServiceRegister(registration)
 	if err != nil {
@@ -92,4 +76,23 @@ func registerService() {
 		return
 	}
 	zap.S().Infow("Info", "message", "服务注册成功", "port", registration.Port, "ID", global.ServiceID)
+
+	// 健康检查
+	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
+	go func() {
+		err = server.Serve(listen)
+		panic(err)
+	}()
+
+	// 优雅停机
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	fmt.Println("serviceID", global.ServiceID)
+	err = global.Client.Agent().ServiceDeregister(global.ServiceID)
+	if err != nil {
+		zap.S().Errorw("global.Client.Agent().ServiceDeregister 失败", "err", err.Error())
+		return
+	}
+	zap.S().Infow("服务注销程", "serviceID", global.ServiceID)
 }

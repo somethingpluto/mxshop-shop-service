@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"fmt"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"time"
 	"user_service/global"
@@ -142,9 +143,10 @@ func (s *UserService) CreateUser(ctx context.Context, createUserInfoRequest *pro
 //
 func (s UserService) UpdateUser(ctx context.Context, UpdateUserInfoRequest *proto.UpdateUserInfoRequest) (*proto.UpdateResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateUser", "request", UpdateUserInfoRequest)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
 	response := &proto.UpdateResponse{}
 	var user model.User
+	updateUserSpan := opentracing.GlobalTracer().StartSpan("update_user", opentracing.ChildOf(parentSpan.Context()))
 	result := global.DB.First(&user, UpdateUserInfoRequest.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "用户不存在")
@@ -158,6 +160,7 @@ func (s UserService) UpdateUser(ctx context.Context, UpdateUserInfoRequest *prot
 	if result.Error != nil {
 		return nil, status.Errorf(codes.Internal, result.Error.Error())
 	}
+	updateUserSpan.Finish()
 	response.Success = true
 	return response, nil
 }
