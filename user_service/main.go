@@ -20,7 +20,6 @@ func main() {
 	initialize.InitLogger()
 	initialize.InitConfig()
 	initialize.InitDB()
-
 	tracer, closer := initialize.InitTracer()
 	defer func(closer io.Closer) {
 		err := closer.Close()
@@ -28,6 +27,7 @@ func main() {
 			panic(err)
 		}
 	}(closer)
+
 	opentracing.SetGlobalTracer(tracer)
 	server := grpc.NewServer(grpc.UnaryInterceptor(otgrpc.OpenTracingServerInterceptor(tracer)))
 	if *Mode == "debug" {

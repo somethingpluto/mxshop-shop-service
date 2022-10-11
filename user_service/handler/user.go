@@ -2,7 +2,6 @@ package handler
 
 import (
 	"context"
-	"fmt"
 	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"time"
@@ -29,8 +28,11 @@ type UserService struct{}
 //
 func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.PageInfoRequest) (*proto.UserListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetUserList", "request", pageInfoRequest)
+
+	parentSpan := opentracing.SpanFromContext(ctx)
 	// 实例化 response
 	response := &proto.UserListResponse{}
+	userListSpan := opentracing.GlobalTracer().StartSpan("GetUserList", opentracing.ChildOf(parentSpan.Context()))
 	// 获取总行数
 	var users []model.User
 	result := global.DB.Find(&users)
@@ -43,12 +45,11 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 	offset := util.Paginate(int(pageNum), int(pageSize))
 
 	global.DB.Offset(offset).Limit(int(pageSize)).Find(&pageUsers)
-
 	for _, user := range pageUsers {
 		userInfoResponse := util.ModelToResponse(user)
 		response.Data = append(response.Data, userInfoResponse)
 	}
-	fmt.Println("用户列表")
+	userListSpan.Finish()
 	return response, nil
 }
 
@@ -62,15 +63,16 @@ func (s *UserService) GetUserList(ctx context.Context, pageInfoRequest *proto.Pa
 //
 func (s *UserService) GetUserByMobile(ctx context.Context, mobileRequest *proto.MobileRequest) (*proto.UserInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetUserByMobile", "request", mobileRequest)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
 	response := &proto.UserInfoResponse{}
+	getUserByMobileSpan := opentracing.GlobalTracer().StartSpan("GetUserByMobile", opentracing.ChildOf(parentSpan.Context()))
 	var user model.User
 	mobile := mobileRequest.Mobile
 	result := global.DB.Where("mobile=?", mobile).First(&user)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "未查找到该用户")
 	}
-
+	getUserByMobileSpan.Finish()
 	response = util.ModelToResponse(user)
 	return response, nil
 }
@@ -86,7 +88,8 @@ func (s *UserService) GetUserByMobile(ctx context.Context, mobileRequest *proto.
 func (s *UserService) GetUserById(ctx context.Context, idRequest *proto.IdRequest) (*proto.UserInfoResponse, error) {
 
 	zap.S().Infow("Info", "service", serviceName, "method", "GetUserById", "request", idRequest)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getUserByIdSpan := opentracing.GlobalTracer().StartSpan("GetUserById", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.UserInfoResponse{}
 
 	var user model.User
@@ -95,6 +98,7 @@ func (s *UserService) GetUserById(ctx context.Context, idRequest *proto.IdReques
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "未查找到该用户")
 	}
+	getUserByIdSpan.Finish()
 	response = util.ModelToResponse(user)
 	return response, nil
 }
@@ -109,10 +113,10 @@ func (s *UserService) GetUserById(ctx context.Context, idRequest *proto.IdReques
 //
 func (s *UserService) CreateUser(ctx context.Context, createUserInfoRequest *proto.CreateUserInfoRequest) (*proto.UserInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateUser", "request", createUserInfoRequest)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
 	response := &proto.UserInfoResponse{}
 	mobile := createUserInfoRequest.Mobile
-
+	createUserSpan := opentracing.GlobalTracer().StartSpan("CreateUser", opentracing.ChildOf(parentSpan.Context()))
 	var user model.User
 	result := global.DB.Where("mobile=?", mobile)
 	if result.RowsAffected == 1 {
@@ -129,6 +133,7 @@ func (s *UserService) CreateUser(ctx context.Context, createUserInfoRequest *pro
 	if result.Error != nil {
 		return nil, status.Errorf(codes.Internal, result.Error.Error())
 	}
+	createUserSpan.Finish()
 	response = util.ModelToResponse(user)
 	return response, nil
 }
@@ -175,10 +180,12 @@ func (s UserService) UpdateUser(ctx context.Context, UpdateUserInfoRequest *prot
 //
 func (s UserService) CheckPassword(ctx context.Context, checkPasswordRequest *proto.CheckPasswordRequest) (*proto.CheckPasswordResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CheckPassword", "request", checkPasswordRequest)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	checkPasswordSpan := opentracing.GlobalTracer().StartSpan("CheckPassword", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CheckPasswordResponse{}
 	password := checkPasswordRequest.Password
 	EncryptedPassword := checkPasswordRequest.EncryptedPassword
 	response.Success = util.VerifyPassword(EncryptedPassword, password)
+	checkPasswordSpan.Finish()
 	return response, nil
 }

@@ -1238,3 +1238,13 @@
 
 2022-10-11T14:46:54.516+0800	INFO	mode/release.go:35	Info	{"message": "获取主机端口: 56328"}
 2022-10-11T14:46:54.521+0800	INFO	mode/release.go:78	Info	{"message": "服务注册成功", "port": 56328, "ID": "c50688ea-ee4a-4fbf-9f39-7493c5d7f9bd"}
+2022-10-11T14:48:05.540+0800	INFO	handler/user.go:145	Info	{"service": "【User_Service】", "method": "UpdateUser", "request": "id:12  nickName:\"login\"  gender:\"female\""}
+
+2022/10/11 14:48:05 D:/C_Back/Go/Shop_service/user_service/handler/user.go:150
+[2.249ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 12 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2022/10/11 14:48:05 D:/C_Back/Go/Shop_service/user_service/handler/user.go:159
+[8.119ms] [rows:0] UPDATE `users` SET `id`=12,`add_time`='0000-00-00 00:00:00',`update_time`='0000-00-00 00:00:00',`deleted_at`=NULL,`mobile`='15171618780',`password`='$pbkdf2-sha512$7Gl65WNvPbgn0A44$a9bdcf3caff6782f2faa6019dbae3adbbb70a8fcba9702750387f61dd429c956',`nick_name`='login',`birthday`='1970-01-01 08:00:00',`gender`='female',`role`=1 WHERE `users`.`deleted_at` IS NULL AND `id` = 12
+
+2022/10/11 14:48:05 D:/C_Back/Go/Shop_service/user_service/handler/user.go:159
+[1.804ms] [rows:1] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL AND `id` = 12 LIMIT 1
