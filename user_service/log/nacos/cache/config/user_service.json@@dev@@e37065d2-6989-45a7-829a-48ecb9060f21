@@ -1,13 +1,13 @@
 {
-  "service":{
-    "name":"user_service",
+  "name":"user_service",
+  "register":{
     "tags":["user","service"],
     "check_time_out":"5s",
     "check_interval":"10s",
     "deregister_time":"60s"
   },
   "mysql": {
-    "host": "120.25.255.207",
+    "host": "192.168.8.133",
     "port": 3306,
     "user": "root",
     "password": "chx200205173214",
@@ -18,8 +18,8 @@
     "port": 8500
   },
   "redis":{
-    "host":"120.25.255.207",
-    "port":6380,
+    "host":"192.168.8.133",
+    "port":6379,
     "password":"chx200205173214",
     "poolSize":300
   }

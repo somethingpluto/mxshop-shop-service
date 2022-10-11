@@ -1,6 +1,16 @@
-host: "120.25.255.207"
+# 云服务器配置
+#host: "120.25.255.207"
+#port: 8848
+#namespace: "24fac59d-3774-4e8b-a28c-ecdca9833413"
+#user: 'nacos'
+#password: 'chx200205173214'
+#dataid: 'user_service.json'
+#group: 'dev'
+
+# 虚拟机配置
+host: "192.168.8.133"
 port: 8848
-namespace: "24fac59d-3774-4e8b-a28c-ecdca9833413"
+namespace: "e37065d2-6989-45a7-829a-48ecb9060f21"
 user: 'nacos'
 password: 'chx200205173214'
 dataid: 'user_service.json'

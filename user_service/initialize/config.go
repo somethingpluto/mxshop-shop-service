@@ -64,8 +64,8 @@ func InitConfig() {
 		zap.S().Errorw("client.GetConfig读取文件失败", "err", err.Error())
 		return
 	}
-	global.UserServiceConfig = &config.UserServiceConfig{}
-	err = json.Unmarshal([]byte(content), global.UserServiceConfig)
+	global.ServiceConfig = &config.ServiceConfig{}
+	err = json.Unmarshal([]byte(content), global.ServiceConfig)
 	fmt.Printf("%v\n")
 	if err != nil {
 		panic(err)

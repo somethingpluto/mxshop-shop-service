@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	IP := flag.String("ip", "127.0.0.1", "ip地址")
+	IP := flag.String("ip", "0.0.0.0", "ip地址")
 	Port := flag.Int("port", 8000, "端口号")
 	Mode := flag.String("mode", "release", "mode debug 本地调试/ release 服务主从")
 	flag.Parse()

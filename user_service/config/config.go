@@ -16,15 +16,15 @@ type NacosConfig struct {
 // ServiceConfig
 // @Description: 服务配置
 //
-type UserServiceConfig struct {
-	ServiceInfo ServiceConfig `json:"service"`
-	MysqlInfo   MysqlConfig   `json:"mysql"`
-	ConsulInfo  ConsulConfig  `json:"consul"`
-	RedisInfo   RedisConfig   `json:"redis"`
+type ServiceConfig struct {
+	Name        string       `json:"name"`
+	ServiceInfo Register     `json:"register"`
+	MysqlInfo   MysqlConfig  `json:"mysql"`
+	ConsulInfo  ConsulConfig `json:"consul"`
+	RedisInfo   RedisConfig  `json:"redis"`
 }
 
-type ServiceConfig struct {
-	Name           string   `json:"name"`
+type Register struct {
 	Tags           []string `json:"tags"`
 	CheckTimeOut   string   `json:"check_time_out"`
 	CheckInterval  string   `json:"check_interval"`

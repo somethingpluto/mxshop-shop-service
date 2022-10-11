@@ -7,11 +7,11 @@ import (
 )
 
 var (
-	DB                *gorm.DB
-	UserServiceConfig *config.UserServiceConfig
-	FilePath          *config.FilePathConfig
-	NacosConfig       *config.NacosConfig
-	Port              int
-	Client            *api.Client
-	ServiceID         string
+	DB            *gorm.DB
+	ServiceConfig *config.ServiceConfig
+	FilePath      *config.FilePathConfig
+	NacosConfig   *config.NacosConfig
+	Port          int
+	Client        *api.Client
+	ServiceID     string
 )

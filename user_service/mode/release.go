@@ -59,7 +59,7 @@ func ReleaseMode(server *grpc.Server, ip string) {
 func registerService() {
 	var err error
 	cfg := api.DefaultConfig()
-	cfg.Address = fmt.Sprintf("%s:%d", global.UserServiceConfig.ConsulInfo.Host, global.UserServiceConfig.ConsulInfo.Port)
+	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
 
 	global.Client, err = api.NewClient(cfg)
 	if err != nil {
@@ -67,24 +67,24 @@ func registerService() {
 		return
 	}
 	// 生成检查对象
-	checkConfig := global.UserServiceConfig.ServiceInfo
+	checkConfig := global.ServiceConfig.ServiceInfo
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", global.Port),
+		GRPC:                           fmt.Sprintf("%s:%d", "192.168.8.1", global.Port),
 		GRPCUseTLS:                     false,
-		Timeout:                        checkConfig.CheckTimeOut,
-		Interval:                       checkConfig.CheckInterval,
+		Timeout:                        "5s",
+		Interval:                       "10s",
 		DeregisterCriticalServiceAfter: checkConfig.DeregisterTime,
 	}
 	// 生成注册对象
 	registration := new(api.AgentServiceRegistration)
-	registration.Name = checkConfig.Name
+	registration.Name = global.ServiceConfig.Name
 	serviceID := fmt.Sprintf("%s", uuid.NewV4())
 	fmt.Println(serviceID)
 	global.ServiceID = serviceID
 	registration.ID = serviceID
 	registration.Port = global.Port
 	registration.Tags = checkConfig.Tags
-	registration.Address = "127.0.0.1"
+	registration.Address = "192.168.8.1"
 	registration.Check = check
 	err = global.Client.Agent().ServiceRegister(registration)
 	if err != nil {

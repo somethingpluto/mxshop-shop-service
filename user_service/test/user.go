@@ -13,7 +13,7 @@ var conn *grpc.ClientConn
 
 func Init() {
 	var err error
-	conn, err = grpc.Dial("127.0.0.1:8000", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err = grpc.Dial("192.168.8.1:51279", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		panic(err)
 	}
@@ -75,7 +75,7 @@ func TestCreateUser() {
 
 func TestUpdateUser() {
 	response, err := userClient.UpdateUser(context.Background(), &proto.UpdateUserInfoRequest{
-		Id:       11,
+		Id:       12,
 		NickName: "login",
 		Gender:   "female",
 		Birthday: 0,
