@@ -2,11 +2,12 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
-	"goods_service/util"
+	"goods_service/utils"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -19,9 +20,10 @@ import (
 // @return *proto.CategoryBrandListResponse
 // @return error
 //
-func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
+func (g *GoodsServer) CategoryBrandList(ctx context.Context, request *proto.CategoryBrandFilterRequest) (*proto.CategoryBrandListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CategoryBrandList", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	CategoryBrandList := opentracing.GlobalTracer().StartSpan("CategoryBrandList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CategoryBrandListResponse{}
 
 	var categoryBrands []model.GoodsCategoryBrand
@@ -31,8 +33,8 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 	response.Total = int32(total)
 
 	// 连表分页查询
-	global.DB.Preload("Category").Preload("Brand").Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
-
+	global.DB.Preload("Category").Preload("Brand").Scopes(utils.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&categoryBrands)
+	CategoryBrandList.Finish()
 	var categroyBrandsResponse []*proto.CategoryBrandResponse
 	for _, categoryBrand := range categoryBrands {
 		categroyBrandsResponse = append(categroyBrandsResponse, &proto.CategoryBrandResponse{
@@ -64,6 +66,8 @@ func (g GoodsServer) CategoryBrandList(ctx context.Context, request *proto.Categ
 //
 func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetCategoryBrandList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	GetCategoryBrandListSpan := opentracing.GlobalTracer().StartSpan("GetCategoryBrandList", opentracing.ChildOf(parentSpan.Context()))
 
 	response := &proto.BrandListResponse{} // 查询该商品分类是否存在
 	var category model.Category
@@ -78,7 +82,7 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 	if result.RowsAffected > 0 {
 		response.Total = int32(result.RowsAffected)
 	}
-
+	GetCategoryBrandListSpan.Finish()
 	var brandInfoResponse []*proto.BrandInfoResponse
 	for _, categoryBrand := range categoryBrands {
 		brandInfoResponse = append(brandInfoResponse, &proto.BrandInfoResponse{
@@ -99,9 +103,10 @@ func (g GoodsServer) GetCategoryBrandList(ctx context.Context, request *proto.Ca
 // @return *proto.CategoryBrandResponse
 // @return error
 //
-func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.CategoryBrandResponse, error) {
+func (g *GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.CategoryBrandResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateCategoryBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	CreateCategoryBrandSpan := opentracing.GlobalTracer().StartSpan("CreateCategoryBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CategoryBrandResponse{}
 
 	var category model.Category
@@ -121,6 +126,7 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 		BrandID:    request.BrandId,
 	}
 	global.DB.Save(&categoryBrand)
+	CreateCategoryBrandSpan.Finish()
 	response.Id = categoryBrand.ID
 	return response, nil
 }
@@ -133,9 +139,10 @@ func (g GoodsServer) CreateCategoryBrand(ctx context.Context, request *proto.Cat
 // @return *proto.OperationResult
 // @return error
 //
-func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
+func (g *GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteCategoryBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	DeleteCategoryBrandSpan := opentracing.GlobalTracer().StartSpan("DeleteCategoryBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.GoodsCategoryBrand{}, request.Id)
@@ -143,7 +150,7 @@ func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.Cat
 		response.Success = false
 		return response, status.Errorf(codes.InvalidArgument, "商品分类不存在")
 	}
-
+	DeleteCategoryBrandSpan.Finish()
 	response.Success = true
 	return response, nil
 }
@@ -156,9 +163,10 @@ func (g GoodsServer) DeleteCategoryBrand(ctx context.Context, request *proto.Cat
 // @return *proto.OperationResult
 // @return error
 //
-func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
+func (g *GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.CategoryBrandRequest) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateCategoryBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	UpdateCategoryBrandSpan := opentracing.GlobalTracer().StartSpan("UpdateCategoryBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 
 	result := global.DB.First(&model.GoodsCategoryBrand{}, request.Id)
@@ -178,7 +186,7 @@ func (g GoodsServer) UpdateCategoryBrand(ctx context.Context, request *proto.Cat
 		response.Success = false
 		return response, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
-
+	UpdateCategoryBrandSpan.Finish()
 	var categoryBrand model.GoodsCategoryBrand
 	categoryBrand.CategoryID = request.CategoryId
 	categoryBrand.BrandID = request.BrandId

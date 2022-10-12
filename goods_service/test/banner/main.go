@@ -10,7 +10,7 @@ import (
 
 func main() {
 	test.InitRPCConnect()
-	//TestBannerList()
+	TestBannerList()
 	TestCreateBanner()
 	//TestDeleteBanner()
 	//TestUpdateBanner()
@@ -32,7 +32,7 @@ func TestBannerList() {
 
 func TestCreateBanner() {
 	response, err := test.GoodsClient.CreateBanner(context.Background(), &proto.BannerRequest{
-		Index: 4,
+		Index: 5,
 		Image: "http://www.baidu.com",
 		Url:   "http://www.baidu.com",
 	})

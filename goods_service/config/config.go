@@ -25,10 +25,12 @@ type FilePathConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name       string       `mapstructure:"name" json:"name"`
-	MySqlInfo  MySqlConfig  `mapstructure:"mysql_config" json:"mysql"`
+	Name       string `json:"name"`
+	Host       string
+	MySqlInfo  MySqlConfig  `json:"mysql"`
 	ConsulInfo ConsulConfig `json:"consul"`
 	EsInfo     EsConfig     `json:"es"`
+	JaegerInfo JaegerConfig `json:"jaeger"`
 }
 
 // MySqlConfig
@@ -42,10 +44,22 @@ type MySqlConfig struct {
 	Name     string `mapstructure:"name" json:"name"`
 }
 
+// ConsulConfig
+// @Description: consul链接信息
+//
 type ConsulConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
 }
+
+type JaegerConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
+}
+
+// EsConfig
+// @Description: es连接信息
+//
 type EsConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`

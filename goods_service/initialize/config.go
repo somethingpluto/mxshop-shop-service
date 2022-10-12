@@ -71,4 +71,5 @@ func InitConfig() {
 		panic(err)
 	}
 	fmt.Println("nacos配置拉取成功")
+	global.ServiceConfig.Host = "192.168.8.1"
 }

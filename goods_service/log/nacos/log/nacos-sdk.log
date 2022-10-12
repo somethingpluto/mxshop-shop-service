@@ -192,3 +192,44 @@
 2022-09-25T22:28:50.434+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
 2022-09-25T22:29:45.587+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
 2022-09-25T22:38:05.820+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-09T21:47:20.652+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-09T21:47:47.813+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-09T22:28:51.748+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:13:34.649+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:13:34.666+0800	[31mERROR[0m	nacos_server/nacos_server.go:194	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"goods_config.json","group":"dev","tenant":"d9abea6a-cff8-4004-8ade-50f5815f0e8b"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2022-10-12T19:13:34.670+0800	[31mERROR[0m	nacos_server/nacos_server.go:194	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"goods_config.json","group":"dev","tenant":"d9abea6a-cff8-4004-8ade-50f5815f0e8b"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2022-10-12T19:13:34.674+0800	[31mERROR[0m	nacos_server/nacos_server.go:194	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"goods_config.json","group":"dev","tenant":"d9abea6a-cff8-4004-8ade-50f5815f0e8b"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2022-10-12T19:13:34.674+0800	[31mERROR[0m	config_client/config_client.go:202	get config from server error:[404] config data not exist
+ 
+2022-10-12T19:13:34.674+0800	[33mWARN[0m	config_client/config_client.go:207	[client.GetConfig] config not found, dataId: goods_config.json, group: dev, namespaceId: d9abea6a-cff8-4004-8ade-50f5815f0e8b.
+2022-10-12T19:13:55.309+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:14:20.053+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:15:58.010+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:20:00.370+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:20:35.444+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:22:19.177+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:27:32.876+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:30:12.956+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:30:43.278+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T19:35:21.243+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:15:02.845+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:16:59.091+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:19:17.818+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:31:18.113+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:32:31.096+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:35:05.457+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:36:15.494+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:43:48.670+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:44:10.561+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:44:24.475+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:45:42.050+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T20:48:00.269+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T22:51:16.227+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T22:53:09.776+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>
+2022-10-12T23:09:03.056+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/log>   cacheDir:<D:/C_Back/Go/Shop_service/goods_service/log/nacos/cache>

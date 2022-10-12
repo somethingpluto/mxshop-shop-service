@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -20,13 +21,15 @@ import (
 // @return response
 // @return err
 //
-func (g GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.Empty) (*proto.CategoryListResponse, error) {
+func (g *GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.Empty) (*proto.CategoryListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetAllCategoriesList", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getAllCategoriesListSpan := opentracing.GlobalTracer().StartSpan("GetAllCategoriesList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CategoryListResponse{}
 
 	var categorys []model.Category
 	global.DB.Where(&model.Category{Level: 1}).Preload("SubCategory.SubCategory").Find(&categorys)
+	getAllCategoriesListSpan.Finish()
 	b, err := json.Marshal(&categorys)
 	if err != nil {
 		zap.S().Errorw("json转换failed", "err", err.Error())
@@ -44,9 +47,10 @@ func (g GoodsServer) GetAllCategoriesList(ctx context.Context, request *emptypb.
 // @return response
 // @return err
 //
-func (g GoodsServer) GetSubCategory(ctx context.Context, request *proto.CategoryListRequest) (*proto.SubCategoryListResponse, error) {
+func (g *GoodsServer) GetSubCategory(ctx context.Context, request *proto.CategoryListRequest) (*proto.SubCategoryListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetSubCategory", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getSubCategorySpan := opentracing.GlobalTracer().StartSpan("GetSubCategory", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.SubCategoryListResponse{}
 
 	var category model.Category
@@ -65,6 +69,7 @@ func (g GoodsServer) GetSubCategory(ctx context.Context, request *proto.Category
 	var subCategorys []model.Category
 	var subCategorysResponse []*proto.CategoryInfoResponse
 	global.DB.Where(&model.Category{ParentCategoryID: request.Id}).Find(&subCategorys)
+	getSubCategorySpan.Finish()
 	for _, subCategory := range subCategorys {
 		subCategorysResponse = append(subCategorysResponse, &proto.CategoryInfoResponse{
 			Id:             subCategory.ID,
@@ -86,8 +91,10 @@ func (g GoodsServer) GetSubCategory(ctx context.Context, request *proto.Category
 // @return *proto.CategoryInfoResponse
 // @return error
 //
-func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
+func (g *GoodsServer) CreateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateCategory", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createCategorySpan := opentracing.GlobalTracer().StartSpan("CreateCategory", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CategoryInfoResponse{}
 
 	var category model.Category
@@ -101,7 +108,7 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 		zap.S().Errorw("创建目录失败", "err", result.Error)
 		return nil, result.Error
 	}
-
+	createCategorySpan.Finish()
 	response.Id = category.ID
 	response.IsTab = category.IsTab
 	response.Level = category.Level
@@ -119,8 +126,10 @@ func (g GoodsServer) CreateCategory(ctx context.Context, request *proto.Category
 // @return *proto.OperationResult
 // @return error
 //
-func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCategoryRequest) (*proto.OperationResult, error) {
+func (g *GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCategoryRequest) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteCategory", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteCategorySpan := opentracing.GlobalTracer().StartSpan("DeleteCategory", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.Category{}, request.Id)
@@ -128,6 +137,7 @@ func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCa
 		response.Success = false
 		return response, status.Errorf(codes.NotFound, "商品分类不存在")
 	}
+	deleteCategorySpan.Finish()
 	response.Success = true
 	return response, nil
 }
@@ -140,8 +150,10 @@ func (g GoodsServer) DeleteCategory(ctx context.Context, request *proto.DeleteCa
 // @return *proto.CategoryInfoResponse
 // @return error
 //
-func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
+func (g *GoodsServer) UpdateCategory(ctx context.Context, request *proto.CategoryInfoRequest) (*proto.CategoryInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateCategory", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	UpdateCategorySpan := opentracing.GlobalTracer().StartSpan("UpdateCategory", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CategoryInfoResponse{}
 	var category model.Category
 	result := global.DB.First(&category, request.Id)
@@ -166,6 +178,7 @@ func (g GoodsServer) UpdateCategory(ctx context.Context, request *proto.Category
 		fmt.Println(result.Error)
 		return nil, result.Error
 	}
+	UpdateCategorySpan.Finish()
 	response.Id = category.ID
 	response.Name = category.Name
 	response.Level = category.Level

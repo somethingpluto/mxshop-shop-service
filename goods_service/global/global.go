@@ -12,7 +12,7 @@ var (
 	FilePath      *config.FilePathConfig
 	ServiceConfig *config.ServiceConfig
 	NacosConfig   *config.NacosConfig
-	FreePort      int
+	Port          int
 	Client        *api.Client
 	ServiceID     string
 	EsClient      *elastic.Client

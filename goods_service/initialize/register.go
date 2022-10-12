@@ -19,10 +19,10 @@ func InitRegisterService() {
 	}
 	// 生成检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", global.FreePort),
+		GRPC:                           fmt.Sprintf("%s:%d", "192.168.8.1", global.Port),
 		GRPCUseTLS:                     false,
 		Timeout:                        "5s",
-		Interval:                       "30s",
+		Interval:                       "10",
 		DeregisterCriticalServiceAfter: "60s",
 	}
 	// 生成注册对象
@@ -36,9 +36,9 @@ func InitRegisterService() {
 	serviceID := v4.String()
 	global.ServiceID = serviceID
 	registration.ID = serviceID
-	registration.Port = global.FreePort
+	registration.Port = global.Port
 	registration.Tags = []string{"goods", "service"}
-	registration.Address = "127.0.0.1"
+	registration.Address = "192.168.8.1"
 	registration.Check = check
 	err = global.Client.Agent().ServiceRegister(registration)
 	if err != nil {

@@ -2,11 +2,12 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
 	"goods_service/proto"
-	"goods_service/util"
+	"goods_service/utils"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -19,12 +20,14 @@ import (
 // @return *proto.BrandListResponse
 // @return error
 //
-func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
+func (g *GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRequest) (*proto.BrandListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "BrandList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	brandListSpan := opentracing.GlobalTracer().StartSpan("BrandList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BrandListResponse{}
 	// 数据库操作
 	var brands []model.Brand
-	result := global.DB.Scopes(util.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&brands)
+	result := global.DB.Scopes(utils.Paginate(int(request.Pages), int(request.PagePerNums))).Find(&brands)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -41,6 +44,7 @@ func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRe
 		brandList = append(brandList, &brandResponse)
 	}
 	response.Data = brandList
+	brandListSpan.Finish()
 	return response, nil
 }
 
@@ -52,9 +56,10 @@ func (g GoodsServer) BrandList(ctx context.Context, request *proto.BrandFilterRe
 // @return *proto.BrandInfoResponse
 // @return error
 //
-func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
+func (g *GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createBrand := opentracing.GlobalTracer().StartSpan("CreateBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BrandInfoResponse{}
 	result := global.DB.Where("name=?", request.Name).First(&model.Brand{})
 	if result.RowsAffected == 1 {
@@ -66,11 +71,10 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 	}
 	zap.S().Infof("创建品牌 %#v", brand)
 	global.DB.Create(&brand)
-	var newBrand model.Brand
-	global.DB.Where("name=?", request.Name).First(&newBrand)
-	response.Id = newBrand.ID
-	response.Name = newBrand.Name
-	response.Logo = newBrand.Logo
+	createBrand.Finish()
+	response.Id = brand.ID
+	response.Name = brand.Name
+	response.Logo = brand.Logo
 	return response, nil
 }
 
@@ -82,9 +86,10 @@ func (g GoodsServer) CreateBrand(ctx context.Context, request *proto.BrandReques
 // @return *proto.OperationResult
 // @return error
 //
-func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
+func (g *GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandRequest) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteBrandSPan := opentracing.GlobalTracer().StartSpan("DeleteBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 
 	var brand model.Brand
@@ -92,6 +97,7 @@ func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandReques
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
+	deleteBrandSPan.Context()
 	response.Success = true
 	return response, nil
 }
@@ -104,9 +110,10 @@ func (g GoodsServer) DeleteBrand(ctx context.Context, request *proto.BrandReques
 // @return *proto.BrandInfoResponse
 // @return error
 //
-func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
+func (g *GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateBrand", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateBrandSpan := opentracing.GlobalTracer().StartSpan("UpdateBrand", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BrandInfoResponse{}
 
 	var brand model.Brand
@@ -121,6 +128,7 @@ func (g GoodsServer) UpdateBrand(ctx context.Context, request *proto.BrandReques
 		brand.Logo = request.Logo
 	}
 	global.DB.Save(&brand)
+	updateBrandSpan.Finish()
 	response.Id = brand.ID
 	response.Name = brand.Name
 	response.Logo = brand.Logo

@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -20,10 +21,13 @@ import (
 //
 func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*proto.BannerListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "BannerList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	bannerListSpan := opentracing.GlobalTracer().StartSpan("BannerList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BannerListResponse{}
 	var banners []model.Banner
 	result := global.DB.Find(&banners)
 	response.Total = int32(result.RowsAffected)
+	bannerListSpan.Finish()
 	var bannerResponse []*proto.BannerResponse
 	for _, banner := range banners {
 		bannerResponse = append(bannerResponse, &proto.BannerResponse{
@@ -47,7 +51,8 @@ func (g *GoodsServer) BannerList(ctx context.Context, request *emptypb.Empty) (*
 //
 func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateBanner", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createBannerSpan := opentracing.GlobalTracer().StartSpan("CreateBanner", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner
@@ -60,6 +65,7 @@ func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerReq
 		zap.S().Errorw("创建轮播图失败", "err", result.Error.Error())
 		return nil, result.Error
 	}
+	createBannerSpan.Finish()
 	response.Id = banner.ID
 	response.Url = banner.Url
 	response.Image = banner.Image
@@ -77,7 +83,8 @@ func (g *GoodsServer) CreateBanner(ctx context.Context, request *proto.BannerReq
 //
 func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerRequest) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteBanner", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteBannerSpan := opentracing.GlobalTracer().StartSpan("DeleteBanner", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 
 	result := global.DB.Delete(&model.Banner{}, request.Id)
@@ -85,6 +92,7 @@ func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerReq
 		response.Success = false
 		return response, status.Errorf(codes.NotFound, "轮播图不存在")
 	}
+	deleteBannerSpan.Finish()
 	response.Success = true
 	return response, nil
 }
@@ -99,7 +107,8 @@ func (g *GoodsServer) DeleteBanner(ctx context.Context, request *proto.BannerReq
 //
 func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerRequest) (*proto.BannerResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateBanner", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateBannerSpan := opentracing.GlobalTracer().StartSpan("UpdateBanner", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.BannerResponse{}
 
 	var banner model.Banner
@@ -120,6 +129,7 @@ func (g *GoodsServer) UpdateBanner(ctx context.Context, request *proto.BannerReq
 	if result.RowsAffected != 1 {
 		return nil, result.Error
 	}
+	updateBannerSpan.Finish()
 	response.Id = banner.ID
 	response.Index = banner.Index
 	response.Url = banner.Url

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/olivere/elastic/v7"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"goods_service/global"
 	"goods_service/model"
@@ -61,8 +62,11 @@ func ModelToResponse(goods *model.Goods) proto.GoodsInfoResponse {
 // @return GoodsListResponse
 // @return err
 //
-func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
+func (g *GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GoodsList", "request", request)
+
+	parentSpan := opentracing.SpanFromContext(ctx)
+
 	response := &proto.GoodsListResponse{}
 	localDB := global.DB.Model(&model.Goods{})
 
@@ -92,7 +96,6 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		//localDB = localDB.Where("brand_id=?", request.Brand)
 		q = q.Filter(elastic.NewTermQuery("brands_id", request.Brand))
 	}
-
 	// 查询category 获取categoryID
 	var subQuery string
 	categoryIds := make([]interface{}, 0)
@@ -117,7 +120,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 			categoryIds = append(categoryIds, re.ID)
 		}
 	}
-
+	esSpan := opentracing.GlobalTracer().StartSpan("elasticsearch-goods", opentracing.ChildOf(parentSpan.Context()))
 	// 生成term查询
 	q = q.Filter(elastic.NewTermsQuery("category_id", categoryIds...))
 
@@ -135,7 +138,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 	if err != nil {
 		zap.S().Errorw("Error", "message", "es 查询goods失败", "err", err.Error())
 	}
-
+	esSpan.Finish()
 	// 获取es中查询出来的所有商品Id
 	goodsIds := make([]int32, 0)
 	response.Total = int32(result.Hits.TotalHits.Value)
@@ -144,7 +147,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		_ = json.Unmarshal(value.Source, &goods)
 		goodsIds = append(goodsIds, goods.ID)
 	}
-
+	goodListSpan := opentracing.GlobalTracer().StartSpan("goods_list", opentracing.ChildOf(parentSpan.Context()))
 	// 交给mysql进行商品的查询
 	var goods []model.Goods
 	localResult := localDB.Preload("Category").Preload("Brand").Find(&goods, goodsIds)
@@ -152,6 +155,7 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 		zap.S().Errorw("Error", "message", "localDB.Preload 失败", "err", err.Error())
 		return nil, status.Errorf(codes.Internal, "数据查询失败")
 	}
+	goodListSpan.Finish()
 
 	// 转换成响应的数据
 	var goodsListResponse []*proto.GoodsInfoResponse
@@ -172,12 +176,14 @@ func (g GoodsServer) GoodsList(ctx context.Context, request *proto.GoodsFilterRe
 // @return response
 // @return err
 //
-func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGoodsIdInfo) (*proto.GoodsListResponse, error) {
+func (g *GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGoodsIdInfo) (*proto.GoodsListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "BatchGetGoods", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	batchGetGoodsSpan := opentracing.GlobalTracer().StartSpan("BatchGetGoods", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.GoodsListResponse{}
 	var goodsList []model.Goods
 	result := global.DB.Where(request.Id).Find(&goodsList)
+	batchGetGoodsSpan.Finish()
 	var goodsListResponse []*proto.GoodsInfoResponse
 	for _, goods := range goodsList {
 		goodsInfoResponse := ModelToResponse(&goods)
@@ -196,8 +202,10 @@ func (g GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGood
 // @return response
 // @return err
 //
-func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
+func (g *GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateGoods", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createGoodsSpan := opentracing.GlobalTracer().StartSpan("CreateGoods", opentracing.ChildOf(parentSpan.Context()))
 	var category model.Category
 	if result := global.DB.First(&category, request.CategoryId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
@@ -230,6 +238,7 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 		Stocks:          request.Stocks,
 	}
 	global.DB.Create(&goods)
+	createGoodsSpan.Finish()
 	response := ModelToResponse(&goods)
 	return &response, nil
 }
@@ -242,14 +251,16 @@ func (g GoodsServer) CreateGoods(ctx context.Context, request *proto.CreateGoods
 // @return response
 // @return err
 //
-func (g GoodsServer) DeleteGoods(ctx context.Context, request *proto.DeleteGoodsInfo) (*proto.OperationResult, error) {
+func (g *GoodsServer) DeleteGoods(ctx context.Context, request *proto.DeleteGoodsInfo) (*proto.OperationResult, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteGoods", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteGoodsSpan := opentracing.GlobalTracer().StartSpan("DeleteGoods", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OperationResult{}
 	result := global.DB.Delete(&model.Goods{BaseModel: model.BaseModel{ID: request.Id}}, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
+	deleteGoodsSpan.Finish()
 	response.Success = true
 	return response, nil
 }
@@ -264,7 +275,8 @@ func (g GoodsServer) DeleteGoods(ctx context.Context, request *proto.DeleteGoods
 //
 func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateGoods", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateGoodsSpan := opentracing.GlobalTracer().StartSpan("UpdateGoods", opentracing.ChildOf(parentSpan.Context()))
 	var goods model.Goods
 
 	if result := global.DB.First(&goods, request.Id); result.RowsAffected == 0 {
@@ -280,6 +292,7 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 	if result := global.DB.First(&brand, request.BrandId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
+	updateGoodsSpan.Finish()
 	goods.Brand = brand
 	goods.BrandID = brand.ID
 	goods.Category = category
@@ -309,21 +322,24 @@ func (g GoodsServer) UpdateGoods(ctx context.Context, request *proto.CreateGoods
 // @return response
 // @return err
 //
-func (g GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInfoRequest) (*proto.GoodsInfoResponse, error) {
+func (g *GoodsServer) GetGoodsDetail(ctx context.Context, request *proto.GoodsInfoRequest) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "GetGoodsDetail", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getGoodsDetailSpan := opentracing.GlobalTracer().StartSpan("GetGoodsDetail", opentracing.ChildOf(parentSpan.Context()))
 	var goods model.Goods
 	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
+	getGoodsDetailSpan.Finish()
 	response := ModelToResponse(&goods)
 	return &response, nil
 }
 
-func (g GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
+func (g *GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateGoodsStatus", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateGoodsStatusSpan := opentracing.GlobalTracer().StartSpan("UpdateGoodsStatus", opentracing.ChildOf(parentSpan.Context()))
 	var goods model.Goods
 	result := global.DB.Preload("Category").Preload("Brand").First(&goods, request.Id)
 	if result.RowsAffected == 0 {
@@ -336,6 +352,7 @@ func (g GoodsServer) UpdateGoodsStatus(ctx context.Context, request *proto.Creat
 	if result.Error != nil {
 		return nil, result.Error
 	}
+	updateGoodsStatusSpan.Finish()
 	response := ModelToResponse(&goods)
 	return &response, nil
 }
