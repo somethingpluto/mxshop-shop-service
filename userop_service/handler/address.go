@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -11,14 +12,16 @@ import (
 	"userop_service/proto"
 )
 
-func (s UserOpService) GetAddressList(ctx context.Context, reqeust *proto.AddressRequest) (*proto.AddressListResponse, error) {
-	zap.S().Infow("Info", "method", "GetAddressList", "request", reqeust)
-	response := &proto.AddressListResponse{}
+func (s *UserOpService) GetAddressList(ctx context.Context, request *proto.AddressRequest) (*proto.AddressListResponse, error) {
+	zap.S().Infow("Info", "method", "GetAddressList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getAddressListSpan := opentracing.GlobalTracer().StartSpan("GetAddressList", opentracing.ChildOf(parentSpan.Context()))
 
+	response := &proto.AddressListResponse{}
 	var address []model.Address
-	result := global.DB.Where(&model.Address{User: reqeust.UserId}).Find(&address)
+	result := global.DB.Where(&model.Address{User: request.UserId}).Find(&address)
 	if result.RowsAffected == 0 {
-		zap.S().Warnw("Warning", "message", "查询地址数据为空", "request", reqeust.Id)
+		zap.S().Warnw("Warning", "message", "查询地址数据为空", "request", request.Id)
 	}
 	response.Total = int32(result.RowsAffected)
 	var addressResponse []*proto.AddressResponse
@@ -35,11 +38,14 @@ func (s UserOpService) GetAddressList(ctx context.Context, reqeust *proto.Addres
 		})
 	}
 	response.Data = addressResponse
+	getAddressListSpan.Finish()
 	return response, nil
 }
 
-func (s UserOpService) CreateAddress(ctx context.Context, request *proto.AddressRequest) (*proto.AddressResponse, error) {
+func (s *UserOpService) CreateAddress(ctx context.Context, request *proto.AddressRequest) (*proto.AddressResponse, error) {
 	zap.S().Infow("Info", "method", "CreateAddress", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createAddressSpan := opentracing.GlobalTracer().StartSpan("CreateAddress", opentracing.ChildOf(parentSpan.Context()))
 
 	var address model.Address
 	address.User = request.UserId
@@ -55,22 +61,28 @@ func (s UserOpService) CreateAddress(ctx context.Context, request *proto.Address
 		zap.S().Errorw("Error", "message", "创建地址失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "创建地址失败")
 	}
+	createAddressSpan.Finish()
 	return &proto.AddressResponse{Id: address.ID, Province: address.Province, City: address.City, District: address.District, SignerName: address.SignerName, SignerMobile: address.SignerMobile, Address: address.Address}, nil
 }
 
-func (s UserOpService) DeleteAddress(ctx context.Context, request *proto.AddressRequest) (*emptypb.Empty, error) {
+func (s *UserOpService) DeleteAddress(ctx context.Context, request *proto.AddressRequest) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "method", "DeleteAddress", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteAddressSpan := opentracing.GlobalTracer().StartSpan("DeleteAddress", opentracing.ChildOf(parentSpan.Context()))
+
 	result := global.DB.Where("id = ? and user = ?", request.Id, request.UserId).Delete(&model.Address{})
 	if result.RowsAffected == 0 {
 		zap.S().Warnw("Warning", "message", "查询地址数据为空", "request", request.Id)
 		return nil, status.Errorf(codes.NotFound, "收货地址不存在")
 	}
+	deleteAddressSpan.Finish()
 	return &emptypb.Empty{}, nil
 }
 
-func (s UserOpService) UpdateAddress(ctx context.Context, request *proto.AddressRequest) (*emptypb.Empty, error) {
+func (s *UserOpService) UpdateAddress(ctx context.Context, request *proto.AddressRequest) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "method", "UpdateAddress", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateAddressSpan := opentracing.GlobalTracer().StartSpan("UpdateAddress", opentracing.ChildOf(parentSpan.Context()))
 	var address model.Address
 
 	if result := global.DB.Where("id=? and user=?", request.Id, request.UserId).First(&address); result.RowsAffected == 0 {
@@ -106,6 +118,6 @@ func (s UserOpService) UpdateAddress(ctx context.Context, request *proto.Address
 		zap.S().Errorw("Error", "message", "更新地址失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "更新地址失败")
 	}
-
+	updateAddressSpan.Finish()
 	return &emptypb.Empty{}, nil
 }

@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -10,8 +11,10 @@ import (
 	"userop_service/proto"
 )
 
-func (s UserOpService) MessageList(ctx context.Context, request *proto.MessageRequest) (*proto.MessageListResponse, error) {
+func (s *UserOpService) MessageList(ctx context.Context, request *proto.MessageRequest) (*proto.MessageListResponse, error) {
 	zap.S().Infow("Info", "method", "MessageList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	messageListSpan := opentracing.GlobalTracer().StartSpan("MessageList", opentracing.ChildOf(parentSpan.Context()))
 
 	response := &proto.MessageListResponse{}
 	var messages []model.LeavingMessages
@@ -35,11 +38,14 @@ func (s UserOpService) MessageList(ctx context.Context, request *proto.MessageRe
 	}
 
 	response.Data = messageList
+	messageListSpan.Finish()
 	return response, nil
 }
 
-func (s UserOpService) CreateMessage(ctx context.Context, request *proto.MessageRequest) (*proto.MessageResponse, error) {
+func (s *UserOpService) CreateMessage(ctx context.Context, request *proto.MessageRequest) (*proto.MessageResponse, error) {
 	var message model.LeavingMessages
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createMessageSpan := opentracing.GlobalTracer().StartSpan("CreateMessage", opentracing.ChildOf(parentSpan.Context()))
 
 	message.User = request.UserId
 	message.MessageType = request.MessageType
@@ -52,6 +58,6 @@ func (s UserOpService) CreateMessage(ctx context.Context, request *proto.Message
 		zap.S().Errorw("Error", "message", "创建地址失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "创建地址失败")
 	}
-
+	createMessageSpan.Finish()
 	return &proto.MessageResponse{Id: message.ID}, nil
 }

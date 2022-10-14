@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -49,37 +50,46 @@ func (s UserOpService) GetFavoriteList(ctx context.Context, request *proto.UserF
 // @return *emptypb.Empty
 // @return error
 //
-func (s UserOpService) AddUserFavorite(ctx context.Context, request *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
+func (s *UserOpService) AddUserFavorite(ctx context.Context, request *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "method", "AddUserFavorite", "request", request)
-	var userFav model.UserFavorite
+	parentSpan := opentracing.SpanFromContext(ctx)
+	addUserFavoriteSpan := opentracing.GlobalTracer().StartSpan("AddUserFavorite", opentracing.ChildOf(parentSpan.Context()))
 
+	var userFav model.UserFavorite
 	userFav.User = request.UserId
 	userFav.Goods = request.GoodsId
-
 	result := global.DB.Save(&userFav)
 	if result.Error != nil {
 		zap.S().Errorw("Error", "message", "创建地址失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "创建地址失败")
 	}
-
+	addUserFavoriteSpan.Finish()
 	return &emptypb.Empty{}, nil
 }
 
-func (s UserOpService) GetUserFavoriteDetail(ctx context.Context, req *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
+func (s *UserOpService) GetUserFavoriteDetail(ctx context.Context, req *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
 	var userFavorite model.UserFavorite
+	parentSpan := opentracing.SpanFromContext(ctx)
+	getUserFavoriteDetailSpan := opentracing.GlobalTracer().StartSpan("GetUserFavoriteDetail", opentracing.ChildOf(parentSpan.Context()))
+
 	result := global.DB.Where("goods=? and user=?", req.GoodsId, req.UserId).Find(&userFavorite)
 	if result.RowsAffected == 0 {
 		zap.S().Warnw("Warning", "message", "用户收藏为0")
 		return nil, status.Errorf(codes.NotFound, "用户收藏记录不存在")
 	}
+	getUserFavoriteDetailSpan.Finish()
 	return &emptypb.Empty{}, nil
 }
 
-func (s UserOpService) DeleteUserFavorite(ctx context.Context, request *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
+func (s *UserOpService) DeleteUserFavorite(ctx context.Context, request *proto.UserFavoriteRequest) (*emptypb.Empty, error) {
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteUserFavoriteSpan := opentracing.GlobalTracer().StartSpan("DeleteUserFavorite", opentracing.ChildOf(parentSpan.Context()))
+
 	result := global.DB.Where("goods = ? and user =?", request.GoodsId, request.UserId).Delete(&model.UserFavorite{})
 	if result.Error != nil {
 		zap.S().Errorw("Error", "message", "删除用户收藏失败", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "删除用户收藏失败 ")
 	}
+	deleteUserFavoriteSpan.Finish()
 	return &emptypb.Empty{}, nil
 }

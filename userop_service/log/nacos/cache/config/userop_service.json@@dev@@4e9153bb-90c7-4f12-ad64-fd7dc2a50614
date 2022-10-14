@@ -1,0 +1,24 @@
+{
+    "name":"userop_service",
+    "mysql":{
+        "host":"192.168.8.133",
+        "port":3306,
+        "user":"root",
+        "password":"chx200205173214",
+        "name":"mxshop_userop_service"
+    },
+    "consul":{
+        "host":"192.168.8.133",
+        "port":8500
+    },
+    "jaeger":{
+    "host":"192.168.8.133",
+    "port": 14268
+    },
+    "register":{
+      "tags":["userop","service"],
+      "check_time_out":"5s",
+      "check_interval":"10s",
+      "deregister_time":"60s"
+  }
+}

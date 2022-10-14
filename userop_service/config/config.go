@@ -25,10 +25,12 @@ type NacosConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name   string       `json:"name"`
-	Mode   string       `json:"mode"`
-	Mysql  MysqlConfig  `json:"mysql"`
-	Consul ConsulConfig `json:"consul"`
+	Name         string `json:"name"`
+	Host         string
+	MysqlInfo    MysqlConfig    `json:"mysql"`
+	ConsulInfo   ConsulConfig   `json:"consul"`
+	JaegerInfo   JaegerConfig   `json:"jaeger"`
+	RegisterInfo RegisterConfig `json:"register"`
 }
 
 // MysqlConfig
@@ -48,4 +50,16 @@ type MysqlConfig struct {
 type ConsulConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
+}
+
+type JaegerConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
+}
+
+type RegisterConfig struct {
+	Tags           []string `json:"tags"`
+	CheckTimeOut   string   `json:"check_time_out"`
+	CheckInterval  string   `json:"check_interval"`
+	DeregisterTime string   `json:"deregister_time"`
 }
