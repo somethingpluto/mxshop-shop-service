@@ -1,6 +1,14 @@
-host: "120.25.255.207"
+#host: "120.25.255.207"
+#port: 8848
+#namespace: "a833a3ff-601b-4f77-b8cd-c916bacc5605"
+#user: 'nacos'
+#password: 'chx200205173214'
+#dataid: 'order_service.json'
+#group: 'dev'
+
+host: "192.168.8.133"
 port: 8848
-namespace: "a833a3ff-601b-4f77-b8cd-c916bacc5605"
+namespace: "00620347-45ae-452b-b6b3-e2c1e207bff9"
 user: 'nacos'
 password: 'chx200205173214'
 dataid: 'order_service.json'
