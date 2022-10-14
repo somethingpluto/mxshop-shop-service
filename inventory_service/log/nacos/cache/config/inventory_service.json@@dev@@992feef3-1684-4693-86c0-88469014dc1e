@@ -1,0 +1,30 @@
+{
+  "name": "inventory_service",
+  "mysql": {
+    "host": "192.168.8.133",
+    "port": 3306,
+    "user": "root",
+    "password": "chx200205173214",
+    "name": "mxshop_inventory_service"
+  },
+  "consul":{
+    "host": "192.168.8.133",
+    "port": 8500
+  },
+  "redis":{
+    "host":"192.168.8.133",
+    "port":6380,
+    "password":"chx200205173214",
+    "poolSize":300
+  },
+  "jaeger":{
+    "host":"192.168.8.133",
+    "port": 14268
+  },
+  "register":{
+    "tags":["inventory","service"],
+    "check_time_out":"5s",
+    "check_interval":"10s",
+    "deregister_time":"60s"
+  }
+}

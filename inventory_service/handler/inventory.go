@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/go-redsync/redsync/v4"
 	"github.com/golang/protobuf/ptypes/empty"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -22,17 +23,21 @@ type InventoryService struct {
 
 func (i *InventoryService) SetInv(ctx context.Context, request *proto.GoodsInvInfo) (*empty.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "SetInv", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	setInventorySpan := opentracing.GlobalTracer().StartSpan("setInventory", opentracing.ChildOf(parentSpan.Context()))
 	var inventory model.Inventory
 	global.DB.Where(&model.Inventory{Goods: request.GoodsId}).First(&inventory)
 	inventory.Goods = request.GoodsId
 	inventory.Stocks = request.Num
 	global.DB.Save(&inventory)
+	setInventorySpan.Finish()
 	return &empty.Empty{}, nil
 }
 
 func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInvInfo) (*proto.GoodsInvInfo, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "InvDetail", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	inventoryDetailSpan := opentracing.GlobalTracer().StartSpan("inventoryDetailSpan", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.GoodsInvInfo{}
 
 	var inventory model.Inventory
@@ -47,14 +52,16 @@ func (i InventoryService) InvDetail(ctx context.Context, request *proto.GoodsInv
 		zap.S().Errorw("global.DB.First result error", "err", result.Error)
 		return nil, status.Errorf(codes.Internal, "数据库查询错误")
 	}
+	inventoryDetailSpan.Finish()
 	response.Num = inventory.Stocks
 	response.GoodsId = inventory.Goods
 	return response, nil
 }
 
-func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
+func (i *InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "Sell", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	sellSpan := opentracing.GlobalTracer().StartSpan("sell", opentracing.ChildOf(parentSpan.Context()))
 	tx := global.DB.Begin()
 	for _, goodInfo := range request.GoodsInfo {
 		mutex := global.Redsync.NewMutex(fmt.Sprintf("goods_%d", goodInfo.GoodsId), redsync.WithTries(100), redsync.WithExpiry(time.Second*20))
@@ -88,12 +95,14 @@ func (i InventoryService) Sell(ctx context.Context, request *proto.SellInfo) (*e
 		}
 	}
 	tx.Commit()
+	sellSpan.Finish()
 	return &empty.Empty{}, nil
 }
 
 func (i *InventoryService) ReBack(ctx context.Context, request *proto.SellInfo) (*empty.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "ReBack", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	rebackSpan := opentracing.GlobalTracer().StartSpan("reback", opentracing.ChildOf(parentSpan.Context()))
 	// 库存归还
 	// 1.订单超时归还
 	// 2.订单创建失败 归还之前扣减的归还
@@ -112,5 +121,6 @@ func (i *InventoryService) ReBack(ctx context.Context, request *proto.SellInfo) 
 		tx.Save(&inventory)
 	}
 	tx.Commit()
+	rebackSpan.Finish()
 	return &empty.Empty{}, nil
 }

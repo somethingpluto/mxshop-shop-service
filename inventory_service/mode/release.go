@@ -2,13 +2,14 @@ package mode
 
 import (
 	"fmt"
+	"github.com/hashicorp/consul/api"
+	"github.com/nacos-group/nacos-sdk-go/inner/uuid"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"inventory_service/global"
 	"inventory_service/handler"
-	"inventory_service/initialize"
 	"inventory_service/proto"
 	"inventory_service/util"
 	"net"
@@ -32,11 +33,55 @@ func ReleaseMode(server *grpc.Server, ip string) {
 		return
 	}
 	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
-	initialize.InitConsul()
+
+	/*
+		服务注册
+	*/
+
+	cfg := api.DefaultConfig()
+	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
+	global.Client, err = api.NewClient(cfg)
+	if err != nil {
+		zap.S().Errorw("服务注册 NewClient失败", "err", err.Error())
+		return
+	}
+	checkInfo := global.ServiceConfig.RegisterInfo
+	// 生成检查对象
+	check := &api.AgentServiceCheck{
+		GRPC:                           fmt.Sprintf("%s:%d", global.ServiceConfig.Host, global.FreePort),
+		GRPCUseTLS:                     false,
+		Timeout:                        checkInfo.CheckTimeOut,
+		Interval:                       checkInfo.CheckInterval,
+		DeregisterCriticalServiceAfter: checkInfo.DeregisterTime,
+	}
+	// 生成注册对象
+	registration := new(api.AgentServiceRegistration)
+	registration.Name = global.ServiceConfig.Name
+	v4, err := uuid.NewV4()
+	if err != nil {
+		zap.S().Errorw("uuid.NewV4 failed", "err", err.Error())
+		return
+	}
+	serviceID := v4.String()
+	global.ServiceID = serviceID
+	registration.ID = serviceID
+	registration.Port = global.FreePort
+	registration.Tags = checkInfo.Tags
+	registration.Address = global.ServiceConfig.Host
+	registration.Check = check
+	err = global.Client.Agent().ServiceRegister(registration)
+	if err != nil {
+		zap.S().Errorw("client.Agent().ServiceRegister 错误", "err", err.Error())
+		return
+	}
+	zap.S().Infow("服务注册成功", "port", registration.Port, "ID", global.ServiceID)
+
 	go func() {
 		err = server.Serve(listen)
 		panic(err)
 	}()
+
+	// 优雅停机
 	quit := make(chan os.Signal)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit

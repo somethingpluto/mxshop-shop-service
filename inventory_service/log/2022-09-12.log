@@ -1,0 +1,133 @@
+2022-09-12T13:36:19.866+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[20.507ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[40.702ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:36:20 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[40.221ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[19.691ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[39.231ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[19.652ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[39.936ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[29.515ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[18.702ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:36:20 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[38.948ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:36:20 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[39.792ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-12T13:36:20.334+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-12T13:36:20.334+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-12T13:36:20.334+0800	WARN	inventory_service/main.go:28	release服务注册模式 
+
+2022-09-12T13:36:20.344+0800	INFO	mode/release.go:27	获取 系统空闲端口 60726
+2022-09-12T13:36:20.354+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 60726, "ID": "0cd2aa14-cf50-432e-b816-c6a18e09d89b"}
+2022-09-12T13:43:20.845+0800	INFO	mode/release.go:49	服务注销程	{"serviceID": "0cd2aa14-cf50-432e-b816-c6a18e09d89b"}
+2022-09-12T13:43:22.299+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[20.169ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[40.439ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:43:22 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[39.246ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[19.164ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[40.280ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[21.082ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[40.269ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[36.757ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[24.040ms] [rows:-] SELECT DATABASE()
+
+2022/09/12 13:43:22 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[39.778ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/09/12 13:43:22 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[39.223ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-09-12T13:43:22.783+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-09-12T13:43:22.783+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-09-12T13:43:22.784+0800	WARN	inventory_service/main.go:28	release服务注册模式 
+
+2022-09-12T13:43:22.794+0800	INFO	mode/release.go:27	获取 系统空闲端口 61804
+2022-09-12T13:43:22.796+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 61804, "ID": "5f08a8fc-f978-4def-9dd4-e9caa3f0d991"}
+2022-09-12T13:48:30.049+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 13:48:30 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[42.410ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T13:49:26.949+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 13:49:26 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[39.307ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T13:49:38.909+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 13:49:38 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[39.985ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T13:49:45.596+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 13:49:45 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[39.980ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T13:51:43.281+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 13:51:43 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[39.751ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T13:53:44.554+0800	INFO	handler/inventory.go:56	Info	{"service": "【Inventory_Service】", "method": "Sell", "request": "goodsInfo:{goodsId:421  num:10}"}
+
+2022/09/12 13:53:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:70
+[115.274ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/12 13:53:44 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:80
+[44.518ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=7920,`version`=0 WHERE `id` = 1
+2022-09-12T14:12:22.682+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:421"}
+
+2022/09/12 14:12:22 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[41.873ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T14:13:18.863+0800	INFO	handler/inventory.go:56	Info	{"service": "【Inventory_Service】", "method": "Sell", "request": "goodsInfo:{goodsId:425  num:10}"}
+
+2022/09/12 14:13:18 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:70
+[38.543ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 425 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/12 14:13:19 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:80
+[38.875ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:43:50.122',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=425,`stocks`=90,`version`=0 WHERE `id` = 5
+2022-09-12T14:15:37.356+0800	INFO	handler/inventory.go:34	Info	{"service": "【Inventory_Service】", "method": "InvDetail", "request": "goodsId:422"}
+
+2022/09/12 14:15:37 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:41
+[37.635ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 422 ORDER BY `inventory`.`id` LIMIT 1
+2022-09-12T14:17:56.446+0800	INFO	handler/inventory.go:56	Info	{"service": "【Inventory_Service】", "method": "Sell", "request": "goodsInfo:{goodsId:421  num:30}"}
+
+2022/09/12 14:17:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:70
+[38.002ms] [rows:1] SELECT * FROM `inventory` WHERE `inventory`.`goods` = 421 ORDER BY `inventory`.`id` LIMIT 1
+
+2022/09/12 14:17:56 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:80
+[39.877ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=7890,`version`=0 WHERE `id` = 1
+2022-09-12T14:38:23.305+0800	ERROR	mode/release.go:46	global.Client.Agent().ServiceDeregister 失败	{"err": "Put \"http://127.0.0.1:8500/v1/agent/service/deregister/5f08a8fc-f978-4def-9dd4-e9caa3f0d991\": dial tcp 127.0.0.1:8500: connectex: No connection could be made because the target machine actively refused it."}

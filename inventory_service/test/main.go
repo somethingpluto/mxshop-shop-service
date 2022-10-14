@@ -13,7 +13,7 @@ var InventoryClient proto.InventoryClient
 
 func init() {
 	var err error
-	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial("192.168.8.1:52361", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		panic(err)
 	}
@@ -21,23 +21,24 @@ func init() {
 }
 
 func main() {
+	//var wg sync.WaitGroup //var wg sync.WaitGroup
 	//TestSetInv()
 	//TestInvDetail()
-	//TestSell()
-	//TestReback()
-	var wg sync.WaitGroup
-	wg.Add(250)
-	for i := 0; i < 250; i++ {
-		go TestSell(&wg)
-	}
-	wg.Wait()
+
+	TestReback()
+
+	//wg.Add(250)
+	//for i := 0; i < 250; i++ {
+	//	go TestSell(&wg)
+	//}
+	//wg.Wait()
 }
 
 func TestSetInv() {
-	for i := 421; i <= 840; i++ {
+	for i := 421; i <= 422; i++ {
 		_, err := InventoryClient.SetInv(context.Background(), &proto.GoodsInvInfo{
 			GoodsId: int32(i),
-			Num:     100,
+			Num:     800,
 		})
 		if err != nil {
 			panic(err)
