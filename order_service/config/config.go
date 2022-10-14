@@ -25,13 +25,15 @@ type NacosConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name             string                 `json:"name"`
-	Mode             string                 `json:"mode"`
-	Mysql            MysqlConfig            `json:"mysql"`
-	Consul           ConsulConfig           `json:"consul"`
-	Redis            RedisConfig            `json:"redis"`
-	GoodsService     GoodsServiceConfig     `json:"goods_service"`
-	InventoryService InventoryServiceConfig `json:"inventory_service"`
+	Name                 string `json:"name"`
+	Host                 string
+	MysqlInfo            MysqlConfig            `json:"mysql"`
+	ConsulInfo           ConsulConfig           `json:"consul"`
+	RedisInfo            RedisConfig            `json:"redis"`
+	JaegerInfo           JaegerConfig           `json:"jaeger"`
+	RegisterInfo         RegisterConfig         `json:"register"`
+	GoodsServiceInfo     GoodsServiceConfig     `json:"goods_service"`
+	InventoryServiceInfo InventoryServiceConfig `json:"inventory_service"`
 }
 
 // MysqlConfig
@@ -61,6 +63,18 @@ type RedisConfig struct {
 	Port     int    `json:"port"`
 	Password string `json:"password"`
 	PoolSize int    `json:"poolSize"`
+}
+
+type JaegerConfig struct {
+	Host string `json:"host"`
+	Port int    `json:"port"`
+}
+
+type RegisterConfig struct {
+	Tags           []string `json:"tags"`
+	CheckTimeOut   string   `json:"check_time_out"`
+	CheckInterval  string   `json:"check_interval"`
+	DeregisterTime string   `json:"deregister_time"`
 }
 
 type GoodsServiceConfig struct {

@@ -11,7 +11,7 @@ import (
 func InitConsul() {
 	var err error
 	cfg := api.DefaultConfig()
-	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.Consul.Host, global.ServiceConfig.Consul.Port)
+	cfg.Address = fmt.Sprintf("%s:%d", global.ServiceConfig.ConsulInfo.Host, global.ServiceConfig.ConsulInfo.Port)
 	global.Client, err = api.NewClient(cfg)
 	if err != nil {
 		zap.S().Errorw("服务注册 NewClient失败", "err", err.Error())
@@ -19,7 +19,7 @@ func InitConsul() {
 	}
 	// 生成检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("%s:%d", "127.0.0.1", global.FreePort),
+		GRPC:                           fmt.Sprintf("%s:%d", global.ServiceConfig.Host, global.FreePort),
 		GRPCUseTLS:                     false,
 		Timeout:                        "5s",
 		Interval:                       "30s",
@@ -38,7 +38,7 @@ func InitConsul() {
 	registration.ID = serviceID
 	registration.Port = global.FreePort
 	registration.Tags = []string{"inventory", "service"}
-	registration.Address = "127.0.0.1"
+	registration.Address = global.ServiceConfig.Host
 	registration.Check = check
 	err = global.Client.Agent().ServiceRegister(registration)
 	if err != nil {

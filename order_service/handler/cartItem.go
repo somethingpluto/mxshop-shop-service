@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"fmt"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -40,6 +41,8 @@ func GenerateOrderSn(userId int32) string {
 //
 func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo) (*proto.CartItemListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CartItemList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	cartItemListSpan := opentracing.GlobalTracer().StartSpan("CartItemList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.CartItemListResponse{}
 	var shopCarts []model.ShoppingCart
 	// 根据UserId 查询购物车
@@ -58,6 +61,7 @@ func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo
 			Checked: shopCart.Checked,
 		})
 	}
+	cartItemListSpan.Finish()
 	return response, nil
 }
 
@@ -69,8 +73,10 @@ func (s *OrderService) CartItemList(ctx context.Context, request *proto.UserInfo
 // @return *proto.ShopCartInfoResponse
 // @return error
 //
-func (s OrderService) CreateCartItem(ctx context.Context, request *proto.CartItemRequest) (*proto.ShopCartInfoResponse, error) {
+func (s *OrderService) CreateCartItem(ctx context.Context, request *proto.CartItemRequest) (*proto.ShopCartInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateCartItem", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	createCartItemSpan := opentracing.GlobalTracer().StartSpan("CreateCartItem", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.ShopCartInfoResponse{}
 	var shopCart model.ShoppingCart
 	result := global.DB.Where(&model.ShoppingCart{Goods: request.GoodsId, User: request.UserId}).First(&shopCart)
@@ -89,6 +95,7 @@ func (s OrderService) CreateCartItem(ctx context.Context, request *proto.CartIte
 		return nil, result.Error
 	}
 	response.Id = shopCart.ID
+	createCartItemSpan.Finish()
 	return response, nil
 }
 
@@ -100,10 +107,11 @@ func (s OrderService) CreateCartItem(ctx context.Context, request *proto.CartIte
 // @return *emptypb.Empty
 // @return error
 //
-func (s OrderService) UpdateCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
+func (s *OrderService) UpdateCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateCartItem", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateCartItemSpan := opentracing.GlobalTracer().StartSpan("UpdateCartItem", opentracing.ChildOf(parentSpan.Context()))
 	var shopCart model.ShoppingCart
-
 	result := global.DB.Where(&model.ShoppingCart{Goods: request.GoodsId, User: request.UserId}).First(&shopCart)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "购物车记录不存在")
@@ -117,6 +125,7 @@ func (s OrderService) UpdateCartItem(ctx context.Context, request *proto.CartIte
 		zap.S().Errorw("UpdateCartItem save failed", "err", result.Error)
 		return nil, result.Error
 	}
+	updateCartItemSpan.Finish()
 	return &emptypb.Empty{}, nil
 }
 
@@ -128,13 +137,15 @@ func (s OrderService) UpdateCartItem(ctx context.Context, request *proto.CartIte
 // @return *emptypb.Empty
 // @return error
 //
-func (s OrderService) DeleteCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
+func (s *OrderService) DeleteCartItem(ctx context.Context, request *proto.CartItemRequest) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "DeleteCartItem", "request", request)
-
+	parentSpan := opentracing.SpanFromContext(ctx)
+	deleteCartItemSpan := opentracing.GlobalTracer().StartSpan("DeleteCartItem", opentracing.ChildOf(parentSpan.Context()))
 	var shopCart model.ShoppingCart
 	result := global.DB.Where(&model.ShoppingCart{User: request.UserId, Goods: request.GoodsId}).Delete(&shopCart)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "购物车记录不存在")
 	}
+	deleteCartItemSpan.Finish()
 	return &emptypb.Empty{}, nil
 }

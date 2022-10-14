@@ -13,7 +13,7 @@ import (
 
 func InitDB() {
 
-	MySQL := global.ServiceConfig.Mysql
+	MySQL := global.ServiceConfig.MysqlInfo
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", MySQL.User, MySQL.Password, MySQL.Host, MySQL.Port, MySQL.Name)
 	// 创建日志文件
 	newLogger := logger.New(log.New(logFileWriter, "\r\n", log.LstdFlags), logger.Config{

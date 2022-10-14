@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -15,8 +16,9 @@ var serviceName = "【Order_Service】"
 
 func (s *OrderService) OrderList(ctx context.Context, request *proto.OrderFilterRequest) (*proto.OrderListResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "OrderList", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	orderListSpan := opentracing.GlobalTracer().StartSpan("OrderList", opentracing.ChildOf(parentSpan.Context()))
 	response := &proto.OrderListResponse{}
-
 	var orders []model.OrderInfo
 	var total int64
 	global.DB.Where(&model.OrderInfo{User: request.UserId}).Count(&total)
@@ -40,6 +42,7 @@ func (s *OrderService) OrderList(ctx context.Context, request *proto.OrderFilter
 			Mobile:  order.SingerMobile,
 		})
 	}
+	orderListSpan.Finish()
 	return response, nil
 }
 
@@ -53,6 +56,9 @@ func (s *OrderService) OrderList(ctx context.Context, request *proto.OrderFilter
 //
 func (s *OrderService) OrderDetail(ctx context.Context, request *proto.OrderRequest) (*proto.OrderInfoDetailResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "OrderDetail", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	orderDetailSpan := opentracing.GlobalTracer().StartSpan("OrderDetail", opentracing.ChildOf(parentSpan.Context()))
+
 	response := &proto.OrderInfoDetailResponse{}
 	var order model.OrderInfo
 
@@ -87,12 +93,14 @@ func (s *OrderService) OrderDetail(ctx context.Context, request *proto.OrderRequ
 			Nums:       orderGood.Nums,
 		})
 	}
+	orderDetailSpan.Finish()
 	return response, nil
 }
 
 func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequest) (*proto.OrderInfoResponse, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "CreateOrder", "request", request)
-	//parentSpan := opentracing.SpanFromContext(ctx)
+	parentSpan := opentracing.SpanFromContext(ctx)
+
 	response := &proto.OrderInfoResponse{}
 
 	var goodsId []int32
@@ -108,6 +116,7 @@ func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequ
 		goodsNumsMap[shopCart.Goods] = shopCart.Nums
 	}
 	// 调用商品微服务 查询商品信息
+	goodsServiceSpan := opentracing.GlobalTracer().StartSpan("goodsService", opentracing.ChildOf(parentSpan.Context()))
 	goods, err := global.GoodsServiceClient.BatchGetGoods(context.Background(), &proto.BatchGoodsIdInfo{Id: goodsId})
 	if err != nil {
 		zap.S().Errorw("[goods_service]服务批量查询商品失败", "err", err)
@@ -127,7 +136,9 @@ func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequ
 		})
 		goodsInvInfo = append(goodsInvInfo, &proto.GoodsInvInfo{GoodsId: goods.Id, Num: goodsNumsMap[goods.Id]})
 	}
+	goodsServiceSpan.Finish()
 	// 调用库存服务 扣减库存
+	inventoryServiceSpan := opentracing.GlobalTracer().StartSpan("inventoryService", opentracing.ChildOf(parentSpan.Context()))
 	_, err = global.InventoryServiceClient.Sell(context.Background(), &proto.SellInfo{
 		GoodsInfo: goodsInvInfo,
 	})
@@ -163,20 +174,23 @@ func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequ
 		return nil, status.Errorf(codes.Internal, "创建订单失败")
 	}
 	tx.Commit()
-
 	response.Id = order.ID
 	response.OrderSn = order.OrderSn
 	response.Total = order.OrderMount
+	inventoryServiceSpan.Finish()
 	return response, nil
 }
 
 func (s *OrderService) UpdateOrderStatus(ctx context.Context, request *proto.OrderStatus) (*emptypb.Empty, error) {
 	zap.S().Infow("Info", "service", serviceName, "method", "UpdateOrderStatus", "request", request)
+	parentSpan := opentracing.SpanFromContext(ctx)
+	updateOrderStatusSpan := opentracing.GlobalTracer().StartSpan("UpdateOrderStatus", opentracing.ChildOf(parentSpan.Context()))
 
 	result := global.DB.Model(&model.OrderInfo{}).Where(&model.OrderInfo{OrderSn: request.OrderSn}).Update("status", request.Status)
 	if result.RowsAffected == 0 || result.Error != nil {
 		return nil, status.Errorf(codes.Internal, "更新订单状态失败")
 	}
+	updateOrderStatusSpan.Finish()
 	return &emptypb.Empty{}, nil
 }
 

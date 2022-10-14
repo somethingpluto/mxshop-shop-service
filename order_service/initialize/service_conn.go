@@ -16,10 +16,10 @@ func InitOtherService() {
 }
 
 func initGoodsService() {
-	consulConfig := global.ServiceConfig.Consul
+	consulConfig := global.ServiceConfig.ConsulInfo
 
 	goodsConn, err := grpc.Dial(
-		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.GoodsService.Name),
+		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.InventoryServiceInfo.Name),
 		grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
 	)
 	if err != nil {
@@ -29,10 +29,10 @@ func initGoodsService() {
 }
 
 func initInventoryService() {
-	consulConfig := global.ServiceConfig.Consul
+	consulConfig := global.ServiceConfig.ConsulInfo
 
 	inventoryConn, err := grpc.Dial(
-		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.InventoryService.Name),
+		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.InventoryServiceInfo.Name),
 		grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
 	)
 	if err != nil {
