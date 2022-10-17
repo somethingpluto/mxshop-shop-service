@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"fmt"
 	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -106,15 +107,18 @@ func (s *OrderService) CreateOrder(ctx context.Context, request *proto.OrderRequ
 	var goodsId []int32
 	var shopCarts []model.ShoppingCart
 	goodsNumsMap := make(map[int32]int32)
+	// 获取用户购物车中 已选中的商品
 	result := global.DB.Where(&model.ShoppingCart{User: request.UserId, Checked: true}).Find(&shopCarts)
 	if result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "没有选中的结算商品")
 	}
+	fmt.Printf("购物车选中商品%v", shopCarts)
 
 	for _, shopCart := range shopCarts {
 		goodsId = append(goodsId, shopCart.Goods)
 		goodsNumsMap[shopCart.Goods] = shopCart.Nums
 	}
+	fmt.Printf("goodsId %#v", goodsId)
 	// 调用商品微服务 查询商品信息
 	goodsServiceSpan := opentracing.GlobalTracer().StartSpan("goodsService", opentracing.ChildOf(parentSpan.Context()))
 	goods, err := global.GoodsServiceClient.BatchGetGoods(context.Background(), &proto.BatchGoodsIdInfo{Id: goodsId})

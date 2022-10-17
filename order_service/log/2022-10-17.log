@@ -1,0 +1,157 @@
+2022-10-17T12:23:03.103+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:23:03.145+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:23:03.377+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:23:03.389+0800	INFO	mode/release.go:29	获取 系统空闲端口 50765
+2022-10-17T12:23:03.393+0800	INFO	mode/release.go:78	服务注册成功	{"port": 50765, "ID": "a6317fd6-1420-4ce6-8c1b-b4609200ebb3"}
+2022-10-17T12:25:22.574+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "a6317fd6-1420-4ce6-8c1b-b4609200ebb3"}
+2022-10-17T12:25:25.625+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:25:25.629+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:25:25.872+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:25:25.885+0800	INFO	mode/release.go:29	获取 系统空闲端口 50959
+2022-10-17T12:25:25.889+0800	INFO	mode/release.go:78	服务注册成功	{"port": 50959, "ID": "09448d54-5007-4825-95bc-87660ddfa6b5"}
+2022-10-17T12:26:03.819+0800	INFO	handler/cartItem.go:77	Info	{"service": "【Order_Service】", "method": "CreateCartItem", "request": "userId:26 goodsId:424 nums:20"}
+
+2022/10/17 12:26:03 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:82
+[4.410ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 424 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/10/17 12:26:03 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:92
+[7.150ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 20:48:54.4',`update_time`='2022-10-17 12:26:03.826',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=424,`nums`=20,`checked`=false WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 7
+2022-10-17T12:26:29.204+0800	INFO	handler/cartItem.go:43	Info	{"service": "【Order_Service】", "method": "CartItemList", "request": "id:26"}
+
+2022/10/17 12:26:29 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:49
+[2.004ms] [rows:4] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:27:20.550+0800	INFO	handler/cartItem.go:111	Info	{"service": "【Order_Service】", "method": "UpdateCartItem", "request": "userId:26 goodsId:424 nums:20 checked:true"}
+
+2022/10/17 12:27:20 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:115
+[2.347ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 424 AND `shoppingcart`.`deleted_at` IS NULL ORDER BY `shoppingcart`.`id` LIMIT 1
+
+2022/10/17 12:27:20 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:123
+[5.934ms] [rows:1] UPDATE `shoppingcart` SET `add_time`='2022-09-11 20:48:54.4',`update_time`='2022-10-17 12:27:20.554',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`goods`=424,`nums`=20,`checked`=true WHERE `shoppingcart`.`deleted_at` IS NULL AND `id` = 7
+2022-10-17T12:27:57.300+0800	INFO	handler/cartItem.go:141	Info	{"service": "【Order_Service】", "method": "DeleteCartItem", "request": "userId:1 goodsId:421"}
+
+2022/10/17 12:27:57 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:145
+[3.420ms] [rows:0] UPDATE `shoppingcart` SET `deleted_at`='2022-10-17 12:27:57.302' WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:28:07.418+0800	INFO	handler/cartItem.go:141	Info	{"service": "【Order_Service】", "method": "DeleteCartItem", "request": "userId:26 goodsId:421"}
+
+2022/10/17 12:28:07 D:/C_Back/Go/Shop_service/order_service/handler/cartItem.go:145
+[5.240ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-10-17 12:28:07.419' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`goods` = 421 AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:28:31.956+0800	INFO	handler/order.go:18	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:1 pages:1 pagePerNums:10"}
+
+2022/10/17 12:28:31 D:/C_Back/Go/Shop_service/order_service/handler/order.go:26
+[0.508ms] [rows:5] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-10-17T12:29:16.777+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:29:16 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[1.749ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:29:16.781+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:30:04.950+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:30:04 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[2.575ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:30:04.953+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:30:18.873+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:1 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:30:18 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[1.819ms] [rows:0] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 1 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:30:46.212+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:30:46 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[1.519ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:30:46.214+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:31:59.852+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:31:59 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[1.003ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:31:59.855+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:32:34.676+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:32:34 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[1.999ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:32:34.679+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:38:06.819+0800	INFO	handler/order.go:101	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:38:06 D:/C_Back/Go/Shop_service/order_service/handler/order.go:109
+[2.398ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:38:06.822+0800	ERROR	handler/order.go:122	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:38:13.311+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "09448d54-5007-4825-95bc-87660ddfa6b5"}
+2022-10-17T12:38:17.064+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:38:17.068+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:38:17.309+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:38:17.323+0800	INFO	mode/release.go:29	获取 系统空闲端口 51539
+2022-10-17T12:38:17.336+0800	INFO	mode/release.go:78	服务注册成功	{"port": 51539, "ID": "a086f70e-3d8f-477e-91a3-48fe37bfa243"}
+2022-10-17T12:38:48.476+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26  address:\"湖北省武汉市\"  name:\"pluto\"  mobile:\"1234567\"  post:\"支付宝\""}
+
+2022/10/17 12:38:48 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[2.072ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:38:48.480+0800	ERROR	handler/order.go:126	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:42:20.713+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26  address:\"湖北省武汉市\"  name:\"pluto\"  mobile:\"1234567\"  post:\"支付宝\""}
+
+2022/10/17 12:42:20 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[1.590ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:42:20.715+0800	ERROR	handler/order.go:126	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:42:25.208+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "a086f70e-3d8f-477e-91a3-48fe37bfa243"}
+2022-10-17T12:42:37.048+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:42:37.051+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:42:37.052+0800	INFO	initialize/service_conn.go:28	goods_service服务连接成功
+2022-10-17T12:42:37.052+0800	INFO	initialize/service_conn.go:42	inventory_service服务连接成功
+2022-10-17T12:42:37.310+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:42:37.324+0800	INFO	mode/release.go:29	获取 系统空闲端口 51727
+2022-10-17T12:42:37.329+0800	INFO	mode/release.go:78	服务注册成功	{"port": 51727, "ID": "0bf4148b-9102-423a-a786-3d0068723967"}
+2022-10-17T12:42:53.640+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:42:53 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[2.010ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:42:53.644+0800	ERROR	handler/order.go:126	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:49:36.733+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:49:36 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[1.612ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:49:36.736+0800	ERROR	handler/order.go:126	[goods_service]服务批量查询商品失败	{"err": "rpc error: code = Unimplemented desc = unknown service Goods"}
+2022-10-17T12:49:53.607+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "0bf4148b-9102-423a-a786-3d0068723967"}
+2022-10-17T12:49:56.790+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:49:56.793+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:49:56.794+0800	INFO	initialize/service_conn.go:28	goods_service服务连接成功
+2022-10-17T12:49:56.794+0800	INFO	initialize/service_conn.go:42	inventory_service服务连接成功
+2022-10-17T12:49:57.035+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:49:57.050+0800	INFO	mode/release.go:29	获取 系统空闲端口 52349
+2022-10-17T12:49:57.054+0800	INFO	mode/release.go:78	服务注册成功	{"port": 52349, "ID": "bbdf4a5c-decf-492b-a6f3-038a65aadad5"}
+2022-10-17T12:50:13.194+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:50:13 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[2.318ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:54:35.411+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "bbdf4a5c-decf-492b-a6f3-038a65aadad5"}
+2022-10-17T12:54:38.229+0800	INFO	initialize/logger.go:26	日志初始化成功
+2022-10-17T12:54:38.232+0800	INFO	initialize/db.go:27	数据库连接成功
+2022-10-17T12:54:38.233+0800	INFO	initialize/service_conn.go:28	goods_service服务连接成功
+2022-10-17T12:54:38.234+0800	INFO	initialize/service_conn.go:42	inventory_service服务连接成功
+2022-10-17T12:54:38.461+0800	WARN	order_service/main.go:38	release服务注册模式 
+
+2022-10-17T12:54:38.473+0800	INFO	mode/release.go:29	获取 系统空闲端口 52472
+2022-10-17T12:54:38.477+0800	INFO	mode/release.go:78	服务注册成功	{"port": 52472, "ID": "47fdcf33-80a1-4d98-9696-8fed54af5697"}
+2022-10-17T12:54:55.379+0800	INFO	handler/order.go:102	Info	{"service": "【Order_Service】", "method": "CreateOrder", "request": "userId:26 address:\"湖北省武汉市\" name:\"pluto\" mobile:\"1234567\" post:\"支付宝\""}
+
+2022/10/17 12:54:55 D:/C_Back/Go/Shop_service/order_service/handler/order.go:111
+[2.623ms] [rows:1] SELECT * FROM `shoppingcart` WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+
+2022/10/17 12:54:55 D:/C_Back/Go/Shop_service/order_service/handler/order.go:162
+[2.625ms] [rows:1] INSERT INTO `orderinfo` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`order_sn`,`pay_type`,`status`,`trade_no`,`order_mount`,`pay_time`,`address`,`signer_name`,`singer_mobile`,`post`) VALUES ('2022-10-17 12:54:55.414','2022-10-17 12:54:55.414',NULL,false,0,'2022101712544142430002646','','','',1298.000000,NULL,'湖北省武汉市','pluto','1234567','支付宝')
+
+2022/10/17 12:54:55 D:/C_Back/Go/Shop_service/order_service/handler/order.go:174
+[3.201ms] [rows:1] UPDATE `shoppingcart` SET `deleted_at`='2022-10-17 12:54:55.417' WHERE `shoppingcart`.`user` = 26 AND `shoppingcart`.`checked` = true AND `shoppingcart`.`deleted_at` IS NULL
+2022-10-17T12:59:53.508+0800	INFO	handler/order.go:19	Info	{"service": "【Order_Service】", "method": "OrderList", "request": "userId:26 pages:1 pagePerNums:10"}
+
+2022/10/17 12:59:53 D:/C_Back/Go/Shop_service/order_service/handler/order.go:27
+[0.525ms] [rows:6] SELECT * FROM `orderinfo` WHERE `orderinfo`.`deleted_at` IS NULL LIMIT 10
+2022-10-17T13:01:04.981+0800	INFO	handler/order.go:59	Info	{"service": "【Order_Service】", "method": "OrderDetail", "request": "id:1 userId:26"}
+
+2022/10/17 13:01:04 D:/C_Back/Go/Shop_service/order_service/handler/order.go:66
+[1.434ms] [rows:1] SELECT * FROM `orderinfo` WHERE `orderinfo`.`id` = 1 AND `orderinfo`.`user` = 26 AND `orderinfo`.`deleted_at` IS NULL ORDER BY `orderinfo`.`id` LIMIT 1
+
+2022/10/17 13:01:04 D:/C_Back/Go/Shop_service/order_service/handler/order.go:85
+[0.626ms] [rows:0] SELECT * FROM `ordergoods` WHERE `ordergoods`.`order` = 1 AND `ordergoods`.`deleted_at` IS NULL
+2022-10-17T13:01:40.198+0800	INFO	mode/release.go:90	服务注销程	{"serviceID": "47fdcf33-80a1-4d98-9696-8fed54af5697"}

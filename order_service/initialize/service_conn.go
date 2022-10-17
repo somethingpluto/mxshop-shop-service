@@ -19,12 +19,13 @@ func initGoodsService() {
 	consulConfig := global.ServiceConfig.ConsulInfo
 
 	goodsConn, err := grpc.Dial(
-		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.InventoryServiceInfo.Name),
+		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulConfig.Host, consulConfig.Port, global.ServiceConfig.GoodsServiceInfo.Name),
 		grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
 	)
 	if err != nil {
 		zap.S().Fatalw("连接 【goods_service】商品服务失败", "err", err)
 	}
+	zap.S().Infof("goods_service服务连接成功")
 	global.GoodsServiceClient = proto.NewGoodsClient(goodsConn)
 }
 
@@ -38,5 +39,6 @@ func initInventoryService() {
 	if err != nil {
 		zap.S().Fatalw("连接 【inventory_service】商品服务失败", "err", err)
 	}
+	zap.S().Infof("inventory_service服务连接成功")
 	global.InventoryServiceClient = proto.NewInventoryClient(inventoryConn)
 }

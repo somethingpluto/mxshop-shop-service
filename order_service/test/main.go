@@ -12,7 +12,7 @@ var OrderServiceClient proto.OrderClient
 
 func init() {
 	var err error
-	conn, err := grpc.Dial("192.168.8.1:64869", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial("192.168.8.1:52472", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		panic(err)
 	}
@@ -20,14 +20,14 @@ func init() {
 }
 
 func main() {
-	//TestCreateCartItem(26, 20, 421)
-	//TestCartItemList(26)
-	TestUpdateCartItem(26, 421, true, 20)
-	//TestDeleteCartItem(1, 421) success
-	//TestOrderList(1, 1, 10)
-	TestCreateOrder()
-	//TestOrderList(1, 1, 10)
-	//TestOrderDetail()
+	//TestCreateCartItem(26, 20, 424) // success
+	//TestCartItemList(26) // success
+	//TestUpdateCartItem(26, 424, true, 20) // success
+	//TestDeleteCartItem(26, 421) // success
+	//TestOrderList(1, 1, 10) // success
+	//TestCreateOrder() // success
+	//TestOrderList(26, 1, 10) // success
+	TestOrderDetail() //success
 }
 
 func TestCreateCartItem(userId int32, nums int32, goodsId int32) {
@@ -103,7 +103,7 @@ func TestCreateOrder() {
 func TestOrderDetail() {
 	response, err := OrderServiceClient.OrderDetail(context.Background(), &proto.OrderRequest{
 		Id:     1,
-		UserId: 1,
+		UserId: 26,
 	})
 	if err != nil {
 		panic(err)
