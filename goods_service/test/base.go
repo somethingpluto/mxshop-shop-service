@@ -15,7 +15,7 @@ var GoodsClient proto.GoodsClient
 //
 func InitRPCConnect() {
 	var err error
-	Conn, err = grpc.Dial("192.168.8.1:51019", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	Conn, err = grpc.Dial("192.168.8.1:51903", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		zap.S().Errorw("测试环境——grpc.Dial失败", "err", err.Error())
 		return

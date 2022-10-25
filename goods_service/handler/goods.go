@@ -180,6 +180,7 @@ func (g *GoodsServer) BatchGetGoods(ctx context.Context, request *proto.BatchGoo
 	zap.S().Infow("Info", "service", serviceName, "method", "BatchGetGoods", "request", request)
 	parentSpan := opentracing.SpanFromContext(ctx)
 	batchGetGoodsSpan := opentracing.GlobalTracer().StartSpan("BatchGetGoods", opentracing.ChildOf(parentSpan.Context()))
+
 	response := &proto.GoodsListResponse{}
 	var goodsList []model.Goods
 	result := global.DB.Where(request.Id).Find(&goodsList)

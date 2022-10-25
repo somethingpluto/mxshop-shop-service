@@ -50,13 +50,14 @@ func ReleaseMode(server *grpc.Server, ip string) {
 		zap.S().Errorw("服务注册 NewClient 失败", "err", err.Error())
 		return
 	}
+	registerInfo := global.ServiceConfig.RegisterInfo
 	// 生成检查对象
 	check := &api.AgentServiceCheck{
 		GRPC:                           fmt.Sprintf("%s:%d", global.ServiceConfig.Host, global.Port),
 		GRPCUseTLS:                     false,
-		Timeout:                        "5s",
-		Interval:                       "10s",
-		DeregisterCriticalServiceAfter: "30s",
+		Timeout:                        registerInfo.CheckTimeOut,
+		Interval:                       registerInfo.CheckInterval,
+		DeregisterCriticalServiceAfter: registerInfo.DeregisterTime,
 	}
 	// 生成注册对象
 	registration := new(api.AgentServiceRegistration)
@@ -64,6 +65,7 @@ func ReleaseMode(server *grpc.Server, ip string) {
 	serviceID := fmt.Sprintf("%s", uuid.NewV4())
 	fmt.Println(serviceID)
 	global.ServiceID = serviceID
+	registration.Tags = registerInfo.Tags
 	registration.ID = serviceID
 	registration.Port = global.Port
 	registration.Address = global.ServiceConfig.Host

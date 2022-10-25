@@ -1,0 +1,54 @@
+2022-10-25T19:20:05.397+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.508ms] [rows:-] SELECT DATABASE()
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0.752ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/25 19:20:05 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:37
+[1.571ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.511ms] [rows:-] SELECT DATABASE()
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.279ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0.557ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[1.170ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[3.528ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[2.526ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[2.518ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[2.521ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.512ms] [rows:-] SELECT DATABASE()
+
+2022/10/25 19:20:05 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0.990ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/25 19:20:05 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:37
+[0.735ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-10-25T19:20:05.466+0800	INFO	initialize/db.go:41	数据库连接成功
+2022-10-25T19:20:05.466+0800	WARN	user_service/main.go:25	release服务注册模式 
+
+2022-10-25T19:20:05.481+0800	INFO	mode/release.go:33	获取 系统空闲端口 4369
+2022-10-25T19:20:05.484+0800	INFO	initialize/consul.go:48	服务注册成功	{"port": 4369, "ID": "3cb3885e-ce06-4b34-97cf-17389a4a7548"}
+2022-10-25T19:23:38.523+0800	INFO	handler/user.go:63	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618793\""}
+
+2022/10/25 19:23:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:68
+[3.846ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618793' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-10-25T19:23:38.535+0800	INFO	handler/user.go:174	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\"  encryptedPassword:\"$pbkdf2-sha512$cN7Rae1i1CkhRH7k$0d23115f8a625f6d2b18e9d4d4705220c07c8af28c0ab0d397294d4c68e4e5ed\""}
+2022-10-25T19:27:31.379+0800	ERROR	mode/release.go:52	global.Client.Agent().ServiceDeregister 失败	{"err": "Unexpected response code: 404 (Unknown service ID \"3cb3885e-ce06-4b34-97cf-17389a4a7548\". Ensure that the service ID is passed, not the service name.)"}

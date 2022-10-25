@@ -25,12 +25,13 @@ type FilePathConfig struct {
 // @Description: 服务配置
 //
 type ServiceConfig struct {
-	Name       string `json:"name"`
-	Host       string
-	MySqlInfo  MySqlConfig  `json:"mysql"`
-	ConsulInfo ConsulConfig `json:"consul"`
-	EsInfo     EsConfig     `json:"es"`
-	JaegerInfo JaegerConfig `json:"jaeger"`
+	Name         string `json:"name"`
+	Host         string
+	MySqlInfo    MySqlConfig    `json:"mysql"`
+	ConsulInfo   ConsulConfig   `json:"consul"`
+	EsInfo       EsConfig       `json:"es"`
+	JaegerInfo   JaegerConfig   `json:"jaeger"`
+	RegisterInfo RegisterConfig `json:"register"`
 }
 
 // MySqlConfig
@@ -55,6 +56,12 @@ type ConsulConfig struct {
 type JaegerConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
+}
+type RegisterConfig struct {
+	Tags           []string `json:"tags"`
+	CheckTimeOut   string   `json:"check_time_out"`
+	CheckInterval  string   `json:"check_interval"`
+	DeregisterTime string   `json:"deregister_time"`
 }
 
 // EsConfig

@@ -12,8 +12,8 @@ func main() {
 	test.InitRPCConnect()
 	//TestBrandList()
 	//TestCreateBrand()
-	//TestDeleteBrand()
-	TestUpdateBrand()
+	TestDeleteBrand()
+	//TestUpdateBrand()
 }
 
 // TestBrandList

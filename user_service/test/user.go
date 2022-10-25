@@ -13,7 +13,7 @@ var conn *grpc.ClientConn
 
 func Init() {
 	var err error
-	conn, err = grpc.Dial("192.168.8.1:56328", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err = grpc.Dial("192.168.8.1:61996", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		panic(err)
 	}

@@ -1,0 +1,259 @@
+2022-10-16T19:57:28.382+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.508ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.411ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[2.114ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' AND table_type = 'BASE TABLE'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.512ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.512ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.518ms] [rows:-] SELECT * FROM `leavingmessages` LIMIT 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[1.087ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' ORDER BY ORDINAL_POSITION
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[3.157ms] [rows:0] ALTER TABLE `leavingmessages` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[2.539ms] [rows:0] ALTER TABLE `leavingmessages` MODIFY COLUMN `message_type` int comment '留言类型: 1(留言),2(投诉),3(询问),4(售后),5(求购)'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[0.516ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[1.079ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' AND index_name = 'idx_leavingmessages_user'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.514ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[0.559ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[2.409ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' AND table_type = 'BASE TABLE'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.513ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.658ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.512ms] [rows:-] SELECT * FROM `addresses` LIMIT 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[1.430ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' ORDER BY ORDINAL_POSITION
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[2.532ms] [rows:0] ALTER TABLE `addresses` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.512ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.084ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[0.524ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' AND index_name = 'idx_addresses_user'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.516ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.210ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[1.677ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' AND table_type = 'BASE TABLE'
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.039ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.515ms] [rows:-] SELECT * FROM `userfavorite` LIMIT 1
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[4.042ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' ORDER BY ORDINAL_POSITION
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[2.529ms] [rows:0] ALTER TABLE `userfavorite` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 19:57:28 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[0.537ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 19:57:28 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[0.518ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' AND index_name = 'idx_user_goods'
+2022-10-16T19:57:28.439+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-10-16T19:57:28.681+0800	WARN	userop_service/main.go:38	release服务注册模式 
+
+2022-10-16T19:57:28.695+0800	INFO	mode/release.go:29	获取 系统空闲端口 51389
+2022-10-16T19:57:28.699+0800	INFO	mode/release.go:77	服务注册成功	{"port": 51389, "ID": "c136786c-46a2-4a88-9534-08be9a576b40"}
+2022-10-16T20:12:07.165+0800	INFO	handler/address.go:16	Info	{"method": "GetAddressList", "request": "userId:26"}
+
+2022/10/16 20:12:07 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:22
+[3.373ms] [rows:3] SELECT * FROM `addresses` WHERE `addresses`.`user` = 26 AND `addresses`.`deleted_at` IS NULL
+2022-10-16T20:12:17.954+0800	INFO	handler/address.go:46	Info	{"method": "CreateAddress", "request": "userId:26 province:\"广东省\" city:\"邯郸市\" district:\"罗山县\" address:\"湖北省昌都地区赞皇县\" signerName:\"即构片合时叫\" signerMobile:\"18151762253\""}
+
+2022/10/16 20:12:17 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:59
+[11.812ms] [rows:1] INSERT INTO `addresses` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`province`,`city`,`district`,`address`,`signer_name`,`signer_mobile`) VALUES ('2022-10-16 20:12:17.955','2022-10-16 20:12:17.955',NULL,false,26,'广东省','邯郸市','罗山县','湖北省昌都地区赞皇县','即构片合时叫','18151762253')
+2022-10-16T20:13:45.303+0800	INFO	handler/address.go:69	Info	{"method": "DeleteAddress", "request": "id:5 userId:26"}
+
+2022/10/16 20:13:45 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:73
+[7.172ms] [rows:1] UPDATE `addresses` SET `deleted_at`='2022-10-16 20:13:45.305' WHERE (id = 5 and user = 26) AND `addresses`.`deleted_at` IS NULL
+2022-10-16T20:13:58.125+0800	INFO	handler/address.go:46	Info	{"method": "CreateAddress", "request": "userId:26 province:\"吉林省\" city:\"天津市\" district:\"阆中市\" address:\"辽宁省海外瓜州县\" signerName:\"高常着话类大\" signerMobile:\"18643483084\""}
+
+2022/10/16 20:13:58 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:59
+[6.710ms] [rows:1] INSERT INTO `addresses` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`province`,`city`,`district`,`address`,`signer_name`,`signer_mobile`) VALUES ('2022-10-16 20:13:58.126','2022-10-16 20:13:58.126',NULL,false,26,'吉林省','天津市','阆中市','辽宁省海外瓜州县','高常着话类大','18643483084')
+2022-10-16T20:14:13.745+0800	INFO	handler/address.go:83	Info	{"method": "UpdateAddress", "request": "id:6 userId:26 province:\"安徽省\" city:\"三亚市\" district:\"宁县\" address:\"湖北省惠州市马龙县\" signerName:\"而们重儿\" signerMobile:\"13225516276\""}
+
+2022/10/16 20:14:13 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:88
+[1.766ms] [rows:1] SELECT * FROM `addresses` WHERE (id=6 and user=26) AND `addresses`.`deleted_at` IS NULL ORDER BY `addresses`.`id` LIMIT 1
+
+2022/10/16 20:14:13 D:/C_Back/Go/Shop_service/userop_service/handler/address.go:116
+[4.066ms] [rows:1] UPDATE `addresses` SET `add_time`='2022-10-16 20:13:58.126',`update_time`='2022-10-16 20:14:13.748',`deleted_at`=NULL,`is_deleted`=false,`user`=26,`province`='安徽省',`city`='三亚市',`district`='宁县',`address`='湖北省惠州市马龙县',`signer_name`='而们重儿',`signer_mobile`='13225516276' WHERE `addresses`.`deleted_at` IS NULL AND `id` = 6
+
+2022/10/16 20:14:53 D:/C_Back/Go/Shop_service/userop_service/handler/message.go:56
+[4.686ms] [rows:1] INSERT INTO `leavingmessages` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`message_type`,`subject`,`message`,`file`) VALUES ('2022-10-16 20:14:53.855','2022-10-16 20:14:53.855',NULL,false,26,1,'dolor aute nostrud ex deserunt','amet Excepteur in','non ea ipsum consectetur Lorem')
+2022-10-16T20:15:00.453+0800	INFO	handler/message.go:15	Info	{"method": "MessageList", "request": "userId:26"}
+
+2022/10/16 20:15:00 D:/C_Back/Go/Shop_service/userop_service/handler/message.go:23
+[1.472ms] [rows:7] SELECT * FROM `leavingmessages` WHERE `leavingmessages`.`user` = 26 AND `leavingmessages`.`deleted_at` IS NULL
+2022-10-16T20:15:22.665+0800	INFO	handler/userfavorite.go:54	Info	{"method": "AddUserFavorite", "request": "userId:26 goodsId:424"}
+
+2022/10/16 20:15:22 D:/C_Back/Go/Shop_service/userop_service/handler/userfavorite.go:61
+[5.630ms] [rows:1] INSERT INTO `userfavorite` (`add_time`,`update_time`,`deleted_at`,`is_deleted`,`user`,`goods`) VALUES ('2022-10-16 20:15:22.667','2022-10-16 20:15:22.667',NULL,false,26,424)
+
+2022/10/16 20:15:28 D:/C_Back/Go/Shop_service/userop_service/handler/userfavorite.go:88
+[4.841ms] [rows:1] UPDATE `userfavorite` SET `deleted_at`='2022-10-16 20:15:28.313' WHERE (goods = 424 and user =26) AND `userfavorite`.`deleted_at` IS NULL
+2022-10-16T20:15:36.493+0800	INFO	handler/userfavorite.go:24	Info	{"method": "GetFavoriteList", "request": "userId:26"}
+
+2022/10/16 20:15:36 D:/C_Back/Go/Shop_service/userop_service/handler/userfavorite.go:28
+[1.577ms] [rows:2] SELECT * FROM `userfavorite` WHERE `userfavorite`.`user` = 26 AND `userfavorite`.`deleted_at` IS NULL
+2022-10-16T20:18:51.479+0800	INFO	mode/release.go:93	服务注销程	{"serviceID": "c136786c-46a2-4a88-9534-08be9a576b40"}
+2022-10-16T20:18:59.482+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.539ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[2.271ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[2.245ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' AND table_type = 'BASE TABLE'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[1.196ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[2.238ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.547ms] [rows:-] SELECT * FROM `leavingmessages` LIMIT 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[2.296ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' ORDER BY ORDINAL_POSITION
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[4.548ms] [rows:0] ALTER TABLE `leavingmessages` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[4.481ms] [rows:0] ALTER TABLE `leavingmessages` MODIFY COLUMN `message_type` int comment '留言类型: 1(留言),2(投诉),3(询问),4(售后),5(求购)'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[1.067ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.804ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[0.707ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'leavingmessages' AND index_name = 'idx_leavingmessages_user'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.542ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[2.158ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[0.762ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' AND table_type = 'BASE TABLE'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.188ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.556ms] [rows:-] SELECT * FROM `addresses` LIMIT 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[1.638ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' ORDER BY ORDINAL_POSITION
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[4.483ms] [rows:0] ALTER TABLE `addresses` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.600ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.281ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[1.101ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'addresses' AND index_name = 'idx_addresses_user'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.553ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.524ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[1.080ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' AND table_type = 'BASE TABLE'
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.516ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.466ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[0.565ms] [rows:-] SELECT * FROM `userfavorite` LIMIT 1
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[1.865ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' ORDER BY ORDINAL_POSITION
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[3.534ms] [rows:0] ALTER TABLE `userfavorite` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.516ms] [rows:-] SELECT DATABASE()
+
+2022/10/16 20:18:59 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.258ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_userop_service%' ORDER BY SCHEMA_NAME='mxshop_userop_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/16 20:18:59 D:/C_Back/Go/Shop_service/userop_service/initialize/db.go:28
+[1.819ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_userop_service' AND table_name = 'userfavorite' AND index_name = 'idx_user_goods'
+2022-10-16T20:18:59.551+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-10-16T20:18:59.818+0800	WARN	userop_service/main.go:38	release服务注册模式 
+
+2022-10-16T20:18:59.832+0800	INFO	mode/release.go:29	获取 系统空闲端口 52189
+2022-10-16T20:18:59.836+0800	INFO	mode/release.go:77	服务注册成功	{"port": 52189, "ID": "280cf1d4-007d-4956-9b7d-7a8dbeb2256d"}
+2022-10-16T20:20:51.101+0800	INFO	mode/release.go:93	服务注销程	{"serviceID": "280cf1d4-007d-4956-9b7d-7a8dbeb2256d"}

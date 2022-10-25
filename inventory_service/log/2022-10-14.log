@@ -2478,3 +2478,45 @@
 2022/10/14 13:05:18 D:/C_Back/Go/Shop_service/inventory_service/handler/inventory.go:121
 [3.507ms] [rows:1] UPDATE `inventory` SET `add_time`='2022-09-02 14:28:12.514',`update_time`='0000-00-00 00:00:00',`delete_at`='0000-00-00 00:00:00',`is_deleted`=false,`goods`=421,`stocks`=810,`version`=0 WHERE `id` = 1
 2022-10-14T13:05:36.874+0800	INFO	mode/release.go:94	服务注销程	{"serviceID": "359e1cb6-3d36-4547-aa54-d2d96a03362a"}
+2022-10-14T15:06:11.472+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.668ms] [rows:-] SELECT DATABASE()
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[9.660ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/14 15:06:11 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[3.645ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND table_type = 'BASE TABLE'
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.514ms] [rows:-] SELECT DATABASE()
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[1.951ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:163
+[4.481ms] [rows:-] SELECT * FROM `inventory` LIMIT 1
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:181
+[6.140ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' ORDER BY ORDINAL_POSITION
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:47
+[18.325ms] [rows:0] ALTER TABLE `inventory` MODIFY COLUMN `is_deleted` boolean
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:250
+[0.511ms] [rows:-] SELECT DATABASE()
+
+2022/10/14 15:06:11 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.6/migrator.go:253
+[4.617ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_inventory_service%' ORDER BY SCHEMA_NAME='mxshop_inventory_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/14 15:06:11 D:/C_Back/Go/Shop_service/inventory_service/initialize/db.go:28
+[0.939ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_inventory_service' AND table_name = 'inventory' AND index_name = 'idx_inventory_goods'
+2022-10-14T15:06:11.560+0800	INFO	initialize/db.go:33	数据库连接成功
+2022-10-14T15:06:11.561+0800	INFO	initialize/redisync.go:17	redsync初始化成功 
+
+2022-10-14T15:06:11.803+0800	WARN	inventory_service/main.go:39	release服务注册模式 
+
+2022-10-14T15:06:11.818+0800	INFO	mode/release.go:28	获取 系统空闲端口 64820
+2022-10-14T15:06:11.824+0800	INFO	mode/release.go:77	服务注册成功	{"port": 64820, "ID": "2506a3ea-2458-4c16-8327-55d2b82f8af8"}
+2022-10-14T15:15:29.710+0800	INFO	mode/release.go:94	服务注销程	{"serviceID": "2506a3ea-2458-4c16-8327-55d2b82f8af8"}

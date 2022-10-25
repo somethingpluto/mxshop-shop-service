@@ -1248,3 +1248,372 @@
 
 2022/10/11 14:48:05 D:/C_Back/Go/Shop_service/user_service/handler/user.go:159
 [1.804ms] [rows:1] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL AND `id` = 12 LIMIT 1
+2022-10-11T19:27:48.234+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[2.594ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[14.968ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:27:48 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[4.745ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.554ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.754ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[35.787ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[3.004ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[10.008ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.619ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[3.531ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.129ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.555ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:27:48 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.486ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:27:48 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[1.997ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-10-11T19:27:48.374+0800	INFO	initialize/db.go:42	数据库连接成功
+2022-10-11T19:27:48.614+0800	WARN	user_service/main.go:37	release服务注册模式 
+
+2022-10-11T19:27:48.629+0800	INFO	mode/release.go:35	Info	{"message": "获取主机端口: 52961"}
+2022-10-11T19:27:48.636+0800	INFO	mode/release.go:78	Info	{"message": "服务注册成功", "port": 52961, "ID": "105dfe52-444e-454e-b711-88bd7073bfcf"}
+2022-10-11T19:28:21.363+0800	INFO	mode/release.go:97	服务注销程	{"serviceID": "105dfe52-444e-454e-b711-88bd7073bfcf"}
+2022-10-11T19:45:29.154+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[2.005ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:45:29 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[0.996ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.998ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[2.003ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0.995ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[3.999ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.213ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[7.547ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[6.278ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[3.894ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.538ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 19:45:29 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.509ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 19:45:29 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[1.354ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-10-11T19:45:29.218+0800	INFO	initialize/db.go:42	数据库连接成功
+2022-10-11T19:45:29.494+0800	WARN	user_service/main.go:37	release服务注册模式 
+
+2022-10-11T19:45:29.510+0800	INFO	mode/release.go:35	Info	{"message": "获取主机端口: 55770"}
+2022-10-11T19:45:29.517+0800	INFO	mode/release.go:78	Info	{"message": "服务注册成功", "port": 55770, "ID": "e261d018-adea-4827-b8a5-ee37ea9b63ae"}
+2022-10-11T19:58:25.570+0800	INFO	handler/user.go:65	Info	{"service": "【User_Service】", "method": "GetUserByMobile", "request": "mobile:\"15171618793\""}
+
+2022/10/11 19:58:25 D:/C_Back/Go/Shop_service/user_service/handler/user.go:71
+[1.556ms] [rows:1] SELECT * FROM `users` WHERE mobile='15171618793' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+2022-10-11T19:58:25.574+0800	INFO	handler/user.go:182	Info	{"service": "【User_Service】", "method": "CheckPassword", "request": "password:\"admin\" encryptedPassword:\"$pbkdf2-sha512$cN7Rae1i1CkhRH7k$0d23115f8a625f6d2b18e9d4d4705220c07c8af28c0ab0d397294d4c68e4e5ed\""}
+2022-10-11T19:58:51.928+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 19:58:51 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[0.548ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 19:58:51 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.984ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T19:59:22.762+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 19:59:22 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.791ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 19:59:22 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.552ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:05:39.423+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:05:39 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[2.274ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:05:39 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.545ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:07:38.405+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:07:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.864ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:07:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[1.555ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:08:38.097+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:08:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.691ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:08:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.556ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:10:03.503+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:10:03 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[2.039ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:10:03 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.535ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:10:04.772+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:10:04 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.810ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:10:04 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.527ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:14:48.013+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:14:48 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.566ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:14:48 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.576ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:23:53.965+0800	INFO	mode/release.go:97	服务注销程	{"serviceID": "e261d018-adea-4827-b8a5-ee37ea9b63ae"}
+2022-10-11T20:42:58.703+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.546ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[2.264ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 20:42:58 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[1.357ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.521ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[0.580ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[0.533ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[2.541ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[5.280ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.519ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.149ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[3.739ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.526ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 20:42:58 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.593ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 20:42:58 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[1.543ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-10-11T20:42:58.769+0800	INFO	initialize/db.go:42	数据库连接成功
+2022-10-11T20:42:59.008+0800	WARN	user_service/main.go:37	release服务注册模式 
+
+2022-10-11T20:42:59.026+0800	INFO	mode/release.go:35	Info	{"message": "获取主机端口: 62132"}
+2022-10-11T20:42:59.029+0800	INFO	mode/release.go:78	Info	{"message": "服务注册成功", "port": 62132, "ID": "c271944c-5a96-410e-be86-fd8c7e6f160a"}
+2022-10-11T20:43:19.220+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:19 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.544ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:19 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.573ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:24.800+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:24 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.382ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:24 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.538ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:49.606+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:49 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.237ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:49 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.539ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:50.733+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:50 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.772ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:50 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.528ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:52.500+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:52 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.502ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:52 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.598ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:53.783+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:53 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.246ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:53 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.535ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:54.855+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:54 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.740ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:54 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.529ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:55.928+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:55 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.683ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:55 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.548ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:43:56.954+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:43:56 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.678ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:43:56 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.566ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:44:37.706+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:44:37 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.304ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:44:37 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.523ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:44:38.252+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:44:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[2.007ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:44:38 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.608ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:44:39.160+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 20:44:39 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.435ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 20:44:39 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[1.106ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T20:45:06.141+0800	INFO	mode/release.go:97	服务注销程	{"serviceID": "c271944c-5a96-410e-be86-fd8c7e6f160a"}
+2022-10-11T21:37:30.476+0800	INFO	initialize/logger.go:26	日志初始化成功
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[1.002ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[8.995ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 21:37:30 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[2.998ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.998ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[1.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:163
+[2.015ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:181
+[2.987ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[6.999ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `nick_name` varchar(20) comment '用户名'
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.999ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `birthday` datetime comment '用户出生日期'
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.543ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `gender` varchar(6) comment 'female表示女,male表示男' DEFAULT 'male'
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:47
+[4.529ms] [rows:0] ALTER TABLE `users` MODIFY COLUMN `role` int comment '1表示普通用户,2表示管理员' DEFAULT 1
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:250
+[0.564ms] [rows:-] SELECT DATABASE()
+
+2022/10/11 21:37:30 D:/GOMOD/pkg/mod/gorm.io/driver/mysql@v1.3.5/migrator.go:253
+[2.183ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'mxshop_user_service%' ORDER BY SCHEMA_NAME='mxshop_user_service' DESC,SCHEMA_NAME limit 1
+
+2022/10/11 21:37:30 D:/C_Back/Go/Shop_service/user_service/initialize/db.go:38
+[0.819ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'mxshop_user_service' AND table_name = 'users' AND index_name = 'idx_mobile'
+2022-10-11T21:37:30.862+0800	INFO	initialize/db.go:42	数据库连接成功
+2022-10-11T21:37:31.115+0800	WARN	user_service/main.go:37	release服务注册模式 
+
+2022-10-11T21:37:31.127+0800	INFO	mode/release.go:35	Info	{"message": "获取主机端口: 54827"}
+2022-10-11T21:37:31.229+0800	INFO	mode/release.go:78	Info	{"message": "服务注册成功", "port": 54827, "ID": "82aafba4-f3b5-4387-b434-dfec20f51457"}
+2022-10-11T21:37:58.523+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageNum:1 pageSize:10"}
+
+2022/10/11 21:37:58 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[0.518ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 21:37:58 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[5.289ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T21:41:53.060+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageSize:10"}
+
+2022/10/11 21:41:53 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[3.058ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 21:41:53 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[1.059ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T21:43:00.350+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageSize:10"}
+
+2022/10/11 21:43:00 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[1.331ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 21:43:00 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.561ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T21:43:07.992+0800	INFO	handler/user.go:30	Info	{"service": "【User_Service】", "method": "GetUserList", "request": "pageSize:10"}
+
+2022/10/11 21:43:07 D:/C_Back/Go/Shop_service/user_service/handler/user.go:38
+[2.232ms] [rows:24] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL
+
+2022/10/11 21:43:07 D:/C_Back/Go/Shop_service/user_service/handler/user.go:47
+[0.530ms] [rows:10] SELECT * FROM `users` WHERE `users`.`deleted_at` IS NULL LIMIT 10
+2022-10-11T21:43:38.470+0800	ERROR	mode/release.go:94	global.Client.Agent().ServiceDeregister 失败	{"err": "Put \"http://192.168.8.133:8500/v1/agent/service/deregister/82aafba4-f3b5-4387-b434-dfec20f51457\": dial tcp 192.168.8.133:8500: connectex: No connection could be made because the target machine actively refused it."}
